@@ -10,7 +10,7 @@ function linmot() {
     document.getElementById("a").innerHTML = "";
     document.getElementById("noteslink").style.visibility="visible";
     document.getElementById("noteslink").onclick = function() {
-        window.open("images/20200504-MathsBook5AlgebraicOpsv1_3-APO.pdf#page=24", "_blank")
+        window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=5", "_blank")
     }
     do {
         sum = rndgen(1, 11, 0, 1, -1);

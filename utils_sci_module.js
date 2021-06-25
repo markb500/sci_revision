@@ -34,7 +34,7 @@ function rndgen(lower, upper, dp, step, fix) {
     if(fix === -1) {
       return Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp);
     } else {
-      dp = fix + 1;
+      dp = fix + 2;
       return (Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp)).toFixed(fix);
     }
   }

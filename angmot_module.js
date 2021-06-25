@@ -10,7 +10,7 @@ function angmot() {
     document.getElementById("a").innerHTML = "";
     document.getElementById("noteslink").style.visibility="visible";
     document.getElementById("noteslink").onclick = function() {
-        window.open("images/20200504-MathsBook5AlgebraicOpsv1_3-APO.pdf#page=24", "_blank")
+        window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=25", "_blank")
     }
     do {
         sum = rndgen(1, 8, 0, 1, -1);
@@ -28,7 +28,8 @@ function angmot() {
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(v=" + v + "\\ m/s\\\\\\)";
             suma += "\\(F=\\ ?\\ N\\\\\\)";
-            suma += "$$F=\\frac{mv^2}{r}=\\frac{" + m + "\\times" + v + "^2}{" + R + "}=" + dp((m * v * v) / R, 2, 1) + "\\ N\\ (1\\ dp)$$";
+            suma += "$$F=\\frac{mv^2}{r}=\\frac{" + m + "\\times" + v + "^2}{" + R + 
+                    "}=\\underline{\\mathbf{" + dp((m * v * v) / R, 2, 1) + "\\ N\\ (1\\ dp)}}$$";
             break;
         case 2:
             m = rndgen(3.25, 9, 2, 0.25, -1);
@@ -41,19 +42,23 @@ function angmot() {
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(\\omega=" + w + "\\ rad/s\\\\\\)";
             suma += "\\(F=\\ ?\\ N\\\\\\)";
-            suma += "$$F=m\\omega^2r=" + m + "\\times" + w + "^2\\times" + R + "=" + dp(m * w * w * R, 3, 2) + "\\ N\\ (2\\ dp)$$";
+            suma += "$$F=m\\omega^2r=" + m + "\\times" + w + "^2\\times" + R + 
+                    "=\\underline{\\mathbf{" + dp(m * w * w * R, 3, 2) + "\\ N\\ (2\\ dp)}}$$";
             break;
         case 3:
             m = rndgen(11.1, 13.5, 1, 0.1, -1);
             R = rndgen(1.1, 2.5, 1, 0.1, -1);
             F = rndgen(50, 75, 1, 0.5, -1);
-            sumq += "Calculate the angular velocity of a " + m + " kg mass being swung at a horizontal radius of" + R + " m by a force of " + F + " N. Round your answer to 2 decimal places.";
+            sumq += "Calculate the angular velocity of a " + m + " kg mass being swung at a horizontal radius of" + 
+                    R + " m by a force of " + F + " N. Round your answer to 2 decimal places.";
             suma += "\\(m=" + m + "\\ kg\\\\\\)";
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(F=" + F + "\\ N\\\\\\)";
             suma += "\\(\\omega=\\ ?\\ rad/s\\\\\\)";
             suma += "$$\\begin{aligned}F&=m\\omega^2r\\\\[5pt]";
-            suma += "\\omega&=\\sqrt{\\frac{F}{mr}}=\\sqrt{\\frac{" + F + "}{" + m + "\\times" + R + "}}=" + dp(Math.sqrt(F / (m * R)), 3, 2) + "\\ rad/s\\ (2\\ dp)\\end{aligned}$$";
+            suma += "\\omega&=\\sqrt{\\frac{F}{mr}}=\\sqrt{\\frac{" + F + "}{" + m + "\\times" + R + 
+                    "}}=\\underline{\\mathbf{" + dp(Math.sqrt(F / (m * R)), 3, 2) + 
+                    "\\ rad/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
             do {
@@ -69,10 +74,14 @@ function angmot() {
             sumq += "b. " + deg2 + "<sup>O</sup><BR>";
             sumq += "c. " + rev1 + " revolutions<BR>";
             sumq += "d. " + rev2 + " revolutions";
-            suma += "\\(a.\\ " + deg1 + "\\times\\frac{\\pi}{180}=" + dp(deg1 * Math.PI / 180, 3, 2) + "\\ rad\\ (2\\ dp)\\\\\\)";
-            suma += "\\(b.\\ " + deg2 + "\\times\\frac{\\pi}{180}=" + dp(deg2 * Math.PI / 180, 3, 2) + "\\ rad\\ (2\\ dp)\\\\\\)";
-            suma += "\\(c.\\ " + rev1 + "\\times360\\times\\frac{\\pi}{180}=" + thouSep(dp(rev1 * 360 * Math.PI / 180, 3, 2), "\\ ") + "\\ rad\\ (2\\ dp)\\\\\\)";
-            suma += "\\(d.\\ " + rev2 + "\\times360\\times\\frac{\\pi}{180}=" + thouSep(dp(rev2 * 360 * Math.PI / 180, 3, 2), "\\ ") + "\\ rad\\ (2\\ dp)\\)";
+            suma += "\\(a.\\ " + deg1 + "\\times\\frac{\\pi}{180}=\\underline{\\mathbf{" + 
+                    dp(deg1 * Math.PI / 180, 3, 2) + "\\ rad\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(b.\\ " + deg2 + "\\times\\frac{\\pi}{180}=\\underline{\\mathbf{" + 
+                    dp(deg2 * Math.PI / 180, 3, 2) + "\\ rad\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(c.\\ " + rev1 + "\\times360\\times\\frac{\\pi}{180}=\\underline{\\mathbf{" + 
+                    thouSep(dp(rev1 * 360 * Math.PI / 180, 3, 2), "\\ ") + "\\ rad\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(d.\\ " + rev2 + "\\times360\\times\\frac{\\pi}{180}=\\underline{\\mathbf{" + 
+                    thouSep(dp(rev2 * 360 * Math.PI / 180, 3, 2), "\\ ") + "\\ rad\\ (2\\ dp)}}\\)";
             break;
         case 5:
             do {
@@ -88,10 +97,14 @@ function angmot() {
             sumq += "b. " + rad2 + " rad<BR>";
             sumq += "c. " + rev1 + " revolutions<BR>";
             sumq += "d. " + rev2 + " revolutions";
-            suma += "\\(a.\\ " + rad1 + "\\times\\frac{180}{\\pi}=" + thouSep(dp(rad1 * 180 / Math.PI, 3, 2), "\\ ") + "^O\\ (2\\ dp)\\\\\\)";
-            suma += "\\(b.\\ " + rad2 + "\\times\\frac{180}{\\pi}=" + thouSep(dp(rad2 * 180 / Math.PI, 3, 2), "\\ ") + "^O\\ (2\\ dp)\\\\\\)";
-            suma += "\\(c.\\ " + rev1 + "\\times360=" + thouSep(dp(rev1 * 360, 3, 2), "\\ ") + "^O\\ (2\\ dp)\\\\\\)";
-            suma += "\\(d.\\ " + rev2 + "\\times360=" + thouSep(dp(rev2 * 360, 3, 2), "\\ ") + "^O\\ (2\\ dp)\\)";
+            suma += "\\(a.\\ " + rad1 + "\\times\\frac{180}{\\pi}=\\underline{\\mathbf{" + 
+                    thouSep(dp(rad1 * 180 / Math.PI, 3, 2), "\\ ") + "^O\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(b.\\ " + rad2 + "\\times\\frac{180}{\\pi}=\\underline{\\mathbf{" + 
+                    thouSep(dp(rad2 * 180 / Math.PI, 3, 2), "\\ ") + "^O\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(c.\\ " + rev1 + "\\times360=\\underline{\\mathbf{" + 
+                    thouSep(dp(rev1 * 360, 3, 2), "\\ ") + "^O\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(d.\\ " + rev2 + "\\times360=\\underline{\\mathbf{" + 
+                    thouSep(dp(rev2 * 360, 3, 2), "\\ ") + "^O\\ (2\\ dp)}}\\)";
             break;
         case 6:
             do {
@@ -107,10 +120,14 @@ function angmot() {
             sumq += "b. " + thouSep(deg2, " ") + "<sup>O</sup><BR>";
             sumq += "c. " + rad1 + " rad<BR>";
             sumq += "d. " + rad2 + " rad";
-            suma += "\\(a.\\ \\frac{" + thouSep(deg1, "\\ ") + "}{360}=" + dp(deg1 / 360, 2, 1) + "\\ revolutions\\ (1\\ dp)\\\\\\)";
-            suma += "\\(b.\\ \\frac{" + thouSep(deg2, "\\ ") + "}{360}=" + dp(deg2 / 360, 2, 1) + "\\ revolutions\\ (1\\ dp)\\\\\\)";
-            suma += "\\(c.\\ \\frac{" + rad1 + "}{2\\pi}=" + dp(rad1 / (2 * Math.PI), 2, 1) + "\\ revolutions\\ (1\\ dp)\\\\\\)";
-            suma += "\\(d.\\ \\frac{" + rad2 + "}{2\\pi}=" + dp(rad2 / (2 * Math.PI), 2, 1) + "\\ revolutions\\ (1\\ dp)\\\\\\)";
+            suma += "\\(a.\\ \\frac{" + thouSep(deg1, "\\ ") + "}{360}=\\underline{\\mathbf{" + 
+                    dp(deg1 / 360, 2, 1) + "\\ revolutions\\ (1\\ dp)}}\\\\\\)";
+            suma += "\\(b.\\ \\frac{" + thouSep(deg2, "\\ ") + "}{360}=\\underline{\\mathbf{" + 
+                    dp(deg2 / 360, 2, 1) + "\\ revolutions\\ (1\\ dp)}}\\\\\\)";
+            suma += "\\(c.\\ \\frac{" + rad1 + "}{2\\pi}=\\underline{\\mathbf{" + 
+                    dp(rad1 / (2 * Math.PI), 2, 1) + "\\ revolutions\\ (1\\ dp)}}\\\\\\)";
+            suma += "\\(d.\\ \\frac{" + rad2 + "}{2\\pi}=\\underline{\\mathbf{" + 
+                    dp(rad2 / (2 * Math.PI), 2, 1) + "\\ revolutions\\ (1\\ dp)}}\\\\\\)";
             break;
         case 7:
             do {
@@ -120,8 +137,10 @@ function angmot() {
             sumq += "Convert the following to radians per second (rad/s), rounding your answer to 2 decimal places.<BR>";
             sumq += "a. " + rpm1 + " rpm<BR>";
             sumq += "b. " + rpm2 + " rpm<BR>";
-            suma += "\\(a.\\ " + rpm1 + "\\times\\frac{2\\pi}{60}=" + dp(rpm1 * (2 * Math.PI / 60), 3, 2) + "\\ rad/s\\ (2\\ dp)\\\\\\)";
-            suma += "\\(b.\\ " + rpm2 + "\\times\\frac{2\\pi}{60}=" + dp(rpm2 * (2 * Math.PI / 60), 3, 2) + "\\ rad/s\\ (2\\ dp)\\\\\\)";
+            suma += "\\(a.\\ " + rpm1 + "\\times\\frac{2\\pi}{60}=\\underline{\\mathbf{" + 
+                    dp(rpm1 * (2 * Math.PI / 60), 3, 2) + "\\ rad/s\\ (2\\ dp)}}\\\\\\)";
+            suma += "\\(b.\\ " + rpm2 + "\\times\\frac{2\\pi}{60}=\\underline{\\mathbf{" + 
+                    dp(rpm2 * (2 * Math.PI / 60), 3, 2) + "\\ rad/s\\ (2\\ dp)}}\\\\\\)";
             break;
         case 8:
             R = rndgen(75, 321, 0, 1, -1);
@@ -133,7 +152,9 @@ function angmot() {
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(a=\\ 9.81\\ m/s^2\\\\\\)";
             suma += "$$\\begin{aligned}a&=\\omega^2r\\\\[5pt]";
-            suma += "\\omega&=\\sqrt{\\frac{a}{r}}=\\sqrt{\\frac{" + a + "}{" + R + "}}=" + dp(Math.sqrt(a / R), 4, 3) + "\\ rad/s\\ (3\\ dp)\\end{aligned}$$";
+            suma += "\\omega&=\\sqrt{\\frac{a}{r}}=\\sqrt{\\frac{" + a + "}{" + R + 
+                    "}}=\\underline{\\mathbf{" + dp(Math.sqrt(a / R), 4, 3) + 
+                    "\\ rad/s\\ (3\\ dp)}}\\end{aligned}$$";
             break;
         }
     document.getElementById("q").innerHTML = sumq;
