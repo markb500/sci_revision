@@ -34,7 +34,7 @@ function momentcofg() {
             var img = document.getElementById("cofg");
             ctx.drawImage(img, 20, 25, 600, 312);
             suma += "<br>".repeat(13);
-            suma += "$$\\begin{aligned}x&=\\frac{R_A\\times a+ R_B\\times b+ R_C\\times c}{R_A + R_B + R_C}\\\\[5pt]";
+            suma += "$$\\begin{aligned}\\bar{x}&=\\frac{R_A\\times a+ R_B\\times b+ R_C\\times c}{R_A + R_B + R_C}\\\\[5pt]";
             suma += "&=\\frac{" + (ra / 1000) + "\\times10^3 \\times" + a + "+" + (rb / 1000) + 
                     "\\times10^3 \\times" + b + "+" + (rc / 1000) + "\\times10^3 \\times" + c + "}{" + (ra / 1000) + 
                     "\\times10^3 +" + (rb / 1000) + "\\times10^3 +" + (rc / 1000) + "\\times10^3}\\\\[5pt]";
