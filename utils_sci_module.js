@@ -52,3 +52,41 @@ function rndgen(lower, upper, dp, step, fix) {
     //Adds chosen 1 000's separator
     return value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, sep);
   }
+
+  function sglarr(context, stx, sty, up) {
+      //Draws single headed arrow up or down from start point, with length 30
+      var l, hdy;
+      if(up) {
+        l = -30;
+        hdy = 6;
+      } else {
+          l = 30;
+          hdy = -6;
+      }
+      context.beginPath();
+      context.moveTo(stx, sty);
+      context.lineTo(stx, sty + l);
+      context.moveTo(stx - 4, sty + l + hdy);
+      context.lineTo(stx, sty + l);
+      context.lineTo(stx + 4, sty + l + hdy);
+      context.stroke();
+  }
+
+  function dblarr(context, stx, sty, l, rt) {
+      //Draws double headed arrow left or right from start point, with given length
+      var hdx = 6;
+      if(!rt) {
+        l = l * -1;
+        hdx = hdx * -1;
+      }
+      context.beginPath();
+      context.moveTo(stx, sty);
+      context.lineTo(stx + l, sty);
+      context.moveTo(stx + hdx, sty - 4);
+      context.lineTo(stx, sty);
+      context.lineTo(stx + hdx, sty + 4);
+      context.moveTo(stx + l - hdx, sty - 4);
+      context.lineTo(stx + l, sty);
+      context.lineTo(stx + l - hdx, sty + 4);
+      context.stroke();
+  }

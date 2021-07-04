@@ -23,6 +23,11 @@
     <div class="col-md-3">
       <p>Select a question topic. Each click generates a new question.</p>
       <button
+        id="momentcofg" 
+        class="btn btn-outline-primary btn-block" 
+        onclick="momentcofg(); eqnformat('q')">Moments & C of G
+      </button>
+      <button
         id="pressure" 
         class="btn btn-outline-primary btn-block" 
         onclick="pressure(); eqnformat('q')">Pressure
@@ -65,6 +70,7 @@
         onclick="getElementById('a').innerHTML = suma; eqnformat('a'); 
         document.getElementById('btnSoln').style.visibility='hidden'">Solution
       </button>
+      <img id="cofg" style="visibility:hidden" width="800" height="450" src="images\cofg.png" alt="cofg">
     </div>
   </div>
   <footer class="container-fluid text-center">
@@ -72,6 +78,7 @@
     <p>Designed and built by Mark Butler, APO, RAF Cosford</p>
   </footer>
 </div>
+<script src="momentcofg_module.js"></script>
 <script src="pressure_module.js"></script>
 <script src="linmot_module.js"></script>
 <script src="angmot_module.js"></script>
