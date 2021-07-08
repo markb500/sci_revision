@@ -180,7 +180,7 @@ function momentcofg() {
                     ctx.fillText("F\u2082 " + f2 + " N", f2x, 100 - 35); //f2 text
                     ctx.fillText("F\u2083", f3x, 100 + 70); ///f3 text
                     if(pivot < (length / 2)) {
-                        suma += "$$\\begin{aligned}Anti{\\text -}clockwise\\ moments&=Clockwise\\ moments\\\\[5pt]";
+                        suma += "$$\\begin{aligned}Clockwise\\ moments&=Anti{\\text -}clockwise\\ moments\\\\[5pt]";
                         suma += "F_1 d_1 +F_3 d_3 &=F_2 d_2\\\\[5pt]";
                         suma += "F_3 d_3 &=F_2 d_2 -F_1 d_1\\\\[5pt]";
                         suma += "F_3 &=\\frac{F_2 d_2 -F_1 d_1}{d_3}\\\\[5pt]";
