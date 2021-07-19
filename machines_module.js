@@ -5,6 +5,10 @@ function machines() {
     myCanvas.height = "0.5";
     myCanvas.width = "0.5";
     myCanvas.style = "border: none;";
+    document.getElementById("myCanvas2");
+    myCanvas2.height = "0.5";
+    myCanvas2.width = "0.5";
+    myCanvas2.style = "border: none;";
     sumq = "";
     suma = "";
     document.getElementById("a").innerHTML = "";
@@ -183,7 +187,7 @@ function machines() {
             suma += "MA&=\\eta \\times VR=" + eff + "\\times" + vr + "=" + ma + "\\ (2\\ dp)\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}\\\\[5pt]";
             suma += "load&=MA\\times effort=" + ma + "\\times" + effort + 
-                    "=\\underline{\\mathbf{" + ma + "\\ N\\ (1\\ dp)}}\\end{aligned}$$";
+                    "=\\underline{\\mathbf{" + (thouSep(dp(ma * effort, 3, 1), "\\ ")) + "\\ N\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
             document.getElementById("noteslink").onclick = function() {
