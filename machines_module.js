@@ -5,10 +5,10 @@ function machines() {
     myCanvas.height = "0.5";
     myCanvas.width = "0.5";
     myCanvas.style = "border: none;";
-    document.getElementById("myCanvas2");
-    myCanvas2.height = "0.5";
-    myCanvas2.width = "0.5";
-    myCanvas2.style = "border: none;";
+//     document.getElementById("myCanvas2");
+//     myCanvas2.height = "0.5";
+//     myCanvas2.width = "0.5";
+//     myCanvas2.style = "border: none;";
     sumq = "";
     suma = "";
     document.getElementById("a").innerHTML = "";
