@@ -1,6 +1,9 @@
 function eqnformat(id) {
   //re-runs mathjax rendering on text with given id. Used in all sum functions.
   MathJax.Hub.Queue(["Typeset",MathJax.Hub, id]);
+  if(id === "a") {
+    document.getElementById("myCanvas2").style.visibility="visible";
+  }
 }
 
 function rndgen(lower, upper, dp, step, fix) {
