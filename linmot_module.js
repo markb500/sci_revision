@@ -282,7 +282,7 @@ function linmot() {
             suma += "s_2&=v_2t_2=" + v + "\\times" + thouSep(t2, "\\ ") + "=\\underline{\\mathbf{" + 
                     thouSep(dp(v * t2, 2, -1), "\\ ") + "\\ m}}\\ \\ \\ Steady\\ phase\\\\[5pt]";
             suma += "s_3&=\\frac{1}{2}(v_3+u_3)t_3=\\frac{1}{2}(" + (u + 20) + "+" + v + ")\\times" + t3 + 
-                    "=\\underline{\\mathbf{" + thouSep(dp(0.5 * t3 + (u + 20 + v), 2, -1), "\\ ") + 
+                    "=\\underline{\\mathbf{" + thouSep(dp(0.5 * t3 * (u + 20 + v), 2, -1), "\\ ") + 
                     "\\ m}}\\ \\ \\ Deceleration\\ phase\\\\[15pt]";
             suma += "ii.\\ s_T&=s_1+s_2+s_3=" + thouSep(s1, "\\ ") + "+" + thouSep(s2, "\\ ") + "+" + 
                     thouSep(s3, "\\ ") + "=\\underline{\\mathbf{" + thouSep(dp(s1 + s2 + s3, 2, -1), "\\ ") + "\\ m}}\\\\[15pt]";
