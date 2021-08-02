@@ -155,8 +155,8 @@ function animsolnspace() {
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
     drawline(ctx2, v1x, v1y, rx, ry, 1, "red", true);
     setTimeout(function() {drawline(ctx2, v2x, v2y, rx, ry, 1, "red", true)}, 600);
-    setTimeout(function() {drawarc(ctx2, origx, origy, 110, 0, -(Math.PI/180) * angr, true)}, 1200);
-    setTimeout(function() {drawline(ctx2, origx, origy, rx, ry, 3, "red", false)}, 1800);
+    setTimeout(function() {drawline(ctx2, origx, origy, rx, ry, 3, "red", false)}, 1200);
+    setTimeout(function() {drawarc(ctx2, origx, origy, 110, 0, -(Math.PI/180) * angr, true)}, 1800);
     setTimeout(function() {arrhead(ctx2, rx, ry, -angr, 2, "red")}, 2400);
     setTimeout(otherstuffspace, 3000);
     function otherstuffspace() {

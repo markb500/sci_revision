@@ -5,6 +5,8 @@ function eqnformat(id) {
     document.getElementById("myCanvas2").style.visibility="visible";
     if(jetup || jetroll || space) {
         document.getElementById("btnShowhow").style.visibility="visible";
+    } else {
+        document.getElementById("btnShowhow").style.visibility="hidden";
     }
   }
 }

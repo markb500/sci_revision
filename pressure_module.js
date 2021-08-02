@@ -1,11 +1,19 @@
-var prevsum = 0, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
+var prevsum = 0, prev2sum = 0, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
 var patmos, pabs, pgauge, F, a, rhofresh, rhosea;
 function pressure() {
     var sum;
+    jetup = false;
+    jetroll = false;
+    space = false;
+    document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
     myCanvas.width = "0.5";
     myCanvas.style = "border: none;";
+    document.getElementById("myCanvas2");
+    myCanvas2.height = "0.5";
+    myCanvas2.width = "0.5";
+    myCanvas2.style = "border: none;";
     sumq = "";
     suma = "";
     document.getElementById("a").innerHTML = "";
@@ -15,7 +23,8 @@ function pressure() {
     }
     do {
         sum = rndgen(1, 15, 0, 1, -1);
-    } while(sum === prevsum)
+    } while(sum === prevsum || sum === prev2sum)
+    prev2sum = prevsum;
     prevsum = sum;
     switch(sum) {
         case 1:

@@ -1,10 +1,18 @@
-var prevsum = 0, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
+var prevsum = 0, prev2sum = 0, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
 function angmot() {
     var sum;
+    jetup = false;
+    jetroll = false;
+    space = false;
+    document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
     myCanvas.width = "0.5";
     myCanvas.style = "border: none;";
+    document.getElementById("myCanvas2");
+    myCanvas2.height = "0.5";
+    myCanvas2.width = "0.5";
+    myCanvas2.style = "border: none;";
     sumq = "";
     suma = "";
     document.getElementById("a").innerHTML = "";
@@ -14,7 +22,8 @@ function angmot() {
     }
     do {
         sum = rndgen(1, 8, 0, 1, -1);
-    } while(sum === prevsum)
+    } while(sum === prevsum || sum === prev2sum)
+    prev2sum = prevsum;
     prevsum = sum;
     switch(sum) {
         case 1:

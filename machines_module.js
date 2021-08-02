@@ -1,14 +1,18 @@
 var prevsum = 0, prev2sum = 0, t1, t2, t3, t4, n1, eff, load, effort, se, sl, ma, vr, radius, txt;
 function machines() {
     var sum;
+    jetup = false;
+    jetroll = false;
+    space = false;
+    document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
     myCanvas.width = "0.5";
     myCanvas.style = "border: none;";
-//     document.getElementById("myCanvas2");
-//     myCanvas2.height = "0.5";
-//     myCanvas2.width = "0.5";
-//     myCanvas2.style = "border: none;";
+    document.getElementById("myCanvas2");
+    myCanvas2.height = "0.5";
+    myCanvas2.width = "0.5";
+    myCanvas2.style = "border: none;";
     sumq = "";
     suma = "";
     document.getElementById("a").innerHTML = "";
