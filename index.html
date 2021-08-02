@@ -61,37 +61,44 @@
         </div>
         <div class="col-md-9">
             <h5 id="q"></h5>
-            <script>
-                document.getElementById("q").innerHTML = "Click a button to select the type of question. " + 
-                  "Each click will generate a new question.<br>Clicking 'solution' will reveal a step-by-step solution.";
-            </script>
-            <canvas id="myCanvas" width="0.5" height="0.5" style="border:none"></canvas>
-            <canvas id="myCanvas2" width="0.5" height="0.5" style="border:none"></canvas>
-            <p>
-                <a id="noteslink" style="visibility:hidden" href="#">&#128214 Link to Training Notes</a>
-            </p>
-            <p>
+            <div class="row">
+                <p>
+                    <button 
+                        id="btnSoln" 
+                        tabIndex="0" 
+                        class="btn btn-outline-primary m-3" 
+                        style="visibility:hidden" 
+                        onclick="getElementById('a').innerHTML = suma; eqnformat('a'); 
+                        document.getElementById('btnSoln').style.visibility='hidden'">Solution
+                    </button>
+                </p>
+                <p>
+                    <button 
+                        id="btnShowhow" 
+                        tabIndex="0" 
+                        class="btn btn-outline-primary m-3" 
+                        style="visibility:hidden" 
+                        onclick="animsel(); document.getElementById('btnShowhow').style.visibility='hidden'">Show me how
+                    </button>
+                    <p>
+                        <a id="noteslink" style="visibility:hidden" href="#">&#128214 Link to Training Notes</a>
+                    </p>
+                </p>
+            </div>
+            <div class="row">
+                <script>
+                    document.getElementById("q").innerHTML = "Click a button to select the type of question. " + 
+                    "Each click will generate a new question.<br>Clicking 'solution' will reveal a step-by-step solution.";
+                </script>
+                <canvas id="myCanvas" width="0.5" height="0.5" style="border:none"></canvas>
+                <canvas id="myCanvas2" width="0.5" height="0.5" style="border:none"></canvas>
                 <h5 id="a", style="color:red"></h5>
-                <button 
-                    id="btnSoln" 
-                    tabIndex="0" 
-                    class="btn btn-outline-primary m-3" 
-                    style="visibility:hidden" 
-                    onclick="getElementById('a').innerHTML = suma; eqnformat('a'); 
-                    document.getElementById('btnSoln').style.visibility='hidden'">Solution
-                </button>
-            </p>
-            <p>
-                <button 
-                    id="btnShowhow" 
-                    tabIndex="0" 
-                    class="btn btn-outline-primary m-3" 
-                    style="visibility:hidden" 
-                    onclick="animsel(); document.getElementById('btnShowhow').style.visibility='hidden'">Show me how
-                </button>
-            </p>
+            </div>
             <img id="cofg" style="visibility:hidden" width="800" height="450" src="images\cofg.png" alt="cofg">
         </div>
+    </div>
+    <div class="row">
+        <h5><br><Bbr><Bbr><br></h5>
     </div>
     <footer class="container-fluid text-center">
         <p>Designed to aid revision for the science element of the RAF Aerospace Eng Tech Course.</p>
