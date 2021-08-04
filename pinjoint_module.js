@@ -19,8 +19,8 @@ function pinjoint() {
     document.getElementById("noteslink").onclick = function() {
         window.open("images/Sci Bk2 Statics v1.10.pdf#page=13", "_blank")
     }
-    wt = 210//rndgen(140, 210, 0, 1, -1);
-    ang = 25//rndgen(25, 40, 0, 1, -1);
+    wt = rndgen(140, 210, 0, 1, -1);
+    ang = rndgen(25, 40, 0, 1, -1);
     altang = 90 - ang;
     fb = dp(wt / Math.tan(ang * (Math.PI / 180)), 0, -1);
     fa = dp(wt / Math.sin(ang * (Math.PI / 180)), 0, -1);
