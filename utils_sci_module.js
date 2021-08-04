@@ -3,7 +3,8 @@ function eqnformat(id) {
   MathJax.Hub.Queue(["Typeset",MathJax.Hub, id]);
   if(id === "a") {
     document.getElementById("myCanvas2").style.visibility="visible";
-    if(jetup || jetroll || space) {
+    if(jetup || jetroll || space || pinjt) {
+        //When 'soln' button is clicked, shows 'Show me how' button in vector catagory
         document.getElementById("btnShowhow").style.visibility="visible";
     } else {
         document.getElementById("btnShowhow").style.visibility="hidden";
@@ -12,12 +13,15 @@ function eqnformat(id) {
 }
 
 function animsel() {
+    //Triggered by 'Show me how' button. Chooses appropriate animation function in vectors catagory
     if(jetup) {
         animsolnclimb();
     } else if(jetroll) {
         animsolnroll()
     } else if(space) {
         animsolnspace();
+    } else if(pinjt) {
+        animsolnpin();
     }
 }
 
