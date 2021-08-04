@@ -2,7 +2,7 @@ var prevsum = 0, prev2sum = 0;
 function vectors() {
     var sum;
     do {
-        sum = rndgen(1, 3, 0, 1, -1);
+        sum = rndgen(1, 4, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
     prev2sum = prevsum;
     prevsum = sum;
@@ -15,6 +15,9 @@ function vectors() {
             break;
         case 3:
             jetbank();
+            break;
+        case 4:
+            pinjoint();
             break;
     }
 }
