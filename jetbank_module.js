@@ -24,7 +24,7 @@ function jetbank() {
     cf = dp(wt * Math.tan(ang * (Math.PI / 180)), 0, -1);
     lift = dp(wt / Math.cos(ang * (Math.PI / 180)), 0, -1);
 
-    sumq += "An aircraft of weight " + wt + " kN enters a " + ang + " <sup>O</sup> banked turn. "
+    sumq += "An aircraft of weight " + wt + " kN enters a " + ang + "<sup>O</sup> banked turn. "
     sumq += "Use a vector diagram to find the size of the centrifugal force and lift required to balance the turn."
 
     origx = 400;
