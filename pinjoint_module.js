@@ -122,6 +122,17 @@ function animsolnpin() {
         ctx2.beginPath;
         ctx2.strokeRect(wtx - 15, wty, 15, -15);
         ctx2.stroke();
+        ctx2.beginpath;
+        ctx2.lineWidth = 1;
+        ctx2.moveTo(origx - 30, origy);
+        ctx2.arc(origx, origy, 30, Math.PI, Math.PI + (Math.PI / 180) * -ang, true);
+        ctx2.stroke();
+        ctx2.beginpath;
+        ctx2.setLineDash([6, 3]);
+        ctx2.moveTo(origx, origy);
+        ctx2.lineTo(origx - 65, origy);
+        ctx2.stroke();
+        ctx2.setLineDash([]);
         ctx2.font = "15px Comic Sans MS";
         ctx2.fillStyle = "red";
         ctx2.textAlign = "left";
@@ -135,6 +146,7 @@ function animsolnpin() {
         ctx2.textAlign = "right";
         ctx2.fillText("90 - " + ang + " = " + altang + "\xB0", origx - 2, origy + 90);
         ctx2.fillText(" FA        ", fbx + 0.5 * (origx - fbx), fby - 35 - 0.5 * (fby - origy));
+        ctx2.fillText(ang + "\xB0", origx - 35, origy + 15);
         ctx2.font = "bold 15px Comic Sans MS";
         ctx2.fillText(fa + " N (\u00B1 4 N)", fbx + 0.5 * (origx - fbx), fby - 15 - 0.5 * (fby - origy));
         ctx2.font = "normal 15px Comic Sans MS";
