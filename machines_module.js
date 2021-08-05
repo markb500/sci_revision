@@ -60,7 +60,7 @@ function machines() {
             vr = rndgen(4, 9, 0, 1, -1);
             eff = rndgen(0.45, 0.74, 2, 0.01, -1);
             effort = rndgen(80, 200, 0, 1, -1);
-            ma = eff * vr;
+            ma = dp(eff * vr, 2, -1);
             sumq += "A " + vr + " pulley system with an efficiency of " + (eff * 100) + 
                     " % is fitted in a workshop. What load can be lifted by an applied effort of " + effort + " N?";
             suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\\\\\)";

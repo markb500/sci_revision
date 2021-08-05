@@ -58,7 +58,7 @@ function angmot() {
             m = rndgen(11.1, 13.5, 1, 0.1, -1);
             R = rndgen(1.1, 2.5, 1, 0.1, -1);
             F = rndgen(50, 75, 1, 0.5, -1);
-            sumq += "Calculate the angular velocity of a " + m + " kg mass being swung at a horizontal radius of" + 
+            sumq += "Calculate the angular velocity of a " + m + " kg mass being swung at a horizontal radius of " + 
                     R + " m by a force of " + F + " N. Round your answer to 2 decimal places.";
             suma += "\\(m=" + m + "\\ kg\\\\\\)";
             suma += "\\(r=" + R + "\\ m\\\\\\)";
