@@ -113,13 +113,33 @@ function momentcofg() {
                 if(f2x < f3x) {
                     dblarr(ctx, f2x, 40, f2x - pivotx, false); //d2 arrow
                     dblarr(ctx,f2x, 185, f3x - f2x, true); //d3 arrow
+                    // drawline(ctx, f2x, 135, f2x, 190, 1, "#D3D3D3", false);
+                    // drawline(ctx, pivotx, 90, pivotx, 35, 1, "#D3D3D3", false);
                     ctx.fillText(d2 + " m", pivotx + (f2x - pivotx) / 2, 100 - 70); //d2 text
                     ctx.fillText(d3 - d2 + " m", f2x + (f3x - f2x) / 2, 100 + 105); //d3 text
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = '#C1C1C1';
+                    ctx.beginPath();
+                    ctx.moveTo(f2x, 135);
+                    ctx.lineTo(f2x, 190);
+                    ctx.moveTo(pivotx, 90);
+                    ctx.lineTo(pivotx, 35);
+                    ctx.stroke();
                 } else {
                     dblarr(ctx, f3x, 185, f3x - pivotx, false); //d3 arrow
                     dblarr(ctx, f3x, 40, f2x - f3x, true); //d2 arrow
                     ctx.fillText(d3 + " m", pivotx + (f3x - pivotx) / 2, 100 + 105); //d3 text
                     ctx.fillText(d2 - d3 + " m", f3x + (f2x - f3x) / 2, 100 - 70); //d2 text
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = '#C1C1C1';
+                    ctx.beginPath();
+                    ctx.moveTo(f3x, 90);
+                    ctx.lineTo(f3x, 35);
+                    ctx.moveTo(pivotx, 90);
+                    ctx.lineTo(pivotx, 35);
+                    ctx.moveTo(pivotx, 135);
+                    ctx.lineTo(pivotx, 190);
+                    ctx.stroke();
                 } 
             } else {
                 dblarr(ctx, f2x, 40, f2x - pivotx, false); //d2 arrow
@@ -129,11 +149,29 @@ function momentcofg() {
                     dblarr(ctx, f3x, 185, pivotx - f3x, true); //d3 arrow
                     ctx.fillText(d3 + " m", f3x + (pivotx - f3x) / 2, 100 + 105); //d3 text
                     ctx.fillText(d1 - d3 + " m", f1x + (f3x - f1x) / 2, 100 - 70); //d1 text
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = '#C1C1C1';
+                    ctx.beginPath();
+                    ctx.moveTo(f3x, 90);
+                    ctx.lineTo(f3x, 35);
+                    ctx.moveTo(pivotx, 90);
+                    ctx.lineTo(pivotx, 35);
+                    ctx.moveTo(pivotx, 135);
+                    ctx.lineTo(pivotx, 190);
+                    ctx.stroke();
                 } else {
                     dblarr(ctx, f3x, 185, f1x - f3x, true); //d3  arrow
                     dblarr(ctx, f1x, 40, pivotx - f1x, true); //d1 arrow
                     ctx.fillText(d1 + " m", f1x + (pivotx - f1x) / 2, 100 - 70); //d1 text
                     ctx.fillText(d3 - d1 + " m", f3x + (f1x - f3x) / 2, 100 + 105); //d3 text
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = '#C1C1C1';
+                    ctx.beginPath();
+                    ctx.moveTo(f1x, 135);
+                    ctx.lineTo(f1x, 190);
+                    ctx.moveTo(pivotx, 90);
+                    ctx.lineTo(pivotx, 35);
+                    ctx.stroke();
                 }
             }
             suma += "<br>".repeat(8);
