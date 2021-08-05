@@ -32,8 +32,8 @@ function linmot() {
                 a = rndgen(0.5, 9, 1, 0.1, -1);
                 t = rndgen(1.5, 7, 1, 0.1, -1);
             } while(u + (a * t) > 45 || u + (a * t) < 0 || u === 1 || t === 1)
-            sumq += "A car initially travelling at " + dp(u * 3.6, 2, -1) + " km/h accelerates at " + a + 
-                        " m/s\u00B2 for " + t + " s. What is its final velocity?";
+            sumq += "A car initially travelling at " + dp(u * 3.6, 2, -1) + "&nbsp;km/h accelerates at " + a + 
+                        "&nbsp;m/s\u00B2 for " + t + "&nbsp;s. What is its final velocity?";
             suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\\\\\)";
             suma += "\\(a=" + a + "\\ m/s^2\\\\\\)";
             suma += "\\(t=" + t + "\\ s\\\\\\)";
@@ -48,9 +48,9 @@ function linmot() {
                 v = rndgen(12, 24.1, 1, 0.1, -1);
                 a = rndgen(0.9, 2.5, 1, 0.1, -1);
             } while(dp((v - u) / a, 2, -1) - (v - u) / a !== 0 || a === 1)
-            sumq += "A cyclist starts at " + u + " m/s and accelerates to " + v + 
-                        " m/s down a slope. If the acceleration rate is " + a + 
-                        " m/s\u00B2, for how long does the acceleration last?";
+            sumq += "A cyclist starts at " + u + "&nbsp;m/s and accelerates to " + v + 
+                        "&nbsp;m/s down a slope. If the acceleration rate is " + a + 
+                        "&nbsp;m/s\u00B2, for how long does the acceleration last?";
             suma += "\\(u=" + u + "\\ m/s\\\\\\)";
             suma += "\\(v=" + v + "\\ m/s\\\\\\)";
             suma += "\\(a=" + a + "\\ m/s^2\\\\\\)";
@@ -66,10 +66,10 @@ function linmot() {
             u = 0;
             a = 9.81;
             v = dp(Math.sqrt(2 * a * s), 2, -1);
-            sumq += "A stone is dropped down a mineshaft " + s + " m deep.<BR>";
+            sumq += "A stone is dropped down a mineshaft " + s + "&nbsp;m deep.<BR>";
             sumq += "i.&nbsp&nbsp At what velocity does it strike the bottom? (Round your answer to 2 decimal places)<BR>";
             sumq += "ii.&nbsp How long does it take to fall? (Round your answer to 2 decimal places)<BR>";
-            sumq += "iii. How fast is it going after falling " + s_part + " m? (Round your answer to 2 decimal places)";
+            sumq += "iii. How fast is it going after falling " + s_part + "&nbsp;m? (Round your answer to 2 decimal places)";
             suma += "\\(s=" + s + "\\ m\\\\\\)";
             suma += "\\(u =\\ 0\\ m/s\\\\\\)";
             suma += "\\(a=\\ 9.81\\ m/s^2\\\\\\)";
@@ -94,8 +94,8 @@ function linmot() {
             v = rndgen(5.56, u - 5.56, 2, 0.01, -1);
             s = rndgen(50, 210.5, 1, 0.5, -1);
             a = dp((Math.pow(v, 2) - Math.pow(u, 2)) / (2 * s), 2, -1);
-            sumq += "A " + thouSep(m, " ") + " kg car brakes from " + dp(u * 3.6, 2, -1) + " km/h to " + 
-                    dp(v * 3.6, 2, -1) + " km/h over a distance of " + s + " m.<BR>";
+            sumq += "A " + thouSep(m, " ") + "&nbsp;kg car brakes from " + dp(u * 3.6, 2, -1) + "&nbsp;km/h to " + 
+                    dp(v * 3.6, 2, -1) + "&nbsp;km/h over a distance of " + s + "&nbsp;m.<BR>";
             sumq += "i.&nbsp&nbsp What is the rate of deceleration? Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp How long does the braking last for? Round your answer to 2 decimal places.<BR>";
             sumq += "iii. What is the change in momentum?<BR>";
@@ -123,7 +123,7 @@ function linmot() {
             u = rndgen(25, 65.5, 1, 0.5, -1);
             a = 9.81;
             v = 0;
-            sumq += "An arrow is fired vertically into the air at a velocity of " + u + " m/s.<BR>";
+            sumq += "An arrow is fired vertically into the air at a velocity of " + u + "&nbsp;m/s.<BR>";
             sumq += "i.&nbsp&nbsp How high does the arrow fly? Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp How long does it take the arrow to return to the ground? "
             sumq += "Round your answer to 2 decimal places.<BR>";
@@ -149,8 +149,8 @@ function linmot() {
                 v = dp(u + (a * t), 3, 2);
             } while (u * t <= s)
             sumq += "An ice hockey puck slides over a horizontal sheet of ice. ";
-            sumq += "It passes point A with a velocity of " + u + " m/s and, " + t + 
-                    " s later, passes point B. If the distance between A and B is " + s + " m ,determine:<BR>";
+            sumq += "It passes point A with a velocity of " + u + "&nbsp;m/s and, " + t + 
+                    "&nbsp;s later, passes point B. If the distance between A and B is " + s + "&nbsp;m ,determine:<BR>";
             sumq += "i.&nbsp&nbsp The retardation, to 2 decimal places.<BR>";
             sumq += "ii.&nbsp Its velocity as it passes point B, to 2 decimal places.<BR>";
             sumq += "iii. After passing point A, how long does it take for the puck to stop, to 2 decimal places.";
@@ -173,7 +173,7 @@ function linmot() {
             s = rndgen(50, 201, 1, 0.5, -1);
             a = 9.81;
             v = dp(Math.sqrt(Math.pow(u, 2) + 2 * a * s), 3, 2);
-            sumq += "An arrow is fired at " + u + " m/s down a " + s + " m deep mineshaft.<BR>";
+            sumq += "An arrow is fired at " + u + "&nbsp;m/s down a " + s + "&nbsp;m deep mineshaft.<BR>";
             sumq += "i.&nbsp&nbsp How fast will it be going when it reaches the bottom? ";
             sumq += "Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp How long does it take to reach the bottom? Round your answer to 2 decimal places.<BR>";
@@ -194,8 +194,8 @@ function linmot() {
             t = rndgen(1.5, 2.6, 1, 0.1, -1);
             a = dp((2 * (s - u * t)) / (Math.pow(t, 2)), 3, 2);
             sumq += "A ball, initially travelling at " + u + 
-                    " m/s, starts to roll down a hill. The distance down the incline is " + s + 
-                    " m and it travels this in " + t + " s.<BR>";
+                    "&nbsp;m/s, starts to roll down a hill. The distance down the incline is " + s + 
+                    "&nbsp;m and it travels this in " + t + "&nbsp;s.<BR>";
             sumq += "i.&nbsp&nbsp What is the rate of acceleration of the ball? Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp What will the ball's velocity be at the bottom of the incline? Round your answer to 2 decimal places.";
             suma += "\\(u=" + u + "\\ m/s\\\\\\)";
@@ -214,8 +214,8 @@ function linmot() {
             t = rndgen(17, 33, 0, 1, -1);
             v = rndgen(8.3, 9.7, 1, 0.1, -1);
             sumq += "An aircraft lands on a horizontal runway with a touchdown velocity of " + 
-                    dp(u * 3.6, 2, -1) + " km/h. If it takes " + t + 
-                    " s to slow to the taxiing velocity of " + dp(v * 3.6, 2, -1) + " km/h, find:<BR>";
+                    dp(u * 3.6, 2, -1) + "&nbsp;km/h. If it takes " + t + 
+                    "&nbsp;s to slow to the taxiing velocity of " + dp(v * 3.6, 2, -1) + "&nbsp;km/h, find:<BR>";
             sumq += "i.&nbsp&nbsp the distance travelled, to the nearest meter.<BR>";
             sumq += "ii.&nbsp the rate of deceleration, rounded to 2 decimal places.";
             suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\\\\\)";
@@ -240,9 +240,9 @@ function linmot() {
                 s3 = dp(0.5 * v * t3, 2, -1);
                 st = s1 + s2 + s3;
             } while (t1 === t3)
-            sumq += "A cyclist accelerates from rest to a velocity of " + v + " m/s in " + 
-                    t1 + " s. He then continues at this velocity for " + 
-                    fromsecs(t2) + ", before coming to rest in " + t3 + " s.<BR>";
+            sumq += "A cyclist accelerates from rest to a velocity of " + v + "&nbsp;m/s in " + 
+                    t1 + "&nbsp;s. He then continues at this velocity for " + 
+                    fromsecs(t2) + ", before coming to rest in " + t3 + "&nbsp;s.<BR>";
             sumq += "i.&nbsp&nbsp Calculate the distance covered during each of the 3 phases of the journey.<BR>";
             sumq += "ii.&nbsp What is the total distance covered?<BR>";
             sumq += "iii. What is the average velocity of the cyclist, to 2 decimal places?<BR>";
@@ -271,9 +271,9 @@ function linmot() {
                 s3 = dp(0.5 * (u + 20 + v) * t3, 2, -1);
                 st = s1 + s2 + s3;
             } while(t1 === t3 || v < u + 20)
-            sumq += "An aircraft in flight accelerates from " + dp(u * 3.6, 2, -1) + " km/h to " + 
-                    dp(v * 3.6, 2, -1) + " km/h in " + t1 + " s. It then continues at this velocity for " + 
-                    fromsecs(t2) + ", before slowing to " + dp((u + 20) * 3.6, 2, -1) + " km/h in " + t3 + " s.<BR>";
+            sumq += "An aircraft in flight accelerates from " + dp(u * 3.6, 2, -1) + "&nbsp;km/h to " + 
+                    dp(v * 3.6, 2, -1) + "&nbsp;km/h in " + t1 + "&nbsp;s. It then continues at this velocity for " + 
+                    fromsecs(t2) + ", before slowing to " + dp((u + 20) * 3.6, 2, -1) + "&nbsp;km/h in " + t3 + "&nbsp;s.<BR>";
             sumq += "i.&nbsp&nbsp Calculate the distance covered during each of the 3 phases of the journey.<BR>";
             sumq += "ii.&nbsp What is the total distance covered?<BR>";
             sumq += "iii. What is the average velocity of the aircraft, to 2 decimal places?";

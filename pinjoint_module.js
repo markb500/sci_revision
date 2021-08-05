@@ -26,7 +26,7 @@ function pinjoint() {
     fa = dp(wt / Math.sin(ang * (Math.PI / 180)), 0, -1);
 
     sumq += "In the pin-jointed structure shown, use a vector diagram to determine the size of forces ";
-    sumq += "F<sub>A</sub> and F<sub>B</sub>, given that the weight is " + wt + " N and the angle, &theta;, is ";
+    sumq += "F<sub>A</sub> and F<sub>B</sub>, given that the weight is " + wt + "&nbsp;N and the angle, &theta;, is ";
     sumq += ang + "<sup>O</sup>";
 
     origx = 500;

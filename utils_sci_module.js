@@ -64,9 +64,9 @@ function dp(sum, dp, fix) {
 function fromsecs(t) {
     //Converts secs to mins and secs
     if(t < 120) {
-      return Math.floor(t / 60) + " min " + t % 60 + " secs";
+      return Math.floor(t / 60) + "&nbsp;min&nbsp;" + t % 60 + "&nbsp;secs";
     } else {
-      return Math.floor(t / 60) + " mins " + t % 60 + " secs";
+      return Math.floor(t / 60) + "&nbsp;mins&nbsp;" + t % 60 + "&nbsp;secs";
     }
 }
 function thouSep(value, sep) {

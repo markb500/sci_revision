@@ -39,6 +39,7 @@ function spacediag() {
     ry = r * Math.sin((-angr * (Math.PI / 180))) + origy;
     jetroll = false;
     jetup = false;
+    pinjt = false;
     space = true;
 
     scale = (510 - origx) / (r * Math.cos((angr * (Math.PI / 180))));   //Set scale for max x
@@ -150,7 +151,7 @@ function spacediag() {
 }
 
 function animsolnspace() {
-    //Fired when 'Show me how' clicked so animation start delayed until required
+    //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
     drawline(ctx2, v1x, v1y, rx, ry, 1, "red", true);

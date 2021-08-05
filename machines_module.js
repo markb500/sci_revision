@@ -35,10 +35,10 @@ function machines() {
             } while((se / sl) / (dp(se / sl, 4, 2)) !== 1)
             vr = se / sl;
             ma = dp(vr * eff, 4, -1);
-            sumq += "A lever system has an efficiency of " + eff * 100 + " % when used to lift a mass of " + 
+            sumq += "A lever system has an efficiency of " + eff * 100 + "&nbsp;% when used to lift a mass of " + 
                     thouSep(load / 9.81, " ") + 
-                    " kg. Calculate, to 2 decimal places, the effort needed to raise the load when the effort moves " + 
-                    se + " m to raise the load by " + sl + " m.";
+                    "&nbsp;kg. Calculate, to 2 decimal places, the effort needed to raise the load when the effort moves " + 
+                    se + "&nbsp;m to raise the load by " + sl + "&nbsp;m.";
             suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(load=" + (load / 9.81) + "\\times9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
             suma += "\\(s_E=" + se + "\\ m\\\\\\)";
@@ -62,7 +62,7 @@ function machines() {
             effort = rndgen(80, 200, 0, 1, -1);
             ma = dp(eff * vr, 2, -1);
             sumq += "A " + vr + " pulley system with an efficiency of " + (eff * 100) + 
-                    " % is fitted in a workshop. What load can be lifted by an applied effort of " + effort + " N?";
+                    "&nbsp;% is fitted in a workshop. What load can be lifted by an applied effort of " + effort + "&nbsp;N?";
             suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\\\\\)";
             suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(effort=" + effort + "\\ N\\\\\\)";
@@ -89,7 +89,7 @@ function machines() {
             } else {
                 txt = "a";
             }
-            sumq += "A mass of " + load / 9.81 + " kg is lifted by " + txt + " " + vr + " pulley system. If the applied effort is " +   thouSep(effort, " ") + " N, calculate:<BR>";
+            sumq += "A mass of " + load / 9.81 + "&nbsp;kg is lifted by " + txt + " " + vr + "&nbsp;pulley system. If the applied effort is " +   thouSep(effort, " ") + "&nbsp;N, calculate:<BR>";
             sumq += "i. the mechanical advantage of the system, rounded to 2 decimal places.<BR>";
             sumq += "ii. the percentage efficiency of the system, to the nearest whole number.";
             suma += "\\(load=" + (load / 9.81) + "\\times 9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
@@ -115,10 +115,10 @@ function machines() {
             ma = dp(load / effort, 1, -1);
             eff = dp(ma / vr * 100, 0, -1);
             sumq += "A screw jack has a thread of pitch " + (sl * 1000) + 
-                    " mm and the effort is applied at a radius of  " + dp(radius * 100, 1, -1) + 
-                    " cm. It is found by experiment that an effort of " + effort + 
-                    " N can lift a load of " + (load / 1000) + 
-                    " kN. Find the velocity ratio and mechanical advantage, each to an accuracy of " + 
+                    "&nbsp;mm and the effort is applied at a radius of  " + dp(radius * 100, 1, -1) + 
+                    "&nbsp;cm. It is found by experiment that an effort of " + effort + 
+                    "&nbsp;N can lift a load of " + (load / 1000) + 
+                    "&nbsp;kN. Find the velocity ratio and mechanical advantage, each to an accuracy of " + 
                     "1 decimal place, and the percentage efficiency to the nearest whole number.";
             suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ N\\\\\\)";
             suma += "\\(s_E=2\\pi r=2\\times\\pi\\times" + dp(radius * 100, 1, -1) + "\\times10^{-2}=" + se + 
@@ -147,10 +147,10 @@ function machines() {
             vr = dp(se / sl, 1, -1);
             ma = dp(eff * vr, 1, -1);
             sumq += "A screw jack has a single start thread of pitch " + (sl * 1000) + 
-                    " mm and the effort is applied at a radius of " + radius + 
-                    " m. If the efficiency of the jack is " + (eff * 100) + 
-                    " %, calculate, to the nearest whole number, the maximum load that can be " + 
-                    "raised by an effort of " + effort + " N.";
+                    "&nbsp;mm and the effort is applied at a radius of " + radius + 
+                    "&nbsp;m. If the efficiency of the jack is " + (eff * 100) + 
+                    "&nbsp;%, calculate, to the nearest whole number, the maximum load that can be " + 
+                    "raised by an effort of " + effort + "&nbsp;N.";
             suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
             suma += "\\(s_E=2\\times \\pi \\times r=2\\times\\pi\\times" + radius + "=" + se + 
                     "\\ m\\ (3\\ dp)\\\\\\)";
@@ -176,9 +176,9 @@ function machines() {
             se = dp(2 * Math.PI * radius, 4, -1);
             vr = dp(se / sl, 2, -1);
             ma = dp(eff * vr, 2, -1);
-            sumq += "A screw jack has a thread of " + (sl * 1000) + " mm pitch and an efficiency of " + 
-                    (eff * 100) + " %. An effort of " + effort + " N is applied at a radius of " + 
-                    (radius * 100) + " cm. Calculate the load that is lifted, accurate to 1 decimal place.";
+            sumq += "A screw jack has a thread of " + (sl * 1000) + "&nbsp;mm pitch and an efficiency of " + 
+                    (eff * 100) + "&nbsp;%. An effort of " + effort + "&nbsp;N is applied at a radius of " + 
+                    (radius * 100) + "&nbsp;cm. Calculate the load that is lifted, accurate to 1 decimal place.";
             suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
             suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(effort=" + effort + "\\ N\\\\\\)";
@@ -205,10 +205,10 @@ function machines() {
             vr = dp((t2 * t4) / (t1 * t3), 2, -1);
             sumq += "A compound gear train has 2 driver gears, numbers 1 & 3, and 2 driven gears, numbers 2 & 4. " + 
                     "Gears 2 & 3 are mounted on the same shaft. The number of teeth on each gear are:<BR>";
-            sumq += " t<sub>1</sub> = " + t1 + " teeth, t<sub>2</sub> = " + t2 + 
-                    " teeth, t<sub>3</sub> = " + t3 + " teeth and t<sub>4</sub> =" + t4 + " teeth.<BR>";
+            sumq += " t<sub>1</sub> = " + t1 + "&nbsp;teeth, t<sub>2</sub> = " + t2 + 
+                    "&nbsp;teeth, t<sub>3</sub> = " + t3 + "&nbsp;teeth and t<sub>4</sub> =" + t4 + "&nbsp;teeth.<BR>";
             sumq += "If the input speed is " + n1 + 
-                    " RPM, calculate the output speed, to an accuracy of 1 decimal place.";
+                    "&nbsp;RPM, calculate the output speed, to an accuracy of 1 decimal place.";
             suma += "\\(t_1=" + t1 + "\\ teeth\\\\\\)";
             suma += "\\(t_2=" + t2 + "\\ teeth\\\\\\)";
             suma += "\\(t_3=" + t3 + "\\ teeth\\\\\\)";
@@ -232,9 +232,9 @@ function machines() {
             do {
                 ma = rndgen(2, 3, 1, 0.1, -1);
             } while(ma > (0.9 * vr))
-            sumq += "A compound gear train consists of gear 1, with " + t1 + " teeth, meshing with the " + 
-                    t2 + " teeth of gear 2. Gear 3, on the same shaft as gear 2, has " + t3 + 
-                    " teeth and meshes with the " + t4 + " teeth of gear 4. Calculate, to the nearest whole number, " + 
+            sumq += "A compound gear train consists of gear 1, with " + t1 + "&nbsp;teeth, meshing with the " + 
+                    t2 + "&nbsp;teeth of gear 2. Gear 3, on the same shaft as gear 2, has " + t3 + 
+                    "&nbsp;teeth and meshes with the " + t4 + "&nbsp;teeth of gear 4. Calculate, to the nearest whole number, " + 
                     "the velocity ratio and the percentage efficiency, if the mechanical advantage is " + ma;
             suma += "\\(t_1=" + t1 + "\\ teeth\\\\\\)";
             suma += "\\(t_2=" + t2 + "\\ teeth\\\\\\)";

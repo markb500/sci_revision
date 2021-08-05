@@ -30,9 +30,9 @@ function angmot() {
             m = rndgen(3, 15, 1, 0.1, -1);
             R = rndgen(0.9, 1.9, 1, 0.1, -1);
             v = rndgen(1.5, 2.5, 1, 0.1, -1);
-            sumq += "A body of mass " + m + " kg is rotating in a horizontal circle of diameter " + R * 2 + 
-                    " m and with a linear velocity of " + v + 
-                    " m/s. Calculate the centripetal force acting on the body, rounded to 1 decimal place.";
+            sumq += "A body of mass " + m + "&nbsp;kg is rotating in a horizontal circle of diameter " + R * 2 + 
+                    "&nbsp;m and with a linear velocity of " + v + 
+                    "&nbsp;m/s. Calculate the centripetal force acting on the body, rounded to 1 decimal place.";
             suma += "\\(m=" + m + "\\ kg\\\\\\)";
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(v=" + v + "\\ m/s\\\\\\)";
@@ -44,9 +44,9 @@ function angmot() {
             m = rndgen(3.25, 9, 2, 0.25, -1);
             R = rndgen(1.1, 1.6, 1, 0.1, -1);
             w = rndgen(3, 5.9, 1, 0.1, -1);
-            sumq += "An athlete is swinging a " + m + " kg training hammer in a horizontal circle at a radius of " + 
-                    R + " m. If the angular velocity of the hammer is " + w + 
-                    " rad/s, calculate the centrifugal force to 2 decimal places.";
+            sumq += "An athlete is swinging a " + m + "&nbsp;kg training hammer in a horizontal circle at a radius of " + 
+                    R + "&nbsp;m. If the angular velocity of the hammer is " + w + 
+                    "&nbsp;rad/s, calculate the centrifugal force to 2 decimal places.";
             suma += "\\(m=" + m + "\\ kg\\\\\\)";
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(\\omega=" + w + "\\ rad/s\\\\\\)";
@@ -58,8 +58,8 @@ function angmot() {
             m = rndgen(11.1, 13.5, 1, 0.1, -1);
             R = rndgen(1.1, 2.5, 1, 0.1, -1);
             F = rndgen(50, 75, 1, 0.5, -1);
-            sumq += "Calculate the angular velocity of a " + m + " kg mass being swung at a horizontal radius of " + 
-                    R + "&nbsp;m by a force of " + F + " N. Round your answer to 2 decimal places.";
+            sumq += "Calculate the angular velocity of a " + m + "&nbsp;kg mass being swung at a horizontal radius of " + 
+                    R + "&nbsp;m by a force of " + F + "&nbsp;N. Round your answer to 2 decimal places.";
             suma += "\\(m=" + m + "\\ kg\\\\\\)";
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(F=" + F + "\\ N\\\\\\)";
@@ -156,7 +156,7 @@ function angmot() {
             a = 9.81;
             sumq += "The centripetal acceleration in a rotating space station could, in theory, be created to mimic the " + 
                     "acceleration due to gravity on earth. The 'outer' wall of the space station thus becomes the floor " + 
-                    "for the astronauts. If the space station is " + R * 2 + " m in diameter, what angular velocity would be " + 
+                    "for the astronauts. If the space station is " + R * 2 + "&nbsp;m in diameter, what angular velocity would be " + 
                     "required to achieve this aim? Round your answer to 3 decimal places.";
             suma += "\\(r=" + R + "\\ m\\\\\\)";
             suma += "\\(a=\\ 9.81\\ m/s^2\\\\\\)";

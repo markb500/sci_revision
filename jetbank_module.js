@@ -24,7 +24,7 @@ function jetbank() {
     cf = dp(wt * Math.tan(ang * (Math.PI / 180)), 0, -1);
     lift = dp(wt / Math.cos(ang * (Math.PI / 180)), 0, -1);
 
-    sumq += "An aircraft of weight " + wt + " kN enters a " + ang + "<sup>O</sup> banked turn. "
+    sumq += "An aircraft of weight " + wt + "&nbsp;kN enters a " + ang + "<sup>O</sup> banked turn. "
     sumq += "Use a vector diagram to find the size of the centrifugal force and lift required to balance the turn."
 
     origx = 400;
@@ -39,6 +39,7 @@ function jetbank() {
     liftexty = cfy + 50 * Math.cos(ang * (Math.PI / 180));
     jetup = false;
     space = false;
+    pinjt = false;
     jetroll = true;
 
     ctx2.linewidth = 2;
@@ -83,7 +84,7 @@ function jetbank() {
 }
 
 function animsolnroll() {
-    //Fired when 'Show me how' clicked so animation start delayed until required
+    //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
     drawline(ctx2, origx, origy, wtx, wty, 2, "red", false);

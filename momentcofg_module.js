@@ -33,7 +33,7 @@ function momentcofg() {
             c = b;
             x = dp((ra * a + 2 * rb * b) / (ra + 2 * rb), 1, -1);
             sumq += "An aircraft is weighed and the load cell readings together with distances from datum to the undercarriage centres are as follows:<BR>";
-            sumq += "R<sub>A</sub> = " + ra / 1000 + " kN,   R<sub>B</sub> = " + rb / 1000 + " kN,   a = " + a + " m,   b = " + b + " m<BR>";
+            sumq += "R<sub>A</sub> = " + ra / 1000 + "&nbsp;kN,   R<sub>B</sub> = " + rb / 1000 + "&nbsp;kN,   a = " + a + "&nbsp;m,   b = " + b + "&nbsp;m<BR>";
             sumq += "Find the centre of gravity position for the aircraft, rounding your answer to 1 decimal place.";
             document.getElementById("myCanvas");
             myCanvas.height = 315;

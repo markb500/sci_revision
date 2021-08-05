@@ -24,7 +24,7 @@ function jetclimb() {
     thrust = dp(wt * Math.sin(ang * (Math.PI / 180)), 0, -1);
     lift = dp(wt * Math.cos(ang * (Math.PI / 180)), 0, -1);
 
-    sumq += "A jet of weight " + wt + " kN is in a constant velocity climb at an angle of " + ang + "<sup>O</sup>. "
+    sumq += "A jet of weight " + wt + "&nbsp;kN is in a constant velocity climb at an angle of " + ang + "<sup>O</sup>. "
     sumq += "Use a vector diagram to find the size of the net thrust and lift required to maintain the climb.";
 
     origx = 350;
@@ -39,6 +39,7 @@ function jetclimb() {
     liftexty = thrusty + 50 * Math.cos(ang * (Math.PI / 180));
     jetroll = false;
     space = false;
+    pinjt = false;
     jetup = true;
 
     ctx2.linewidth = 2;
@@ -96,7 +97,7 @@ function jetclimb() {
 }
 
 function animsolnclimb() {
-    //Fired when 'Show me how' clicked so animation start delayed until required
+    //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
     drawline(ctx2, origx, origy, wtx, wty, 2, "red", false);
