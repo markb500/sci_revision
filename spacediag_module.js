@@ -68,6 +68,7 @@ function spacediag() {
     ctx.lineTo(origx, origy);
     ctx.lineTo(v2x, v2y);
     ctx.stroke();
+    arrhead(ctx, v2x, v2y, -ang2, 3, "black");
     ctx.beginPath();
     ctx.lineWidth = 1
     ctx.setLineDash([7, 5]);
@@ -80,7 +81,7 @@ function spacediag() {
     if(ang1 > 0) {
         ctx.arc(origx, origy, 30, 0, -(Math.PI/180) * ang1, true);
     } else {
-        ctx.arc(origx, origy, 30, 0, -(Math.PI/180) * ang1, false);
+        ctx.arc(origx, origy, 30, 0, (Math.PI/180) * -ang1, false);
     }
     ctx.moveTo(origx + 70, origy);
     ctx.arc(origx, origy, 70, 0, -(Math.PI/180) * ang2, true);
@@ -91,12 +92,17 @@ function spacediag() {
         ctx.fillText("V\u2081 " + v1 + " N ", origx + 0.5 * (v1x - origx), origy + 20 + 0.5 * (v1y - origy));
         ctx.textAlign = "left";
         ctx.fillText((ang1 * -1) + "\xB0", origx + (40 * Math.cos((Math.PI/180) * ang1)), origy + 14);
+        arrhead(ctx, v1x, v1y, -ang1, 3, "black");
     } else {
         ctx.textAlign = "left";
         ctx.fillText("V\u2081 " + v1 + " N ", origx + 0.5 * (v1x - origx), origy + 20 + 0.5 * (v1y - origy));
         if(ang1 > 0) {
             ctx.textAlign = "left";
             ctx.fillText(ang1 + "\xB0", origx + (35 * Math.cos((Math.PI/180) * ang1)), origy - 2);
+            arrhead(ctx, v1x, v1y, -ang1, 3, "black");
+        } else if (ang1 === 0) {
+            
+        arrhead(ctx, v1x, v1y, 0, 3, "black");
         }
     }
     ctx.textAlign = "right";
