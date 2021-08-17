@@ -71,7 +71,7 @@ function machines() {
             suma += "MA&=\\eta\\times VR=" + eff + "\\times" + vr + "=" + ma + "\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}\\\\[5pt]";
             suma += "load&=MA\\times effort=" + ma + "\\times" + effort + 
-                    "=\\underline{\\mathbf{" + (ma * effort) + "\\ N}}\\end{aligned}$$";
+                    "=\\underline{\\mathbf{" + thouSep(dp(ma * effort, 2, -1), "\\ ") + "\\ N}}\\end{aligned}$$";
             break;
         case 3:
             document.getElementById("noteslink").onclick = function() {
