@@ -4,6 +4,7 @@ function machines() {
     jetup = false;
     jetroll = false;
     space = false;
+    pinjt = false;
     document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
@@ -36,7 +37,7 @@ function machines() {
             vr = se / sl;
             ma = dp(vr * eff, 4, -1);
             sumq += "A lever system has an efficiency of " + eff * 100 + "&nbsp;% when used to lift a mass of " + 
-                    thouSep(load / 9.81, " ") + 
+                    thouSep(load / 9.81, "&nbsp;") + 
                     "&nbsp;kg. Calculate, to 2 decimal places, the effort needed to raise the load when the effort moves " + 
                     se + "&nbsp;m to raise the load by " + sl + "&nbsp;m.";
             suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
@@ -89,7 +90,7 @@ function machines() {
             } else {
                 txt = "a";
             }
-            sumq += "A mass of " + load / 9.81 + "&nbsp;kg is lifted by " + txt + " " + vr + "&nbsp;pulley system. If the applied effort is " +   thouSep(effort, " ") + "&nbsp;N, calculate:<BR>";
+            sumq += "A mass of " + load / 9.81 + "&nbsp;kg is lifted by " + txt + " " + vr + "&nbsp;pulley system. If the applied effort is " +   thouSep(effort, "&nbsp;") + "&nbsp;N, calculate:<BR>";
             sumq += "i. the mechanical advantage of the system, rounded to 2 decimal places.<BR>";
             sumq += "ii. the percentage efficiency of the system, to the nearest whole number.";
             suma += "\\(load=" + (load / 9.81) + "\\times 9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";

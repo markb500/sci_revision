@@ -4,6 +4,7 @@ function momentcofg() {
     jetup = false;
     jetroll = false;
     space = false;
+    pinjt = false;
     sumq = "";
     suma = "";
     document.getElementById("btnShowhow").style.visibility="hidden";

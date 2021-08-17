@@ -4,6 +4,7 @@ function angmot() {
     jetup = false;
     jetroll = false;
     space = false;
+    pinjt = false;
     document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";

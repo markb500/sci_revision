@@ -4,6 +4,7 @@ function linmot() {
     jetup = false;
     jetroll = false;
     space = false;
+    pinjt = false;
     document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
@@ -94,7 +95,7 @@ function linmot() {
             v = rndgen(5.56, u - 5.56, 2, 0.01, -1);
             s = rndgen(50, 210.5, 1, 0.5, -1);
             a = dp((Math.pow(v, 2) - Math.pow(u, 2)) / (2 * s), 2, -1);
-            sumq += "A " + thouSep(m, " ") + "&nbsp;kg car brakes from " + dp(u * 3.6, 2, -1) + "&nbsp;km/h to " + 
+            sumq += "A " + thouSep(m, "&nbsp;") + "&nbsp;kg car brakes from " + dp(u * 3.6, 2, -1) + "&nbsp;km/h to " + 
                     dp(v * 3.6, 2, -1) + "&nbsp;km/h over a distance of " + s + "&nbsp;m.<BR>";
             sumq += "i.&nbsp&nbsp What is the rate of deceleration? Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp How long does the braking last for? Round your answer to 2 decimal places.<BR>";

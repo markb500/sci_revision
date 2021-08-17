@@ -1,9 +1,10 @@
-var prevsum, prev2sum, m, g = 9.81, mu, N, F;
+var prevsum = 0, prev2sum = 0, m, g = 9.81, mu, N, F;
 function friction() {
     var sum;
     jetup = false;
     jetroll = false;
     space = false;
+    pinjt = false;
     document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
@@ -35,9 +36,9 @@ function friction() {
             m = rndgen(20, 80, 0, 1, -1);
             mu = rndgen(0.35, 0.8, 2, 0.01, -1);
             F = dp(m * g * mu, 3, 1);
-            sumq += "A steel block, mass " + m + " kg, rests on a horizontal wooden floor. If the coefficient of ";
-            sumq += "friction between steel and wood is " + mu + ", determine the minimum force necessary to ";
-            sumq += "move the block if the force is applied horizontally. Give your answer rounded to 1 decimal place.";
+            sumq += "A steel block, mass " + m + "&nbsp;kg, rests on a horizontal wooden floor. If the coefficient of ";
+            sumq += "friction between steel and wood is " + mu + ", determine the minimum force necessary to move ";
+            sumq += "the block if the force is applied horizontally. Give your answer rounded to 1 decimal place.";
 
             suma += "\\(m=" + m + "\\ kg\\\\\\)";
             suma += "\\(\\mu =" + mu + "\\\\\\)";
@@ -54,9 +55,9 @@ function friction() {
                 mu = dp(F / (m * g), 2, -1);
             } while(mu < 0.7 || mu > 0.9)
 
-            sumq += "An aircraft lands wheels up. If the mass of the aircraft is " + (m / 1000) + " tonne and it is found ";
-            sumq += "that the force necessary to move it is " + thouSep((F / 1000), " ") + " kN, determine the coefficient of friction ";
-            sumq += "between the aircraft and the runway.";
+            sumq += "An aircraft lands wheels up. If the mass of the aircraft is " + (m / 1000) + "&nbsp;tonne and ";
+            sumq += "it is found that the force necessary to move it is " + thouSep((F / 1000), " ") + "&nbsp;kN, ";
+            sumq += "determine the coefficient of friction between the aircraft and the runway.";
 
             suma += "\\(m=" + m / 1000 + "\\ T=" + (m / 1000) + "\\times 1000=" + thouSep(m, "\\ ") + "\\ kg\\\\\\)";
             if(F < 1000000) {
@@ -85,7 +86,7 @@ function friction() {
             }
             sumq += "The material used in a braking system is tested and it is found that the coefficient ";
             sumq += "of friction between the material and the steel brake disk is " + mu + ". Calculate the normal ";
-            sumq += "force when the frictional force is " + (F / 1000) + " kN. "
+            sumq += "force when the frictional force is " + (F / 1000) + "&nbsp;kN. "
             sumq += "Give your answer in correct engineering notation, rounded to 2 decimal places.";
 
             suma += "\\(\\mu=" + mu + "\\\\\\)";

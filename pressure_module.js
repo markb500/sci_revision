@@ -5,6 +5,7 @@ function pressure() {
     jetup = false;
     jetroll = false;
     space = false;
+    pinjt = false;
     document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = "0.5";
@@ -94,7 +95,7 @@ function pressure() {
             sumq += "An accumulator, with no hydraulic pressure, contains nitrogen at a pressure of " + p1 + 
                     "&nbsp;psi and a temperature of " + t1 + 
                     "&nbsp;<sup>O</sup>C. If the hydraulics are activated, the nitrogen is compressed into a volume of " + 
-                    v2 + "&nbsp;in<sup>3</sup> at a pressure of " +  thouSep(p2, " ") + 
+                    v2 + "&nbsp;in<sup>3</sup> at a pressure of " +  thouSep(p2, "&nbsp;") + 
                     "&nbsp;psi. If the temperature also increases to " + t2 + 
                     "&nbsp;<sup>O</sup>C, calculate the initial volume of the accumulator, to 1 decimal place.";
             suma += "\\(P_1=" + p1 + "\\ psi\\\\\\)";
@@ -129,7 +130,7 @@ function pressure() {
             v1 = rndgen(800, 1200, 0, 1, -1);
             t1 = rndgen(20, 28, 1, 0.1, -1);
             t2 = rndgen(33, 40, 1, 0.1, -1);
-            sumq += "A hot air balloon contains " + thouSep(v1, " ") + "&nbsp;m<sup>3</sup> of air at " + t1 + 
+            sumq += "A hot air balloon contains " + thouSep(v1, "&nbsp;") + "&nbsp;m<sup>3</sup> of air at " + t1 + 
                     "&nbsp;<sup>O</sup>C. What volume will it occupy at " + t2 + 
                     "&nbsp;<sup>O</sup>C, assuming the pressure remains constant? Round the answer to 1 decimal place.";
             suma += "\\(V_1=" + thouSep(v1, " ") + "\\ m^3\\\\\\)";
@@ -147,7 +148,7 @@ function pressure() {
             p1 = rndgen(80, 250, 1, 0.1, -1);
             p2 = rndgen(1100, 1300, 1, 0.1, -1);
             sumq += "An air compressor receives " + v1 + "&nbsp;m<sup>3</sup> of air at a pressure of " + p1 + 
-                    "&nbsp;kN/m<sup>2</sup> absolute and compresses it to a pressure of " + thouSep(p2, " ") + 
+                    "&nbsp;kN/m<sup>2</sup> absolute and compresses it to a pressure of " + thouSep(p2, "&nbsp;") + 
                     "&nbsp;kN/m<sup>2</sup> absolute. Calculate the final volume of air, rounded to 2 decimal places, " + 
                     "assuming no change in temperature.";
             suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
@@ -284,8 +285,8 @@ function pressure() {
             pguage = dp(rhoman * g * (hman / 1000), 3, -1);
             patmos = dp(rhobar * g * (hbar / 1000), 3, -1);
             sumq += "A manometer on a gas pipe reads " + hman + "&nbsp;mm of oil (oil density = " + 
-                    thouSep(rhoman, " ") + "&nbsp;kg/m<sup>3</sup>). A barometer alongside the pipe reads " + 
-                    hbar + "&nbsp;mmHg (Hg density = " + thouSep(rhobar, " ") + 
+                    thouSep(rhoman, "&nbsp;") + "&nbsp;kg/m<sup>3</sup>). A barometer alongside the pipe reads " + 
+                    hbar + "&nbsp;mmHg (Hg density = " + thouSep(rhobar, "&nbsp;") + 
                     "&nbsp;kg/m<sup>3</sup>). Calculate the absolute pressure of the gas in the pipe, " + 
                     "in N/m<sup>2</sup> rounded to 2 decimal places.";
             suma += "\\(h_{MAN}=" + hman + "\\times10^{-3}\\ m\\\\\\)";
@@ -313,8 +314,8 @@ function pressure() {
             g = 9.81;
             sumq += "A ship has a weight of " + F + "&nbsp;MN. The area at the waterline is " + a + "&nbsp;m<sup>2</sup>. " + 
                     "Calculate the draught of the ship, to 2 decimal places, in:<BR>";
-            sumq += "i. Fresh water of density " + thouSep(1000, " ") + " kg/m<sup>3</sup><BR>";
-            sumq += "ii. Sea water of density " + thouSep(1025, " ") + " kg/m<sup>3</sup>";
+            sumq += "i. Fresh water of density " + thouSep(1000, "&nbsp;") + " kg/m<sup>3</sup><BR>";
+            sumq += "ii. Sea water of density " + thouSep(1025, "&nbsp;") + " kg/m<sup>3</sup>";
             suma += "\\(F=" + F + "\\times10^6\\ N\\\\\\)";
             suma += "\\(A=" + a + "\\ m^2\\\\\\)";
             suma += "\\(\\rho_{FRESH}=" + thouSep(rhofresh, "\\ ") + "\\ kg/m^3\\\\\\)";
@@ -337,7 +338,7 @@ function pressure() {
             rho1 = rndgen(1.002, 1.018, 3, 0.001, -1);
             rho2 = rndgen(1.112, 1.194, 3, 0.001, -1);
             g = 9.81;
-            sumq += "Calculate, to 1 decimal place, the change in lift on a balloon of volume " + thouSep(v1, " ") + 
+            sumq += "Calculate, to 1 decimal place, the change in lift on a balloon of volume " + thouSep(v1, "&nbsp;") + 
                     "&nbsp;m<sup>3</sup>, when a decrease in temperature increases the air density from " + 
                     rho1 + "&nbsp;kg/m<sup>3</sup> to " + rho2 + "&nbsp;kg/m<sup>3</sup>.";
             suma += "\\(V=" + thouSep(v1, "\\ ") + "\\ m^3\\\\\\)";
