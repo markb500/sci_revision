@@ -18,6 +18,9 @@ function energy() {
     suma = "";
     document.getElementById("a").innerHTML = "";
     document.getElementById("noteslink").style.visibility="visible";
+    document.getElementById("noteslink").onclick = function() {
+        window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=70", "_blank")
+    }
     do {
         sum = rndgen(1, 4, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
