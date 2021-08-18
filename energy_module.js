@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, g = 9.81, m, v, h, pe, ke, W;
+var prevsum = 0, prev2sum = 0, g = 9.81, m, v, h, pe, ke, W, F, s, t, T;
 function energy() {
     var sum;
     jetup = false;
@@ -22,7 +22,7 @@ function energy() {
         window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=70", "_blank")
     }
     do {
-        sum = rndgen(1, 4, 0, 1, -1);
+        sum = rndgen(1, 6, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
     prev2sum = prevsum;
     prevsum = sum;
@@ -122,6 +122,44 @@ function energy() {
             suma += "&v=\\sqrt{\\frac{2KE}{m}}\\\\[5pt]";
             suma += "&\\ =\\sqrt{\\frac{2\\times" + thouSep(dp(pe, 2, -1), "\\ ") + "}{" + m + "}}\\\\[5pt]";
             suma += "&\\ =" + v + "\\ m/s\\ (2\\ dp)\\end{aligned}$$";
+            break;
+        case 5:
+            F = rndgen(30, 75, 1, 0.5, -1);
+            s = rndgen(20, 50, 0, 1, -1);
+            t = rndgen(65, 130, 0, 5, -1);
+            if(t < 120) {
+                T = Math.floor(t / 60) + "\\ min\\ " + t % 60 + "\\ secs";
+            } else {
+                T = Math.floor(t / 60) + "\\ mins\\ " + t % 60 + "\\ secs";
+            }
+            sumq += "A force of " + F + " N is applied to an object, causing it to move " + s + " m in " + fromsecs(t);
+            sumq += ". Calculate the power used, rounding your answer to 1 decimal place.";
+
+            suma += "\\(F=" + F + "\\ N\\\\\\)";
+            suma += "\\(s=" + s + "\\ m\\\\\\)";
+            suma += "\\(t=" + T + "=" + t + "\\ s\\\\\\)";
+            suma += "\\(P=\\ ?\\ W\\\\\\)";
+            suma += "$$\\begin{aligned}W&=Fs\\\\[5pt]";
+            suma += "&=" + F + "\\times" + s + "\\\\[5pt]";
+            suma += "&=" + thouSep(dp(F * s, 2, -1), "\\ ") + "\\ J\\\\[25pt]";
+            suma += "P&=\\frac{W}{t}\\\\[5pt]";
+            suma += "&=\\frac{" + thouSep((F * s), "\\ ") + "}{" + t + "}\\\\[5pt]";
+            suma += "&=\\underline{\\mathbf{" + dp((F * s) / t, 3, 1) + "\\ W\\ (1\\ dp)}}\\end{aligned}$$";
+            break;
+        case 6:
+            W = rndgen(7000, 13000, 0, 500, -1);
+            s = rndgen(30, 80, 1, 0.5, -1);
+            sumq += W / 1000 + " kJ of work is done when a force is applied to an object that causes it to move ";
+            sumq += "horizontally and uniformly through " + s + " m. Calculate the size of the force applied, ";
+            sumq += "rounding your answer to 2 decimal places.";
+
+            suma += "\\(W=" + W / 1000 + "\\times10^3\\ J\\\\\\)";
+            suma += "\\(s=" + s + "\\ m\\\\\\)";
+            suma += "\\(F=\\ ?\\ N\\\\\\)";
+            suma += "$$\\begin{aligned}W&=Fs\\\\[5pt]";
+            suma += "F&=\\frac{W}{s}\\\\[5pt]";
+            suma += "&=\\frac{" + W / 1000 + "\\times10^3}{" + s + "}\\\\[5pt]";
+            suma += "&=\\underline{\\mathbf{" + dp(W / s, 4, 2) + "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
             break;
     }
     document.getElementById("q").innerHTML = sumq;
