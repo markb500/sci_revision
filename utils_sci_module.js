@@ -1,5 +1,6 @@
+var views = 0;
+
 function eqnformat(id) {
-    var views = 0;
     //re-runs mathjax rendering on text with given id. Used in all sum functions.
     //Also toggles visibility of the 'a' element (and canvas2 and 'Show Me How' btn in Vectors) each 
     //time soln btn clicked, increments the views count each time 'a' is made visible and re-sets 
