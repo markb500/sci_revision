@@ -1,15 +1,32 @@
 function eqnformat(id) {
-  //re-runs mathjax rendering on text with given id. Used in all sum functions.
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub, id]);
-  if(id === "a") {
-    document.getElementById("myCanvas2").style.visibility="visible";
-    if(jetup || jetroll || space || pinjt) {
-        //When 'soln' button is clicked, shows 'Show me how' button in vector catagory
-        document.getElementById("btnShowhow").style.visibility="visible";
-    } else {
-        document.getElementById("btnShowhow").style.visibility="hidden";
+    var views = 0;
+    //re-runs mathjax rendering on text with given id. Used in all sum functions.
+    //Also toggles visibility of the 'a' element (and canvas2 and 'Show Me How' btn in Vectors) each 
+    //time soln btn clicked, increments the views count each time 'a' is made visible and re-sets 
+    //views to zero each time a question button is clicked.
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub, id]);
+    if(id === "q") {
+        //Initialisation for new Q; reset number of views in soln btn and ensure 'a' element is hidden.
+        views = 0;
+        document.getElementById("btnSoln").innerHTML = "<span class='font-weight-bold'>Show/Hide Solution</span><br />Views : " + views;
+        document.getElementById("a").style.visibility="hidden";
     }
-  }
+    if(id === "a") {      //soln btn clicked
+        if(window.getComputedStyle(document.getElementById("a")).visibility === "visible") {
+            document.getElementById("a").style.visibility="hidden";
+            document.getElementById("myCanvas2").style.visibility="hidden";
+            document.getElementById("btnShowhow").style.visibility="hidden";
+        } else {
+            document.getElementById("a").style.visibility="visible";
+            document.getElementById("myCanvas2").style.visibility="visible";
+            views += 1;
+            document.getElementById("btnSoln").innerHTML = "<span class='font-weight-bold'>Show/Hide Solution</span><br />Views : " + views
+            if(jetup || jetroll || space || pinjt) {
+                //In vector questions, when 'soln' is visible, also shows the 'Show me how' button
+                document.getElementById("btnShowhow").style.visibility="visible";
+            }
+        }
+    }
 }
 
 function animsel() {
@@ -69,6 +86,7 @@ function fromsecs(t) {
       return Math.floor(t / 60) + "&nbsp;mins&nbsp;" + t % 60 + "&nbsp;secs";
     }
 }
+
 function thouSep(value, sep) {
     //Adds chosen 1 000's separator
     return value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, sep);

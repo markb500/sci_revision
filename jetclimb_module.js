@@ -147,7 +147,6 @@ function animsolnclimb() {
         ctx2.fillText("Scale given as an example.", 0, 40);
         ctx2.fillText("   Scale 1 cm : 50 kN", 0, 70);
         ctx2.setLineDash([]);
-        jetup = false;
         $(':button').prop('disabled', false);
     }
 }

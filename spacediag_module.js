@@ -179,7 +179,6 @@ function animsolnspace() {
             ctx2.fillText(angr + "\xB0 (\u00B1 2\xB0)", origx + (110 * Math.cos((Math.PI/180) * angr * 0.1)), 
                                         origy - (110 * Math.sin((Math.PI/180) * angr * 0.3)));
         }
-        space = false;
         $(':button').prop('disabled', false);
     }
 }

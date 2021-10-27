@@ -155,7 +155,6 @@ function animsolnpin() {
         ctx2.fillText("Scale given as an example.", 150, 40);
         ctx2.fillText("   Scale 1 cm : 50 kN", 150, 70);
         ctx2.setLineDash([]);
-        pinjt = false;
         $(':button').prop('disabled', false);
     }
 }
