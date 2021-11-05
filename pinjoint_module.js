@@ -4,10 +4,10 @@ function pinjoint() {
     document.getElementById("btnShowhow").style.visibility="hidden";
     document.getElementById("myCanvas");
     myCanvas.height = 650;
-    myCanvas.width = 850;
+    myCanvas.width = 500;
     ctx = myCanvas.getContext('2d');
     document.getElementById("myCanvas2");
-    myCanvas2.height = 650;
+    myCanvas2.height = 1300;
     myCanvas2.width = 600;
     myCanvas2.style.visibility = "hidden";
     ctx2 = myCanvas2.getContext('2d');
@@ -29,8 +29,8 @@ function pinjoint() {
     sumq += "F<sub>A</sub> and F<sub>B</sub>, given that the weight is " + wt + "&nbsp;N and the angle, &theta;, is ";
     sumq += ang + "<sup>O</sup>";
 
-    origx = 500;
-    origy = 125;
+    origx = 425;
+    origy = 250;
     wtx = origx;
     wty = wt + origy;
     fbx = wtx - fb;
@@ -75,9 +75,9 @@ function pinjoint() {
     ctx2.fillText(fa + " N (\u00B1 4 N)", fbx + 0.5 * (origx - fbx), fby - 15 - 0.5 * (fby - origy));
     ctx2.font = "normal 15px Comic Sans MS";
     ctx2.textAlign = "left";
-    ctx2.fillText("Drawing not to scale.", 150, 20);
-    ctx2.fillText("Scale given as an example.", 150, 40);
-    ctx2.fillText("   Scale 1 cm : 50 N", 150, 70);
+    ctx2.fillText("Drawing not to scale.", 50, 20);
+    ctx2.fillText("Scale given as an example.", 50, 40);
+    ctx2.fillText("   Scale 1 cm : 50 N", 50, 70);
     ctx2.lineWidth = 1;
     ctx2.beginPath;
     ctx2.moveTo(origx, origy + 40);
@@ -151,9 +151,9 @@ function animsolnpin() {
         ctx2.fillText(fa + " N (\u00B1 4 N)", fbx + 0.5 * (origx - fbx), fby - 15 - 0.5 * (fby - origy));
         ctx2.font = "normal 15px Comic Sans MS";
         ctx2.textAlign = "left";
-        ctx2.fillText("Drawing not to scale.", 150, 20);
-        ctx2.fillText("Scale given as an example.", 150, 40);
-        ctx2.fillText("   Scale 1 cm : 50 kN", 150, 70);
+        ctx2.fillText("Drawing not to scale.", 50, 20);
+        ctx2.fillText("Scale given as an example.", 50, 40);
+        ctx2.fillText("   Scale 1 cm : 50 kN", 50, 70);
         ctx2.setLineDash([]);
         $(':button').prop('disabled', false);
     }
