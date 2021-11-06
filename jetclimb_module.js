@@ -19,7 +19,7 @@ function jetclimb() {
     document.getElementById("noteslink").onclick = function() {
         window.open("images/Sci Bk2 Statics v1.10.pdf#page=14", "_blank")
     }
-    wt = rndgen(300, 450, 0, 1, -1);
+    wt = rndgen(300, 450, 0, 25, -1);
     ang = rndgen(20, 40, 0, 1, -1);
     thrust = dp(wt * Math.sin(ang * (Math.PI / 180)), 0, -1);
     lift = dp(wt * Math.cos(ang * (Math.PI / 180)), 0, -1);

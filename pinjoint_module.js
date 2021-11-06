@@ -19,7 +19,7 @@ function pinjoint() {
     document.getElementById("noteslink").onclick = function() {
         window.open("images/Sci Bk2 Statics v1.10.pdf#page=13", "_blank")
     }
-    wt = rndgen(140, 210, 0, 1, -1);
+    wt = rndgen(100, 225, 0, 25, -1);
     ang = rndgen(25, 40, 0, 1, -1);
     altang = 90 - ang;
     fb = dp(wt / Math.tan(ang * (Math.PI / 180)), 0, -1);
@@ -77,7 +77,7 @@ function pinjoint() {
     ctx2.textAlign = "left";
     ctx2.fillText("Drawing not to scale.", 50, 20);
     ctx2.fillText("Scale given as an example.", 50, 40);
-    ctx2.fillText("   Scale 1 cm : 50 N", 50, 70);
+    ctx2.fillText("   Scale 1 cm : 25 N", 50, 70);
     ctx2.lineWidth = 1;
     ctx2.beginPath;
     ctx2.moveTo(origx, origy + 40);
