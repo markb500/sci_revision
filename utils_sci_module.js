@@ -1,3 +1,4 @@
+
 var views = 0;
 
 function eqnformat(id) {
@@ -65,18 +66,30 @@ function rndgen(lower, upper, dp, step, fix) {
             Math.pow(10, dp) * step).toFixed(fix);
     }
 }
-  
+
+function countDecimals(value) {
+    if (Math.floor(value) !== value)
+        return value.toString().split(".")[1].length || 0;
+    return 0;
+}
+
 function dp(sum, dp, fix) {
     //Rounds 'sum' to selected number of decimal places. Decimal places can be fixed.
     //sum = number to be rounded
     //dp = number of dec places
-    //dp = number of dp's fixed. -1 if no trailing zeros wanted.
-    if(fix === -1) {
-      return Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp);
-    } else {
-      dp = fix + 2;
-      return (Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp)).toFixed(fix);
-    }
+    //fix = number of dp's fixed. -1 if no trailing zeros wanted.
+    var temp = 0, cnt = 0;
+    do {
+        if(fix === -1) {
+        cnt = dp;
+        temp = Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp);
+        } else {
+        // dp = fix + 2;
+        cnt = fix;
+        temp = (Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp)).toFixed(fix);
+        }
+    } while(countDecimals(temp) > cnt);  //Avoids occasional float point errors
+    return temp;
 }
 
 function fromsecs(t) {
