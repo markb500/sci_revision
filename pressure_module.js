@@ -52,15 +52,15 @@ function pressure() {
                     thouSep(v1, " ") + "&nbsp;cm<sup>3</sup>, is heated to " + t2 + 
                     "&nbsp;<sup>O</sup>C. If the pressure remains constant, calculate its new volume, " + 
                     "in m<sup>3</sup> to 2 decimal places.";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_1=" + thouSep(v1, "\\ ") + "\\times10^{-6}\\ m^3\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + (t2 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times10^{-6}\\times" + 
-                    (t2 + 273.15) + "}{" + (t1 + 273.15) + "}=\\underline{\\mathbf{" + 
-                    dp((v1 * Math.pow(10, -6) * (t2 + 273.15)) / (t1 + 273.15), 3, 2) + "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
+                    dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "}=\\underline{\\mathbf{" + 
+                    dp((v1 * Math.pow(10, -6) * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 3, 2) + "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 3:
             p1 = rndgen(200, 500, 0, 1, -1);
@@ -74,16 +74,16 @@ function pressure() {
                         "&nbsp;mbar and " + t2 + "&nbsp;<sup>O</sup>C respectively. If there is no loss of gas, " + 
                         "calculate the new volume to an accuracy of 3 decimal places.";
             suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(P_1=" + p1 + "\\times100=" + (p1 / 10) + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
-            suma += "\\(P_2=" + p2 + "\\times100=" + (p2 / 10) + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + (t2 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(P_1=" + p1 + "\\ mbar\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
+            suma += "\\(P_2=" + p2 + "\\ mbar\\\\\\)";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
-            suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + (p1 / 10) + "\\times10^3\\times" + v1 + 
-                    "\\times" + (t2 + 273.15) + "}{" + (t1 + 273.15) + "\\times" + (p2 / 10) + 
-                    "\\times10^3}=\\underline{\\mathbf{" + 
-                    dp((p1 * 100 * v1 * (t2 + 273.15)) / ((t1 + 273.15) * p2 * 100), 4, 3) + 
+            suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + p1 + "\\times" + v1 + 
+                    "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "\\times" + p2 + 
+                    "}=\\underline{\\mathbf{" + 
+                    dp((p1 * v1 * dp(t2 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p2), 4, 3) + 
                     "\\ m^3\\ (3\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
@@ -99,15 +99,15 @@ function pressure() {
                     "&nbsp;psi. If the temperature also increases to " + t2 + 
                     "&nbsp;<sup>O</sup>C, calculate the initial volume of the accumulator, to 1 decimal place.";
             suma += "\\(P_1=" + p1 + "\\ psi\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_2=" + v2 + "\\ in^3\\\\\\)";
             suma += "\\(P_2=" + thouSep(p2, "\\ ") + "\\ psi\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + (t2 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_1=\\ ?\\ in^3\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_1&=\\frac{P_2 V_2 T_1}{T_2 P_1}=\\frac{" + thouSep(p2, "\\ ") + "\\times" + v2 + 
-                    "\\times" + (t1 + 273.15) + "}{" + (t2 + 273.15) + "\\times" + p1 + "}=\\underline{\\mathbf{" + 
-                    dp((p2 * v2 * (t1 + 273.15)) / ((t2 + 273.15) * p1), 2, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
+                    "\\times" + dp(t1 + 273.15, 2, -1) + "}{" + dp(t2 + 273.15, 2, -1) + "\\times" + p1 + "}=\\underline{\\mathbf{" + 
+                    dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p1), 2, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
             p1 = rndgen(80, 150, 0, 1, -1);
@@ -117,13 +117,13 @@ function pressure() {
                     "&nbsp;<sup>O</sup>C. What is the new absolute pressure, to an accuracy of 1 decimal place, " + 
                     "if the tyre is heat soaked at " + t2 + "&nbsp;<sup>O</sup>C, assuming the volume remains constant?";
             suma += "\\(P_1=" + p1 + "\\ psi\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + (t2 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(P_2=\\ ?\\ psi\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{P_1}{T_1}&=\\frac{P_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ volume\\ remains\\ constant.\\\\[5pt]";
-            suma += "P_2&=\\frac{P_1 T_2}{T_1}=\\frac{" + p1 + "\\times" + (t2 + 273.15) + "}{" + (t1 + 273.15) + 
-                    "}=\\underline{\\mathbf{" + dp((p1 * (t2 + 273.15)) / (t1 + 273.15), 3, 1) + 
+            suma += "P_2&=\\frac{P_1 T_2}{T_1}=\\frac{" + p1 + "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + 
+                    "}=\\underline{\\mathbf{" + dp((p1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 3, 1) + 
                     "\\ psi\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
@@ -134,14 +134,14 @@ function pressure() {
                     "&nbsp;<sup>O</sup>C. What volume will it occupy at " + t2 + 
                     "&nbsp;<sup>O</sup>C, assuming the pressure remains constant? Round the answer to 1 decimal place.";
             suma += "\\(V_1=" + thouSep(v1, " ") + "\\ m^3\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + (t2 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
-            suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times" + (t2 + 273.15) + "}{" + 
-                    (t1 + 273.15) + "}=\\underline{\\mathbf{" + 
-                    thouSep(dp((v1 * (t2 + 273.15)) / (t1 + 273.15), 3, 1), "\\ ") + "\\ m^3\\ (1\\ dp)}}\\end{aligned}$$";
+            suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + 
+            dp(t1 + 273.15, 2, -1) + "}=\\underline{\\mathbf{" + 
+                    thouSep(dp((v1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 3, 1), "\\ ") + "\\ m^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
             v1 = rndgen(4, 10, 0, 1, -1);
@@ -169,14 +169,14 @@ function pressure() {
                     "&nbsp;<sup>O</sup>C is heated at a constant pressure until its volume is doubled, " + 
                     "what will be the final temperature, in <sup>O</sup>C?";
             suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_2=V_1\\times2=" + v2 + "\\ m^3\\\\\\)";
             suma += "\\(T_2=\\ ?\\ ^OC\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\\\[5pt]";
-            suma += "T_2&=\\frac{T_1 V_2}{V_1}=\\frac{" + (t1 + 273.15) + "\\times" + v2 + "}{" + v1 + "}=" + 
-                    dp(((t1 + 273.15) * v2) / v1, 2, -1) + "\\ K\\\\[5pt]";
-            suma += "&=" + dp(((t1 + 273.15) * v2) / v1, 2, -1) + "-273.15=\\underline{\\mathbf{" + 
-                    (dp(((t1 + 273.15) * v2) / v1, 2, -1) - 273.15) + "\\ ^OC}}\\end{aligned}$$";
+            suma += "T_2&=\\frac{T_1 V_2}{V_1}=\\frac{" + dp(t1 + 273.15, 2, -1) + "\\times" + v2 + "}{" + v1 + "}=" + 
+                    dp((dp(t1 + 273.15, 2, -1) * v2) / v1, 2, -1) + "\\ K\\\\[5pt]";
+            suma += "&=" + dp((dp(t1 + 273.15, 2, -1) * v2) / v1, 2, -1) + "-273.15=\\underline{\\mathbf{" + 
+                    (dp((dp(t1 + 273.15, 2, -1) * v2) / v1, 2, -1) - 273.15) + "\\ ^OC}}\\end{aligned}$$";
             break;
         case 9:
             v1 = rndgen(5, 20, 0, 1, -1);
@@ -190,15 +190,15 @@ function pressure() {
                     "&nbsp;<sup>O</sup>C, calculate the final volume of the air, to an accuracy of 2 decimal places.";
             suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
             suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(P_2=" + p2 + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + (t2 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + 
-                    "\\times" + (t2 + 273.15) + "}{" + (t1 + 273.15) + "\\times" + p2 + 
+                    "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "\\times" + p2 + 
                     "\\times10^3}=\\underline{\\mathbf{" + 
-                    dp((p1 * 1000 * v1 * (t2 + 273.15)) / ((t1 + 273.15) * p2 * 1000), 4, 2) + 
+                    dp((p1 * 1000 * v1 * dp(t2 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p2 * 1000), 4, 2) + 
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$"; 
             break;
         case 10:
@@ -212,7 +212,7 @@ function pressure() {
             sumq += "ii. The air is then heated at a constant pressure until it occupies its original volume. " + 
                     "Calculate the final temperature in <sup>O</sup>C.";
             suma += "\\(P_1=" + p1 + "\\ bar\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + (t1 + 273.15) + "\\ K\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
             suma += "\\(V_1=4m^3\\\\\\)";
             suma += "\\(V_2=1m^3\\\\\\)";
             suma += "\\(P_2=\\ ?\\ bar\\\\\\)";
@@ -223,10 +223,10 @@ function pressure() {
                     dp(p1 * v1 / v2, 3, -1) + "\\ bar\\\\[5pt]";
             suma += "ii.\\ \\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
-            suma += "T_2&=\\frac{V_2 T_1}{V_1}=\\frac{" + v1 + "\\times" + (t1 + 273.15) + "}{" + v2 + "}=" + 
-                    thouSep(dp(v1 * (t1 + 273.15) / v2, 3, -1), "\\ ") + "\\ K\\\\[5pt]";
-            suma += "&=" + thouSep(dp(v1 * (t1 + 273.15) / v2, 3, -1), "\\ ") + "-273.15=\\underline{\\mathbf{" + 
-                    (dp(v1 * (t1 + 273.15) / v2, 3, -1) - 273.15) + "^OC}}\\end{aligned}$$";
+            suma += "T_2&=\\frac{V_2 T_1}{V_1}=\\frac{" + v1 + "\\times" + dp(t1 + 273.15, 2, -1) + "}{" + v2 + "}=" + 
+                    thouSep(dp(v1 * dp(t1 + 273.15, 2, -1) / v2, 3, -1), "\\ ") + "\\ K\\\\[5pt]";
+            suma += "&=" + thouSep(dp(v1 * dp(t1 + 273.15, 2, -1) / v2, 3, -1), "\\ ") + "-273.15=\\underline{\\mathbf{" + 
+                    (dp((v1 * dp(t1 + 273.15, 2, -1) / v2) - 273.15, 3, -1)) + "^OC}}\\end{aligned}$$";
             break;
         case 11:
             document.getElementById("noteslink").onclick = function() {

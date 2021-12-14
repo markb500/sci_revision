@@ -36,12 +36,12 @@ function machines() {
             } while((se / sl) / (dp(se / sl, 4, 2)) !== 1)
             vr = se / sl;
             ma = dp(vr * eff, 4, -1);
-            sumq += "A lever system has an efficiency of " + eff * 100 + "&nbsp;% when used to lift a mass of " + 
-                    thouSep(load / 9.81, "&nbsp;") + 
+            sumq += "A lever system has an efficiency of " + dp(eff * 100, 2, -1) + "&nbsp;% when used to lift a mass of " + 
+                    thouSep(dp(load / 9.81, 4, -1), "&nbsp;") + 
                     "&nbsp;kg. Calculate, to 2 decimal places, the effort needed to raise the load when the effort moves " + 
                     se + "&nbsp;m to raise the load by " + sl + "&nbsp;m.";
-            suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
-            suma += "\\(load=" + (load / 9.81) + "\\times9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
+            suma += "\\(load=" + (dp(load / 9.81, 4, -1)) + "\\times9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
             suma += "\\(s_E=" + se + "\\ m\\\\\\)";
             suma += "\\(s_L=" + sl + "\\ m\\\\\\)";
             suma += "\\(effort=\\ ?\\\\\\)";
@@ -62,10 +62,10 @@ function machines() {
             eff = rndgen(0.45, 0.74, 2, 0.01, -1);
             effort = rndgen(80, 200, 0, 1, -1);
             ma = dp(eff * vr, 2, -1);
-            sumq += "A " + vr + " pulley system with an efficiency of " + (eff * 100) + 
+            sumq += "A " + vr + " pulley system with an efficiency of " + dp(eff * 100, 2, -1) + 
                     "&nbsp;% is fitted in a workshop. What load can be lifted by an applied effort of " + effort + "&nbsp;N?";
             suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\\\\\)";
-            suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(effort=" + effort + "\\ N\\\\\\)";
             suma += "\\(load=\\ ?\\ N\\\\\\)";
             suma += "$$\\begin{aligned}\\eta&=\\frac{MA}{VR}\\\\[5pt]";
@@ -90,10 +90,10 @@ function machines() {
             } else {
                 txt = "a";
             }
-            sumq += "A mass of " + load / 9.81 + "&nbsp;kg is lifted by " + txt + " " + vr + "&nbsp;pulley system. If the applied effort is " +   thouSep(effort, "&nbsp;") + "&nbsp;N, calculate:<BR>";
+            sumq += "A mass of " + dp(load / 9.81, 4, -1) + "&nbsp;kg is lifted by " + txt + " " + vr + "&nbsp;pulley system. If the applied effort is " +   thouSep(effort, "&nbsp;") + "&nbsp;N, calculate:<BR>";
             sumq += "i. the mechanical advantage of the system, rounded to 2 decimal places.<BR>";
             sumq += "ii. the percentage efficiency of the system, to the nearest whole number.";
-            suma += "\\(load=" + (load / 9.81) + "\\times 9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
+            suma += "\\(load=" + (dp(load / 9.81, 4, -1)) + "\\times 9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
             suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\\\\\)";
             suma += "\\(effort=" + thouSep(effort, "\\ ") + "\\ N\\\\\\)";
             suma += "\\(MA=\\ ?\\\\\\)";
@@ -149,13 +149,13 @@ function machines() {
             ma = dp(eff * vr, 1, -1);
             sumq += "A screw jack has a single start thread of pitch " + (sl * 1000) + 
                     "&nbsp;mm and the effort is applied at a radius of " + radius + 
-                    "&nbsp;m. If the efficiency of the jack is " + (eff * 100) + 
+                    "&nbsp;m. If the efficiency of the jack is " + dp(eff * 100, 2, -1) + 
                     "&nbsp;%, calculate, to the nearest whole number, the maximum load that can be " + 
                     "raised by an effort of " + effort + "&nbsp;N.";
             suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
             suma += "\\(s_E=2\\times \\pi \\times r=2\\times\\pi\\times" + radius + "=" + se + 
                     "\\ m\\ (3\\ dp)\\\\\\)";
-            suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(effort=" + effort + "\\ N\\\\\\)";
             suma += "\\(load=\\ ?\\ N\\\\\\)";
             suma += "$$\\begin{aligned}VR&=\\frac{s_E}{s_L}=\\frac{" + se + "}{" + (sl * 1000) + 
@@ -178,10 +178,10 @@ function machines() {
             vr = dp(se / sl, 2, -1);
             ma = dp(eff * vr, 2, -1);
             sumq += "A screw jack has a thread of " + (sl * 1000) + "&nbsp;mm pitch and an efficiency of " + 
-                    (eff * 100) + "&nbsp;%. An effort of " + effort + "&nbsp;N is applied at a radius of " + 
+                    dp(eff * 100, 2, -1) + "&nbsp;%. An effort of " + effort + "&nbsp;N is applied at a radius of " + 
                     (radius * 100) + "&nbsp;cm. Calculate the load that is lifted, accurate to 1 decimal place.";
             suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
-            suma += "\\(\\eta=\\frac{" + (eff * 100) + "}{100}=" + eff + "\\\\\\)";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(effort=" + effort + "\\ N\\\\\\)";
             suma += "\\(s_E=2\\times \\pi \\times r=2 \\times \\pi \\times" + (radius * 100) + 
                     "\\times10^{-2}=" + se + "\\ m\\\\\\)";
