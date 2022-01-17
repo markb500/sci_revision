@@ -23,7 +23,7 @@ function pressure() {
         window.open("images/Sci Bk2 Statics v1.10.pdf#page=49", "_blank")
     }
     do {
-        sum = rndgen(1, 15, 0, 1, -1);
+        sum = rndgen(1, 16, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
     prev2sum = prevsum;
     prevsum = sum;
@@ -345,8 +345,85 @@ function pressure() {
             suma += "\\(\\rho_1=" + rho1 + "\\ kg/m^3\\\\\\)";
             suma += "\\(\\rho_2=" + rho2 + "\\ kg/m^3\\\\\\)";
             suma += "$$F=\\rho ghA=\\rho gV=( \\rho_2 - \\rho_1 )gV=(" + rho2 + "-" + rho1 + 
-                    ")\\times" + g + "\\times" + thouSep(v1, "\\ ") + "=" + 
-                    thouSep(dp((rho2 - rho1) * g * v1, 3, 1), "\\ ") + "\\ N\\ (1\\ dp)$$";
+                    ")\\times" + g + "\\times" + thouSep(v1, "\\ ") + "=\\underline{\\mathbf{" + 
+                    thouSep(dp((rho2 - rho1) * g * v1, 3, 1), "\\ ") + "\\ N\\ (1\\ dp)}}$$";
+            break;
+        case 16:
+            document.getElementById("noteslink").onclick = function() {
+                window.open("images/Sci Bk2 Statics v1.10.pdf#page=60", "_blank")
+            }
+            let colhdgs = [
+                ['Height', '(km)'], ['Pressure', '(mbar)'], ['Density', '(kg/m<sup>3</sup>)'], ['Temperature', '(K)']
+            ];
+            let isatable = [        //Extract of ISA table in Science Bk 2
+                [2, 794.95, 1.006, 275.2],
+                [3, 701.09, 0.909, 268.7],
+                [4, 616.4, 0.819, 262.2],
+                [5, 540.20, 0.736, 255.7],
+                [6, 471.81, 0.660, 249.2],
+                [7, 410.61, 0.589, 242.7],
+                [8, 356.00, 0.525, 236.2],
+                [9, 307.42, 0.466, 229.7],
+                [10, 264.36, 0.413, 223.2],
+                [11, 226.32, 0.364, 216.7]
+            ];
+            var isarow = rndgen(0, 9, 0, 1, -1);
+            var isacol = rndgen(1, 3, 0, 1, -1);
+            var lwralt = isatable[isarow][0];
+            var upralt = isatable[isarow + 1][0];
+            var midalt = rndgen(0.1, 0.9, 1, 0.1, -1);
+            var alt = lwralt + midalt;
+            var figurediff = dp(midalt * (isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1);
+            switch(isacol) {
+                case 1:
+                    var unit = "mbar";
+                    break;
+                case 2:
+                    var unit = "kg/m^3";
+                    break;
+                case 3:
+                    var unit = "K";
+                    break;
+            }
+
+            sumq += "Given the ISA Table extract below, find the atmospheric " + colhdgs[isacol][0].toLowerCase() + 
+                    " at an altitude of " + thouSep(alt * 1000, "&nbsp;") + " m.";
+            sumq += "<table class='table table-bordered table-hover table-sm table-responsive text-center'>";
+            sumq += "<thead>";
+            sumq += "<tr>";
+            sumq += "<th scope='col'>" + colhdgs[0][0] + " " + colhdgs[0][1] + "</th>";
+            sumq += "<th scope='col'>" + colhdgs[1][0] + " " + colhdgs[1][1] + "</th>";
+            sumq += "<th scope='col'>" + colhdgs[2][0] + " " + colhdgs[2][1] + "</th>";
+            sumq += "<th scope='col'>" + colhdgs[3][0] + " " + colhdgs[3][1] + "</th>";
+            sumq += "</tr>";
+            sumq += "</thead>";
+            sumq += "<tbody>";
+            sumq += "<tr>";
+            sumq += "<td>" + isatable[isarow][0] + "</td>";
+            sumq += "<td>" + isatable[isarow][1] + "</td>";
+            sumq += "<td>" + isatable[isarow][2] + "</td>";
+            sumq += "<td>" + isatable[isarow][3] + "</td>";
+            sumq += "</tr>";
+            sumq += "<tr>";
+            sumq += "<td>" + isatable[isarow + 1][0] + "</td>";
+            sumq += "<td>" + isatable[isarow + 1][1] + "</td>";
+            sumq += "<td>" + isatable[isarow + 1][2] + "</td>";
+            sumq += "<td>" + isatable[isarow + 1][3] + "</td>";
+            sumq += "</tr>";
+            sumq += "</tbody><BR><BR>";
+
+            suma += "\\(" + colhdgs[isacol][0] + "\\ at\\ an\\ altitude\\ of\\ " + thouSep(lwralt * 1000, "\\ ") + "\\ m=" + 
+                                                    isatable[isarow][isacol] + "\\ " + unit + "\\\\\\)";
+            suma += "\\(" + colhdgs[isacol][0] + "\\ at\\ an\\ altitude\\ of\\ " + thouSep(upralt * 1000, "\\ ") + "\\ m=" + 
+                                                isatable[isarow + 1][isacol] + "\\ " + unit + "\\\\\\)";
+            suma += "\\(Difference\\ in\\ " + colhdgs[isacol][0] + "=" + isatable[isarow][isacol] + "-" + isatable[isarow + 1][isacol] + 
+                    "=" + dp((isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1) + "\\ " + unit + "\\\\\\)";
+            suma += "\\(Change\\ in\\ " + colhdgs[isacol][0] + "\\ over\\ " + (midalt * 1000) + "\\ m=\\frac{" + (midalt * 1000) + 
+                    "}{1000}\\times" + dp((isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1) + 
+                    "=" + figurediff + "\\ " + unit + "\\\\\\)";
+            suma += "\\(" + colhdgs[isacol][0] + "\\ at\\ an\\ altitude\\ of\\ " + thouSep(alt * 1000, "\\ ") + "\\ m=" + 
+                    isatable[isarow][isacol] + "-" + figurediff + "=\\underline{\\mathbf{" + 
+                    dp(isatable[isarow][isacol] - figurediff, 4, -1) + "\\ " + unit + "}}\\)";
             break;
     }
     document.getElementById("q").innerHTML = sumq;
