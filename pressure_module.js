@@ -107,7 +107,7 @@ function pressure() {
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_1&=\\frac{P_2 V_2 T_1}{T_2 P_1}=\\frac{" + thouSep(p2, "\\ ") + "\\times" + v2 + 
                     "\\times" + dp(t1 + 273.15, 2, -1) + "}{" + dp(t2 + 273.15, 2, -1) + "\\times" + p1 + "}=\\underline{\\mathbf{" + 
-                    dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p1), 2, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
+                    dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t2 + 273.15, 2, -1) * p1), 2, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
             p1 = rndgen(80, 150, 0, 1, -1);
