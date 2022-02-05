@@ -91,7 +91,7 @@ function spacediag() {
         ctx.textAlign = "right";
         ctx.fillText("V\u2081 " + v1 + " N ", origx + 0.5 * (v1x - origx), origy + 20 + 0.5 * (v1y - origy));
         ctx.textAlign = "left";
-        ctx.fillText((ang1 * -1) + "\xB0", origx + (40 * Math.cos((Math.PI/180) * ang1)), origy + 14);
+        ctx.fillText((ang1) + "\xB0", origx + (40 * Math.cos((Math.PI/180) * ang1)), origy + 14);
         arrhead(ctx, v1x, v1y, -ang1, 3, "black");
     } else {
         ctx.textAlign = "left";
