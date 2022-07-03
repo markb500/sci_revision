@@ -239,7 +239,7 @@ function linmot() {
                 s1 = dp(0.5 * v * t1, 2, -1);
                 s2 = dp(v * t2, 2, -1);
                 s3 = dp(0.5 * v * t3, 2, -1);
-                st = s1 + s2 + s3;
+                st = dp(s1 + s2 + s3, 2, -1);
             } while (t1 === t3)
             sumq += "A cyclist accelerates from rest to a velocity of " + v + "&nbsp;m/s in " + 
                     t1 + "&nbsp;s. He then continues at this velocity for " + 
@@ -257,7 +257,7 @@ function linmot() {
             suma += "s_2&=vt=" + v + "\\times" + t2 + "=\\underline{\\mathbf{" + thouSep(s2, "\\ ") + "\\ m}}\\ \\ \\ Steady\\ phase.\\\\[5pt]";
             suma += "s_3&=\\frac{1}{2}(v+u)t=\\frac{1}{2}(" + 
                     v + "+" + u + ")\\times" + t3 + "=\\underline{\\mathbf{" + s3 + "\\ m}}\\ \\ \\ Deceleration\\ phase.\\\\[15pt]";
-            suma += "ii.\\ \\ s_T&=s_1+s_2+s_3=" + s1 + "+" + thouSep(s2, "\\ ") + "+" + s3 + "=\\underline{\\mathbf{" + thouSep(st) + "\\ m}}\\\\[15pt]";
+            suma += "ii.\\ \\ s_T&=s_1+s_2+s_3=" + s1 + "+" + thouSep(s2, "\\ ") + "+" + s3 + "=\\underline{\\mathbf{" + thouSep(st, "\\ ") + "\\ m}}\\\\[15pt]";
             suma += "iii.\\ v&=\\frac{s}{t}=\\frac{s_T}{t_1+t_2+t_3}=\\frac{" + thouSep(st, "\\ ") + "}{" + t1 + "+" + t2 + "+" + t3 + "}=\\underline{\\mathbf{" + dp(st / (t1 + t2 + t3), 3, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 11:
