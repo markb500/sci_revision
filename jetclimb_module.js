@@ -65,11 +65,11 @@ function jetclimb() {
     ctx2.fillText(ang + "\xB0", origx - 2, origy + 72);
     ctx2.fillText(" net thrust    ", thrustx + 0.3 * (wtx - thrustx), thrusty + 10 + 0.5 * (wty - thrusty));
     ctx2.font = "bold 15px Comic Sans MS";
-    ctx2.fillText(thrust + " kN (\u00B1 4 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
+    ctx2.fillText(thrust + " kN (\u00B1 10 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
     ctx2.font = "normal 15px Comic Sans MS";
     ctx2.fillText(" lift          ", thrustx + 0.5 * (origx - thrustx), thrusty - 35 - 0.5 * (thrusty - origy));
     ctx2.font = "bold 15px Comic Sans MS";
-    ctx2.fillText(lift + " kN (\u00B1 4 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
+    ctx2.fillText(lift + " kN (\u00B1 10 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
     ctx2.font = "normal 15px Comic Sans MS";
     ctx2.textAlign = "left";
     ctx2.fillText("Drawing not to scale.", 0, 20);
@@ -136,11 +136,11 @@ function animsolnclimb() {
         ctx2.fillText(ang + "\xB0", origx - 2, origy + 72);
         ctx2.fillText(" net thrust    ", thrustx + 0.3 * (wtx - thrustx), thrusty + 10 + 0.5 * (wty - thrusty));
         ctx2.font = "bold 15px Comic Sans MS";
-        ctx2.fillText(thrust + " kN (\u00B1 4 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
+        ctx2.fillText(thrust + " kN (\u00B1 10 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
         ctx2.font = "normal 15px Comic Sans MS";
         ctx2.fillText(" lift          ", thrustx + 0.5 * (origx - thrustx), thrusty - 35 - 0.5 * (thrusty - origy));
         ctx2.font = "bold 15px Comic Sans MS";
-        ctx2.fillText(lift + " kN (\u00B1 4 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
+        ctx2.fillText(lift + " kN (\u00B1 10 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
         ctx2.font = "normal 15px Comic Sans MS";
         ctx2.textAlign = "left";
         ctx2.fillText("Drawing not to scale.", 0, 20);
