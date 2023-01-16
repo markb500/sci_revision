@@ -65,11 +65,11 @@ function jetclimb() {
     ctx2.fillText(ang + "\xB0", origx - 2, origy + 72);
     ctx2.fillText(" net thrust    ", thrustx + 0.3 * (wtx - thrustx), thrusty + 10 + 0.5 * (wty - thrusty));
     ctx2.font = "bold 15px Comic Sans MS";
-    ctx2.fillText(thrust + " kN (\u00B1 10 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
+    ctx2.fillText(thrust + " kN (\u00B1 4 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
     ctx2.font = "normal 15px Comic Sans MS";
     ctx2.fillText(" lift          ", thrustx + 0.5 * (origx - thrustx), thrusty - 35 - 0.5 * (thrusty - origy));
     ctx2.font = "bold 15px Comic Sans MS";
-    ctx2.fillText(lift + " kN (\u00B1 10 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
+    ctx2.fillText(lift + " kN (\u00B1 4 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
     ctx2.font = "normal 15px Comic Sans MS";
     ctx2.textAlign = "left";
     ctx2.fillText("Drawing not to scale.", 0, 20);
@@ -91,6 +91,16 @@ function jetclimb() {
     arrhead(ctx2, wtx, wty, 90, 2, "red");
     arrhead(ctx2, thrustx, thrusty, 180 + ang, 2, "red");
     arrhead(ctx2, origx, origy, 270 + ang, 2, "red")
+    
+    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
+        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
+            SolnWin.document.getElementById("myCanvas3");
+            SolnWin.myCanvas3.height = 650;
+            SolnWin.myCanvas3.width = 550;
+            var ctx3 = SolnWin.myCanvas3.getContext('2d');
+            ctx3.drawImage(myCanvas2, 0, 0);
+        }
+    }
 
     document.getElementById("q").innerHTML = sumq;
     document.getElementById("btnSoln").style.visibility="visible";
@@ -136,11 +146,11 @@ function animsolnclimb() {
         ctx2.fillText(ang + "\xB0", origx - 2, origy + 72);
         ctx2.fillText(" net thrust    ", thrustx + 0.3 * (wtx - thrustx), thrusty + 10 + 0.5 * (wty - thrusty));
         ctx2.font = "bold 15px Comic Sans MS";
-        ctx2.fillText(thrust + " kN (\u00B1 10 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
+        ctx2.fillText(thrust + " kN (\u00B1 4 kN)", thrustx + 0.3 * (wtx - thrustx), thrusty + 30 + 0.5 * (wty - thrusty));
         ctx2.font = "normal 15px Comic Sans MS";
         ctx2.fillText(" lift          ", thrustx + 0.5 * (origx - thrustx), thrusty - 35 - 0.5 * (thrusty - origy));
         ctx2.font = "bold 15px Comic Sans MS";
-        ctx2.fillText(lift + " kN (\u00B1 10 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
+        ctx2.fillText(lift + " kN (\u00B1 4 kN)", thrustx + 0.5 * (origx - thrustx), thrusty - 15 - 0.5 * (thrusty - origy));
         ctx2.font = "normal 15px Comic Sans MS";
         ctx2.textAlign = "left";
         ctx2.fillText("Drawing not to scale.", 0, 20);

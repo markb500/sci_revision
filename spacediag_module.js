@@ -151,6 +151,17 @@ function spacediag() {
                                     origy - (110 * Math.sin((Math.PI/180) * angr * 0.3)));
     }
     arrhead(ctx2, rx, ry, -angr, 2, "red");
+    
+    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
+        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
+            SolnWin.document.getElementById("myCanvas3");
+            SolnWin.myCanvas3.height = 650;
+            SolnWin.myCanvas3.width = 550;
+            var ctx3 = SolnWin.myCanvas3.getContext('2d');
+            ctx3.drawImage(myCanvas, 0, 0);
+            ctx3.drawImage(myCanvas2, 0, 0);
+        }
+    }
 
     document.getElementById("q").innerHTML = sumq;
     document.getElementById("btnSoln").style.visibility="visible";
