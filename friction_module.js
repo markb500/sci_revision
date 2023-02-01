@@ -64,7 +64,7 @@ function friction() {
             } while(mu < 0.7 || mu > 0.9)
 
             sumq += "An aircraft lands wheels up. If the mass of the aircraft is " + (m / 1000) + "&nbsp;tonne and ";
-            sumq += "it is found that the force necessary to move it is " + thouSep((F / 1000), " ") + "&nbsp;kN, ";
+            sumq += "it is found that the force necessary to move it is " + thouSep((F / 1000), "&nbsp;") + "&nbsp;kN, ";
             sumq += "determine the coefficient of friction between the aircraft and the runway.";
 
             suma += "\\(m=" + m / 1000 + "\\ T=" + (m / 1000) + "\\times 1000=" + thouSep(m, "\\ ") + "\\ kg\\\\\\)";
