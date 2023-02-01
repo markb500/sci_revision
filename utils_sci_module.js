@@ -74,27 +74,48 @@ function rndgen(lower, upper, dp, step, fix) {
     }
 }
 
-function dp(sum, dp, fix) {
-    //Rounds 'sum' to selected number of decimal places. Decimal places can be fixed.
-    //sum = number to be rounded
-    //dp = number of dec places
-    //fix = number of dp's fixed. -1 if no trailing zeros wanted.
-    var temp = 0, cnt = 0;
-    do {
-        if(fix === -1) {
-        cnt = dp;
-        temp = Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp);
-        } else {
-        // dp = fix + 2;
-        cnt = fix;
-        temp = (Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp)).toFixed(fix);
-        }
-        if(countDecimals(temp) > cnt) {
-            sum += Number.EPSILON;
-        }
-    } while(countDecimals(temp) > cnt);  //Avoids occasional float point errors
-    return temp;
-}
+function dp(num, scale, fix) {
+    if(!("" + num).includes("e")) {
+      if(fix === -1) {
+        return +(Math.round(num + "e+" + scale)  + "e-" + scale);
+      } else {
+        return (+(Math.round(num + "e+" + scale)  + "e-" + scale)).toFixed(fix);
+      }
+    } else {
+      var arr = ("" + num).split("e");
+      var sig = ""
+      if(+arr[1] + scale > 0) {
+        sig = "+";
+      }
+      if(fix === -1) {
+        return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale);
+      } else {
+        return (+(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale)).toFixed(fix);
+      }
+    }
+  }
+
+// function dp(sum, dp, fix) {
+//     //Rounds 'sum' to selected number of decimal places. Decimal places can be fixed.
+//     //sum = number to be rounded
+//     //dp = number of dec places
+//     //fix = number of dp's fixed. -1 if no trailing zeros wanted.
+//     var temp = 0, cnt = 0;
+//     do {
+//         if(fix === -1) {
+//         cnt = dp;
+//         temp = Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp);
+//         } else {
+//         // dp = fix + 2;
+//         cnt = fix;
+//         temp = (Math.round((sum + Number.EPSILON) * Math.pow(10, dp)) / Math.pow(10, dp)).toFixed(fix);
+//         }
+//         if(countDecimals(temp) > cnt) {
+//             sum += Number.EPSILON;
+//         }
+//     } while(countDecimals(temp) > cnt);  //Avoids occasional float point errors
+//     return temp;
+// }
 
 function fromsecs(t) {
     //Converts secs to mins and secs
