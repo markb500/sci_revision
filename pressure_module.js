@@ -50,7 +50,7 @@ function pressure() {
             suma += "$$\\begin{aligned}P_1 V_1 &= P_2 V_2\\qquad\\qquad\\qquad " + 
                     "Note:\\ temp\\ remains\\ constant.\\\\[5pt]";
             suma += "P_2&=\\frac{P_1 V_1}{V_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + "}{" + v2 + 
-                    "}=\\underline{\\mathbf{" + dp((p1 * v1) / v2, 3, 2) + "\\ kN/m^2\\ (2\\ dp)}}\\end{aligned}$$";
+                    "}=\\underline{\\mathbf{" + dp((p1 * v1) / v2, 2, 2) + "\\ kN/m^2\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 2:
             t1 = rndgen(20, 59, 0, 1, -1);
@@ -68,7 +68,7 @@ function pressure() {
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times10^{-6}\\times" + 
                     dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "}=\\underline{\\mathbf{" + 
-                    dp((v1 * Math.pow(10, -6) * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 3, 2) + "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
+                    dp((v1 * Math.pow(10, -6) * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 2, 2) + "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 3:
             p1 = rndgen(200, 500, 0, 1, -1);
@@ -91,7 +91,7 @@ function pressure() {
             suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + p1 + "\\times" + v1 + 
                     "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "\\times" + p2 + 
                     "}=\\underline{\\mathbf{" + 
-                    dp((p1 * v1 * dp(t2 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p2), 4, 3) + 
+                    dp((p1 * v1 * dp(t2 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p2), 3, 3) + 
                     "\\ m^3\\ (3\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
@@ -115,7 +115,7 @@ function pressure() {
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_1&=\\frac{P_2 V_2 T_1}{T_2 P_1}=\\frac{" + thouSep(p2, "\\ ") + "\\times" + v2 + 
                     "\\times" + dp(t1 + 273.15, 2, -1) + "}{" + dp(t2 + 273.15, 2, -1) + "\\times" + p1 + "}=\\underline{\\mathbf{" + 
-                    dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t2 + 273.15, 2, -1) * p1), 2, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
+                    dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t2 + 273.15, 2, -1) * p1), 1, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
             p1 = rndgen(80, 150, 0, 1, -1);
@@ -131,7 +131,7 @@ function pressure() {
             suma += "$$\\begin{aligned}\\frac{P_1}{T_1}&=\\frac{P_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ volume\\ remains\\ constant.\\\\[5pt]";
             suma += "P_2&=\\frac{P_1 T_2}{T_1}=\\frac{" + p1 + "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + 
-                    "}=\\underline{\\mathbf{" + dp((p1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 3, 1) + 
+                    "}=\\underline{\\mathbf{" + dp((p1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 1, 1) + 
                     "\\ psi\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
@@ -149,7 +149,7 @@ function pressure() {
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + 
             dp(t1 + 273.15, 2, -1) + "}=\\underline{\\mathbf{" + 
-                    thouSep(dp((v1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 3, 1), "\\ ") + "\\ m^3\\ (1\\ dp)}}\\end{aligned}$$";
+                    thouSep(dp((v1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 1, 1), "\\ ") + "\\ m^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
             v1 = rndgen(4, 10, 0, 1, -1);
@@ -166,7 +166,7 @@ function pressure() {
             suma += "$$\\begin{aligned}P_1 V_1&=P_2 V_2\\qquad\\qquad " + 
                     "Note:\\ temperature\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{P_1 V_1}{P_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + "}{" + p2 + 
-                    "\\times10^3}=\\underline{\\mathbf{" + dp((p1 * 1000 * v1) / (p2 * 1000), 4, 2) + 
+                    "\\times10^3}=\\underline{\\mathbf{" + dp((p1 * 1000 * v1) / (p2 * 1000), 2, 2) + 
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
@@ -206,7 +206,7 @@ function pressure() {
             suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + 
                     "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "\\times" + p2 + 
                     "\\times10^3}=\\underline{\\mathbf{" + 
-                    dp((p1 * 1000 * v1 * dp(t2 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p2 * 1000), 4, 2) + 
+                    dp((p1 * 1000 * v1 * dp(t2 + 273.15, 2, -1)) / (dp(t1 + 273.15, 2, -1) * p2 * 1000), 2, 2) + 
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$"; 
             break;
         case 10:
@@ -253,7 +253,7 @@ function pressure() {
                     h + "=\\underline{\\mathbf{" + thouSep(dp(rho * 1000 * g * h, 4, 2), "\\ ") + 
                     "\\ N/m^2\\ (2\\ dp)}}\\\\[5pt]";
             suma += "&=\\frac{" + dp(rho * 1000 * g * h, 4, 2) + "}{" + thouSep(100000, "\\ ") + 
-                    "}=\\underline{\\mathbf{" + dp(dp(rho * 1000 * g * h, 4, 2) / 100000, 4, 2) + 
+                    "}=\\underline{\\mathbf{" + dp(dp(rho * 1000 * g * h, 4, 2) / 100000, 2, 2) + 
                     "\\ bar\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 12:
@@ -279,7 +279,7 @@ function pressure() {
                     "+" + patmos + "\\times10^3=\\underline{\\mathbf{" + thouSep(pabs, "\\ ") + 
                     "\\ N/m^2\\ (1\\ dp)}}\\\\[5pt]";
             suma += "&=\\frac{" + thouSep(pabs, "\\ ") + "}{100\\ 000}=\\underline{\\mathbf{" + 
-                    dp(pabs / 100000, 3, 1) + "\\ bar\\ (1\\ dp)}}\\end{aligned}$$";
+                    dp(pabs / 100000, 1, 1) + "\\ bar\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 13:
             document.getElementById("noteslink").onclick = function() {
@@ -308,7 +308,7 @@ function pressure() {
             suma += "P_{ATMOS}&=\\rho_{BAR}\\ g\\ h_{BAR}=" + thouSep(rhobar, "\\ ") + "\\times" + g + 
                     "\\times" + hbar + "\\times10^{-3}=" + thouSep(patmos, "\\ ") + "\\ N/m^2\\\\[5pt]";
             suma += "P_{ABS}&=P_{GUAGE}+ P_{ATMOS}=" + thouSep(pguage, "\\ ") + "+" + thouSep(patmos, "\\ ") + 
-                    "=\\underline{\\mathbf{" + thouSep(dp((pguage + patmos), 4, 2), "\\ ") + 
+                    "=\\underline{\\mathbf{" + thouSep(dp((pguage + patmos), 2, 2), "\\ ") + 
                     "\\ N/m^2}}\\ (2\\ dp)\\end{aligned}$$";
             break;
         case 14:
@@ -336,7 +336,7 @@ function pressure() {
                     dp((F * 1000000) / (rhofresh * g * a), 4, 2) + "\\ m\\ (2\\ dp)}}\\\\[5pt]";
             suma += "h_{SEA}&=\\frac{F}{\\rho_{SEA}\\ g\\ A}=\\frac{" + F + "\\times10^6}{" + 
                     thouSep(rhosea, "\\ ") + "\\times" + g + "\\times" + a + "}=\\underline{\\mathbf{" + 
-                    dp((F * 1000000) / (rhosea * g * a), 4, 2) + "\\ m\\ (2\\ dp)}}\\end{aligned}$$";
+                    dp((F * 1000000) / (rhosea * g * a), 2, 2) + "\\ m\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 15:
             document.getElementById("noteslink").onclick = function() {
@@ -354,7 +354,7 @@ function pressure() {
             suma += "\\(\\rho_2=" + rho2 + "\\ kg/m^3\\\\\\)";
             suma += "$$F=\\rho ghA=\\rho gV=( \\rho_2 - \\rho_1 )gV=(" + rho2 + "-" + rho1 + 
                     ")\\times" + g + "\\times" + thouSep(v1, "\\ ") + "=\\underline{\\mathbf{" + 
-                    thouSep(dp((rho2 - rho1) * g * v1, 3, 1), "\\ ") + "\\ N\\ (1\\ dp)}}$$";
+                    thouSep(dp((rho2 - rho1) * g * v1, 1, 1), "\\ ") + "\\ N\\ (1\\ dp)}}$$";
             break;
         case 16:
             document.getElementById("noteslink").onclick = function() {

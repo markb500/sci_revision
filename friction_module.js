@@ -43,7 +43,7 @@ function friction() {
         case 1:
             m = rndgen(20, 80, 0, 1, -1);
             mu = rndgen(0.35, 0.8, 2, 0.01, -1);
-            F = dp(m * g * mu, 3, 1);
+            F = dp(m * g * mu, 1, 1);
             sumq += "A steel block, mass " + m + "&nbsp;kg, rests on a horizontal wooden floor. If the coefficient of ";
             sumq += "friction between steel and wood is " + mu + ", determine the minimum force necessary to move ";
             sumq += "the block if the force is applied horizontally. Give your answer rounded to 1 decimal place.";
@@ -88,9 +88,9 @@ function friction() {
             F = rndgen(500000, 980000, 0, 500, -1);
             mu = rndgen(0.65, 0.9, 2, 0.01, -1);
             if(F / mu < 1000000) {
-                N = dp((F / mu) / 1000, 4, 2);
+                N = dp((F / mu) / 1000, 2, 2);
             } else {
-                N = dp((F / mu) / 1000000, 4, 2);
+                N = dp((F / mu) / 1000000, 2, 2);
             }
             sumq += "The material used in a braking system is tested and it is found that the coefficient ";
             sumq += "of friction between the material and the steel brake disk is " + mu + ". Calculate the normal ";

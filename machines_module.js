@@ -41,8 +41,8 @@ function machines() {
             do {
                 se = rndgen(6, 15, 0, 1, -1);
                 sl = rndgen(0.5, 0.7, 2, 0.01, -1);
-            } while((se / sl) / (dp(se / sl, 4, 2)) !== 1)
-            vr = se / sl;
+            } while((se / sl) / (dp(se / sl, 2, 2)) !== 1 || (se / sl) === 10)
+            vr = dp(se / sl, 2, -1);
             ma = dp(vr * eff, 4, -1);
             sumq += "A lever system has an efficiency of " + dp(eff * 100, 2, -1) + "&nbsp;% when used to lift a mass of " + 
                     thouSep(dp(load / 9.81, 4, -1), "&nbsp;") + 
@@ -59,7 +59,7 @@ function machines() {
             suma += "MA&=\\eta \\times VR=" + eff + "\\times" + vr + "=" + dp(eff * vr, 4, -1) + "\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}\\\\[5pt]";
             suma += "effort&=\\frac{load}{MA}=\\frac{" + thouSep(load, "\\ ") + "}{" + ma + 
-                    "}=\\underline{\\mathbf{" + thouSep(dp(load / ma, 4, 2), "\\ ") + 
+                    "}=\\underline{\\mathbf{" + thouSep(dp(load / ma, 2, 2), "\\ ") + 
                     "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 2:
@@ -107,7 +107,7 @@ function machines() {
             suma += "\\(MA=\\ ?\\\\\\)";
             suma += "\\(eta=\\ ?\\ \\%\\\\\\)";
             suma += "$$\\begin{aligned}i.\\ \\ MA&=\\frac{load}{effort}=\\frac{" + thouSep(load, "\\ ") + "}{" + 
-                    thouSep(effort, "\\ ") + "}=\\underline{\\mathbf{" + ma + "\\ (2\\ dp)}}\\\\[15pt]";
+                    thouSep(effort, "\\ ") + "}=\\underline{\\mathbf{" + dp(load / effort, 2, 2) + "\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ \\ \\ \\ \\ \\eta &=\\frac{MA}{VR}\\times100=\\frac{" + ma + "}{" + vr + 
                     "}\\times100=\\underline{\\mathbf{" + dp(eff * 100, 0, -1) + "\\ \\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
@@ -138,9 +138,9 @@ function machines() {
             suma += "\\(MA=\\ ?\\\\\\)";
             suma += "\\(\\eta=\\ ?\\ \\%\\\\\\)";
             suma += "$$\\begin{aligned}VR&=\\frac{ s_E }{ s_L }=\\frac{" + se + "}{" + (sl * 1000) + 
-                    "\\times10^{-3}}=\\underline{\\mathbf{" + vr + "\\ (1\\ dp)}}\\\\[25pt]";
+                    "\\times10^{-3}}=\\underline{\\mathbf{" + dp(se / sl, 1, 1) + "\\ (1\\ dp)}}\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}=\\frac{" + (load / 1000) + "\\times10^3}{" + effort + 
-                    "}=\\underline{\\mathbf{" + ma + "\\ (1\\ dp)}}\\\\[25pt]";
+                    "}=\\underline{\\mathbf{" + dp(load / effort, 1, 1) + "\\ (1\\ dp)}}\\\\[25pt]";
             suma += "\\eta&=\\frac{MA}{VR}\\times100=\\frac{" + ma + "}{" + vr + 
                     "}\\times100=\\underline{\\mathbf{" + eff + "\\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
@@ -153,7 +153,7 @@ function machines() {
             se = dp(2 * Math.PI * radius, 3, -1);
             eff = rndgen(0.35, 0.54, 2, 0.01, -1);
             effort = rndgen(300, 500, 0, 1, -1);
-            vr = dp(se / sl, 1, -1);
+            vr = dp(se / sl, 2, -1);
             ma = dp(eff * vr, 1, -1);
             sumq += "A screw jack has a single start thread of pitch " + (sl * 1000) + 
                     "&nbsp;mm and the effort is applied at a radius of " + radius + 
@@ -169,7 +169,7 @@ function machines() {
             suma += "$$\\begin{aligned}VR&=\\frac{s_E}{s_L}=\\frac{" + se + "}{" + (sl * 1000) + 
                     "\\times10^{-3}}=" + vr + "\\\\[25pt]";
             suma += "\\eta&=\\frac{MA}{VR}\\\\[5pt]";
-            suma += "MA&=\\eta \\times VR=" + eff + "\\times" + vr + "=" + ma + "\\ (1\\ dp)\\\\[25pt]";
+            suma += "MA&=\\eta \\times VR=" + eff + "\\times" + vr + "=" + dp(eff * vr, 1, 1) + "\\ (1\\ dp)\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}\\\\[5pt]";
             suma += "load&=MA\\times effort=" + ma + "\\times" + effort + "=\\underline{\\mathbf{" + 
                     thouSep(dp(ma * effort, 0, -1), "\\ ") + "\\ N\\ (0\\ dp)}}\\end{aligned}$$";
@@ -187,7 +187,7 @@ function machines() {
             ma = dp(eff * vr, 2, -1);
             sumq += "A screw jack has a thread of " + (sl * 1000) + "&nbsp;mm pitch and an efficiency of " + 
                     dp(eff * 100, 2, -1) + "&nbsp;%. An effort of " + effort + "&nbsp;N is applied at a radius of " + 
-                    (radius * 100) + "&nbsp;cm. Calculate the load that is lifted, accurate to 1 decimal place.";
+                    dp(radius * 100, 1, -1) + "&nbsp;cm. Calculate the load that is lifted, accurate to 1 decimal place.";
             suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
             suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
             suma += "\\(effort=" + effort + "\\ N\\\\\\)";
@@ -197,10 +197,10 @@ function machines() {
             suma += "$$\\begin{aligned}VR&=\\frac{s_E}{s_L}=\\frac{" + se + "}{" + (sl * 1000) + 
                     "\\times10^{-3}}=" + vr + "\\\\[25pt]";
             suma += "\\eta&=\\frac{MA}{VR}\\\\[5pt]";
-            suma += "MA&=\\eta \\times VR=" + eff + "\\times" + vr + "=" + ma + "\\ (2\\ dp)\\\\[25pt]";
+            suma += "MA&=\\eta \\times VR=" + eff + "\\times" + vr + "=" + dp(eff * vr, 2, 2) + "\\ (2\\ dp)\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}\\\\[5pt]";
             suma += "load&=MA\\times effort=" + ma + "\\times" + effort + 
-                    "=\\underline{\\mathbf{" + (thouSep(dp(ma * effort, 3, 1), "\\ ")) + "\\ N\\ (1\\ dp)}}\\end{aligned}$$";
+                    "=\\underline{\\mathbf{" + (thouSep(dp(ma * effort, 1, 1), "\\ ")) + "\\ N\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
             document.getElementById("noteslink").onclick = function() {
@@ -224,10 +224,10 @@ function machines() {
             suma += "\\(t_4=" + t4 + "\\ teeth\\\\\\)";
             suma += "\\(N_1=" + n1 + "\\ RPM\\\\\\)";
             suma += "$$\\begin{aligned}VR&=\\frac{t_2 t_4}{t_1 t_3}=\\frac{" + t2 + "\\times" + t4 + "}{" + t1 + 
-                    "\\times" + t3 + "}=" + vr + "\\ (2\\ dp)\\\\[25pt]";
+                    "\\times" + t3 + "}=" + dp((t2 * t4) / (t1 * t3), 2, 2) + "\\ (2\\ dp)\\\\[25pt]";
             suma += "VR&=\\frac{N_1}{N_4}\\\\[5pt]";
             suma += "N_4&=\\frac{N_1}{VR}=\\frac{" + n1 + "}{" + vr + "}=\\underline{\\mathbf{" + 
-                    dp(n1 / vr, 3, 1) + "\\ RPM\\ (1\\ dp)}}\\end{aligned}$$";
+                    dp(n1 / vr, 1, 1) + "\\ RPM\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
             document.getElementById("noteslink").onclick = function() {

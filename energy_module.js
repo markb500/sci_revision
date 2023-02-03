@@ -69,7 +69,7 @@ function energy() {
         case 2:
             ke = rndgen(160, 285, 1, 10, -1);
             m = rndgen(70000, 90000, 0, 1000, -1);
-            v = dp(Math.sqrt((2 * ke * 1000000) / (m)), 4, 2);
+            v = dp(Math.sqrt((2 * ke * 1000000) / (m)), 2, 2);
             sumq += "The kinetic energy of an aircraft on take-off is " + ke + "&nbsp;MJ. If the aircraft has a mass ";
             sumq += "of " + m / 1000 + "&nbsp;tonnes, calculate the take-off velocity, ";
             sumq += "rounding your answer to 2 decimal places.";
@@ -80,7 +80,7 @@ function energy() {
             suma += "$$\\begin{aligned}KE&=\\frac{1}{2}mv^2\\\\[5pt]";
             suma += "v&=\\sqrt{\\frac{2KE}{m}}\\\\[5pt]";
             suma += "&=\\sqrt{\\frac{2\\times" + ke + "\\times10^6}{" + m / 1000 + "\\times10^3}}=" + v + 
-                            "\\ m/s\\end{aligned}$$";
+                            "\\ m/s\\ (2\\ dp)\\end{aligned}$$";
             break;
         case 3:
             m = rndgen(30, 90, 0, 1, -1);
@@ -96,22 +96,22 @@ function energy() {
             suma += "\\(h=" + h + "\\ m\\\\\\)";
             suma += "\\(g=\\ 9.81\\ m/s^2\\\\\\)";
             suma += "$$\\begin{aligned}a.\\ \\ &PE=mgh=" + m + "\\times" + g + "\\times" + h + "=" + 
-                            dp((m * g * h) / 1000, 4, 2) + "\\ kJ\\ (2\\ dp)\\\\[5pt]";
+                            dp((m * g * h) / 1000, 2, 2) + "\\ kJ\\ (2\\ dp)\\\\[5pt]";
             suma += "&KE=0.00\\ kJ\\\\[25pt]";
             suma += "b.\\ \\ &PE=mgh=" + m + "\\times" + g + "\\times" + h / 2 + "=" + 
-                            dp((m * g * (h / 2)) / 1000, 4, 2) + "\\ kJ\\ (2\\ dp)\\\\[5pt]";
+                            dp((m * g * (h / 2)) / 1000, 2, 2) + "\\ kJ\\ (2\\ dp)\\\\[5pt]";
             suma += "&KE=PE_a-PE_b=" + dp((m * g * h) / 1000, 2, -1) + "\\times10^3-" + 
                         dp((m * g * (h / 2)) / 1000, 2, -1) + "\\times10^3=" + 
-                        dp(((m * g * h) / 1000) - ((m * g * (h / 2)) / 1000), 4, 2) + "\\ kJ\\ (2\\ dp)\\\\[25pt]";
+                        dp(((m * g * h) / 1000) - ((m * g * (h / 2)) / 1000), 2, 2) + "\\ kJ\\ (2\\ dp)\\\\[25pt]";
             suma += "c.\\ \\ &PE=\\ 0.00\\ kJ\\\\[5pt]";
             suma += "&KE = PE_a-PE_c=" + dp((m * g * h) / 1000, 2, -1) + "\\times10^3-0=" + 
-                        dp((m * g * h) / 1000, 4, 2) + "\\ kJ\\ (2\\ dp)\\end{aligned}$$";
+                        dp((m * g * h) / 1000, 2, 2) + "\\ kJ\\ (2\\ dp)\\end{aligned}$$";
             break;
         case 4:
             m = rndgen(80, 140, 0, 1, -1);
             h = rndgen(5, 12, 0, 1, -1);
             pe = m * g * h;
-            v = dp(Math.sqrt((2 * pe) / m), 4, 2);
+            v = dp(Math.sqrt((2 * pe) / m), 2, 2);
             sumq += "A mass of " + m + "&nbsp;kg is dropped from a height of " + h + 
                         "&nbsp;m. Assuming no losses, calculate:<br>";
             sumq += "a. The potential energy of the mass before release, rounding your answer to 2 decimal places.<br>";
@@ -124,8 +124,8 @@ function energy() {
             suma += "\\(h=" + h + "\\ m\\\\\\)";
             suma += "\\(g=\\ 9.81\\ m/s^2\\\\\\)";
             suma += "$$\\begin{aligned}a.\\ \\ &PE=mgh=" + m + "\\times" + g + "\\times" + h + "=" + 
-                        thouSep(dp(pe, 4, 2), "\\ ") + "\\ J\\ (2\\ dp)\\\\[25pt]";
-            suma += "b.\\ \\ &KE=PE_a=" + thouSep(dp(pe, 4, 2), "\\ ") + "\\ J\\ (2\\ dp)\\\\[25pt]";
+                        thouSep(dp(pe, 2, 2), "\\ ") + "\\ J\\ (2\\ dp)\\\\[25pt]";
+            suma += "b.\\ \\ &KE=PE_a=" + thouSep(dp(pe, 2, 2), "\\ ") + "\\ J\\ (2\\ dp)\\\\[25pt]";
             suma += "c.\\ \\ &KE=\\frac{1}{2}mv^2\\\\[5pt]";
             suma += "&v=\\sqrt{\\frac{2KE}{m}}\\\\[5pt]";
             suma += "&\\ =\\sqrt{\\frac{2\\times" + thouSep(dp(pe, 2, -1), "\\ ") + "}{" + m + "}}\\\\[5pt]";
@@ -152,7 +152,7 @@ function energy() {
             suma += "&=" + thouSep(dp(F * s, 2, -1), "\\ ") + "\\ J\\\\[25pt]";
             suma += "P&=\\frac{W}{t}\\\\[5pt]";
             suma += "&=\\frac{" + thouSep((F * s), "\\ ") + "}{" + t + "}\\\\[5pt]";
-            suma += "&=\\underline{\\mathbf{" + dp((F * s) / t, 3, 1) + "\\ W\\ (1\\ dp)}}\\end{aligned}$$";
+            suma += "&=\\underline{\\mathbf{" + dp((F * s) / t, 1, 1) + "\\ W\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
             W = rndgen(7000, 13000, 0, 500, -1);
@@ -167,7 +167,7 @@ function energy() {
             suma += "$$\\begin{aligned}W&=Fs\\\\[5pt]";
             suma += "F&=\\frac{W}{s}\\\\[5pt]";
             suma += "&=\\frac{" + W / 1000 + "\\times10^3}{" + s + "}\\\\[5pt]";
-            suma += "&=\\underline{\\mathbf{" + dp(W / s, 4, 2) + "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
+            suma += "&=\\underline{\\mathbf{" + dp(W / s, 2, 2) + "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
             break;
     }
     document.getElementById("q").innerHTML = sumq;

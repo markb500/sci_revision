@@ -87,15 +87,15 @@ function linmot() {
             suma += "$$\\begin{aligned}i.\\ \\ \\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "v&=\\sqrt{u^2+2as}\\\\[5pt]";
             suma += "&=\\sqrt{" + u + "^2+2\\times" + a + "\\times" + s + "}\\\\[5pt]";
-            suma += "&=\\underline{\\mathbf{" + dp(Math.sqrt(2 * a * s), 2, -1) + "\\ m/s\\ (2\\ dp)}}\\\\[15pt]";
+            suma += "&=\\underline{\\mathbf{" + dp(Math.sqrt(2 * a * s), 2, 2) + "\\ m/s\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ \\ v&=u+at\\\\[5pt]";
             suma += "t&=\\frac{v-u}{a}\\\\[5pt]";
             suma += "&=\\frac{" + v + "-" + u + "}{" + a + "}\\\\[5pt]";
-            suma += "&=\\underline{\\mathbf{" + dp((v - u) / a, 2, -1) + "\\ s\\ (2\\ dp)}}\\\\[15pt]";
+            suma += "&=\\underline{\\mathbf{" + dp((v - u) / a, 2, 2) + "\\ s\\ (2\\ dp)}}\\\\[15pt]";
             suma += "iii.\\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "v&=\\sqrt{u^2+2as}\\\\[5pt]";
             suma += "&=\\sqrt{" + u + "^2+2\\times" + a + "\\times" + s_part + "}\\\\[5pt]";
-            suma += "&=\\underline{\\mathbf{" + dp(Math.sqrt(2 * a * s_part), 2, -1) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
+            suma += "&=\\underline{\\mathbf{" + dp(Math.sqrt(2 * a * s_part), 2, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
             m = rndgen(600, 2301, 0, 1, -1);
@@ -119,9 +119,9 @@ function linmot() {
             suma += "\\(F=\\ ?\\ N\\\\\\)";
             suma += "$$\\begin{aligned}i.\\ \\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "a&=\\frac{v^2-u^2}{2s}=\\frac{" + v + "^2-" + u + "^2}{2\\times" + s + "}=\\underline{\\mathbf{" + 
-                    dp((Math.pow(v, 2) - Math.pow(u, 2)) / (2 * s), 3, 2) + "\\ m/s^2\\ (2\\ dp)}}\\\\[15pt]";
+                    dp((Math.pow(v, 2) - Math.pow(u, 2)) / (2 * s), 2, 2) + "\\ m/s^2\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ \\ v&=u+at\\\\[5pt]";
-            suma += "t&=\\frac{v-u}{a}=\\frac{" + v + "+" + u + "}{" + a + "}=\\underline{\\mathbf{" + 
+            suma += "t&=\\frac{v-u}{a}=\\frac{" + v + "-" + u + "}{" + a + "}=\\underline{\\mathbf{" + 
                     dp((v - u) / a, 2, 2) + "\\ s\\ (2\\ dp)}}\\\\[15pt]";
             suma += "iii.\\ \\ p&=m(v_2-v_1)=" + thouSep(m, "\\ ") + "\\times(" + v + "-" + u + 
                     ")=\\underline{\\mathbf{" + thouSep(dp(m * (v - u), 2, -1), "\\ ") + "\\ kgm/s}}\\\\[15pt]";
@@ -143,19 +143,19 @@ function linmot() {
             suma += "\\(t=\\ ?\\ s\\\\\\)";
             suma += "$$\\begin{aligned}i.\\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "s&=\\frac{v^2-u^2}{2a}=\\frac{" + v + "^2-" + u + "^2}{2\\times" + a * -1 + 
-                    "}=\\underline{\\mathbf{" + dp((Math.pow(v, 2)-Math.pow(u, 2)) / (2 * a * -1), 3, 2) + 
+                    "}=\\underline{\\mathbf{" + dp((Math.pow(v, 2)-Math.pow(u, 2)) / (2 * a * -1), 2, 2) + 
                     "\\ m\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ v&=u+at\\\\[5pt]";
             suma += "t&=\\frac{v-u}{a}=\\frac{" + u + "-" + v + "}{" + a + "}=\\underline{\\mathbf{" + 
-                    dp((u - v) / a, 3, 2) + "\\ s\\ (2\\ dp)}}\\end{aligned}$$";
+                    dp((u - v) / a, 2, 2) + "\\ s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
             do {
                 u = rndgen(5, 15, 0, 1, -1);
                 t = rndgen(2.1, 3.2, 1, 0.1, -1);
                 s = rndgen(15, 26, 0, 1, -1);
-                a = dp(2 * (s - u * t) / Math.pow(t, 2), 3, 2);
-                v = dp(u + (a * t), 3, 2);
+                a = dp(2 * (s - u * t) / Math.pow(t, 2), 2, 2);
+                v = dp(u + (a * t), 2, 2);
             } while (u * t <= s)
             sumq += "An ice hockey puck slides over a horizontal sheet of ice. ";
             sumq += "It passes point A with a velocity of " + u + "&nbsp;m/s and, " + t + 
@@ -181,7 +181,7 @@ function linmot() {
             u = rndgen(25, 66, 0, 1, -1);
             s = rndgen(50, 201, 1, 0.5, -1);
             a = 9.81;
-            v = dp(Math.sqrt(Math.pow(u, 2) + 2 * a * s), 3, 2);
+            v = dp(Math.sqrt(Math.pow(u, 2) + 2 * a * s), 2, 2);
             sumq += "An arrow is fired at " + u + "&nbsp;m/s down a " + s + "&nbsp;m deep mineshaft.<BR>";
             sumq += "i.&nbsp&nbsp How fast will it be going when it reaches the bottom? ";
             sumq += "Round your answer to 2 decimal places.<BR>";
@@ -195,13 +195,13 @@ function linmot() {
             suma += "v&=\\sqrt{u^2+2as}=\\sqrt{" + u + "^2+2\\times" + a + "\\times" + s + 
                     "}=\\underline{\\mathbf{" + v + "\\ m/s\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ v&=u+at\\\\[5pt]";
-            suma += "t&=\\frac{v-u}{a}=\\frac{" + v + "-" + u + "}{" + a + "}=\\underline{\\mathbf{" + dp((v - u) / a, 3, 2) + "\\ s\\ (2\\ dp)}}\\end{aligned}$$";
+            suma += "t&=\\frac{v-u}{a}=\\frac{" + v + "-" + u + "}{" + a + "}=\\underline{\\mathbf{" + dp((v - u) / a, 2, 2) + "\\ s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
             u = rndgen(1.1, 3.2, 1, 0.1, -1);
             s = rndgen(8, 11, 0, 1, -1);
             t = rndgen(1.5, 2.6, 1, 0.1, -1);
-            a = dp((2 * (s - u * t)) / (Math.pow(t, 2)), 3, 2);
+            a = dp((2 * (s - u * t)) / (Math.pow(t, 2)), 2, 2);
             sumq += "A ball, initially travelling at " + u + 
                     "&nbsp;m/s, starts to roll down a hill. The distance down the incline is " + s + 
                     "&nbsp;m and it travels this in " + t + "&nbsp;s.<BR>";
@@ -216,7 +216,7 @@ function linmot() {
             suma += "a&=\\frac{2(s-ut)}{t^2}=\\frac{2(" + s + "-" + u + "\\times" + t + 
                     ")}{" + t + "^2}=\\underline{\\mathbf{" + a + "\\ m/s^2\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ v&=u+at=" + u + "+" + a + "\\times" + t + 
-                    "=\\underline{\\mathbf{" + dp(u + a * t, 3, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
+                    "=\\underline{\\mathbf{" + dp(u + a * t, 2, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 9:
             u = rndgen(50, 80, 1, 0.1, -1);
@@ -232,10 +232,10 @@ function linmot() {
             suma += "\\(v=" + dp(v * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + v + "\\ m/s\\\\\\)";
             suma += "$$\\begin{aligned}i.\\ \\ \\ s&=\\frac{1}{2}(u+v)t=\\frac{1}{2}(" + 
                     u + "+" + v + ")\\times" + t + "=\\underline{\\mathbf{" + 
-                    thouSep(dp(0.5 * t * (u + v), 1, 0), "\\ ") + "\\ m\\ (0\\ dp)}}\\\\[15pt]";
+                    thouSep(dp(0.5 * t * (u + v), 0, 0), "\\ ") + "\\ m\\ (0\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ v&=u+at\\\\[5pt]";
             suma += "a&=\\frac{v-u}{t}=\\frac{" + v + "-" + u + "}{" + t + "}=\\underline{\\mathbf{" + 
-                    dp((v - u) / t, 3, 2) + "\\ m/s^2\\ (2\\ dp)}}\\end{aligned}$$";
+                    dp((v - u) / t, 2, 2) + "\\ m/s^2\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 10:
             do {
@@ -266,7 +266,7 @@ function linmot() {
             suma += "s_3&=\\frac{1}{2}(v+u)t=\\frac{1}{2}(" + 
                     v + "+" + u + ")\\times" + t3 + "=\\underline{\\mathbf{" + s3 + "\\ m}}\\ \\ \\ Deceleration\\ phase.\\\\[15pt]";
             suma += "ii.\\ \\ s_T&=s_1+s_2+s_3=" + s1 + "+" + thouSep(s2, "\\ ") + "+" + s3 + "=\\underline{\\mathbf{" + thouSep(st, "\\ ") + "\\ m}}\\\\[15pt]";
-            suma += "iii.\\ v&=\\frac{s}{t}=\\frac{s_T}{t_1+t_2+t_3}=\\frac{" + thouSep(st, "\\ ") + "}{" + t1 + "+" + t2 + "+" + t3 + "}=\\underline{\\mathbf{" + dp(st / (t1 + t2 + t3), 3, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
+            suma += "iii.\\ v&=\\frac{s}{t}=\\frac{s_T}{t_1+t_2+t_3}=\\frac{" + thouSep(st, "\\ ") + "}{" + t1 + "+" + t2 + "+" + t3 + "}=\\underline{\\mathbf{" + dp(st / (t1 + t2 + t3), 2, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 11:
             do {
@@ -306,7 +306,7 @@ function linmot() {
                     thouSep(s3, "\\ ") + "=\\underline{\\mathbf{" + thouSep(dp(s1 + s2 + s3, 2, -1), "\\ ") + "\\ m}}\\\\[15pt]";
             suma += "iii.\\ v&=\\frac{s}{t}=\\frac{s_T}{t_1+t_2+t_3}=\\frac{" + 
                     thouSep(st, "\\ ") + "}{" + t1 + "+" + t2 + "+" + t3 + "}=\\underline{\\mathbf{" + 
-                    dp(st / (t1 + t2 + t3), 3, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
+                    dp(st / (t1 + t2 + t3), 2, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
     }
     document.getElementById("q").innerHTML = sumq;
