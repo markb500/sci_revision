@@ -5,27 +5,8 @@ function machines() {
     jetroll = false;
     space = false;
     pinjt = false;
-    document.getElementById("btnShowhow").style.visibility="hidden";
-    document.getElementById("myCanvas");
-    myCanvas.height = "0.5";
-    myCanvas.width = "0.5";
-    myCanvas.style = "border: none;";
-    document.getElementById("myCanvas2");
-    myCanvas2.height = "0.5";
-    myCanvas2.width = "0.5";
-    myCanvas2.style = "border: none;";
-    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
-        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
-                SolnWin.document.getElementById("myCanvas3");
-                SolnWin.myCanvas3.height = "0.5";
-                SolnWin.myCanvas3.width = "0.5";
-                SolnWin.myCanvas3.style = "border: none;";
-        }
-    }
     sumq = "";
     suma = "";
-    document.getElementById("a").innerHTML = "";
-    document.getElementById("noteslink").style.visibility="visible";
     do {
         sum = rndgen(1, 8, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
@@ -33,9 +14,7 @@ function machines() {
     prevsum = sum;
     switch(sum) {
         case 1:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=47", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=47";
             eff = rndgen(0.45, 0.75, 2, 0.01, -1);
             load = rndgen(4905, 11772, 0, 981, -1);
             do {
@@ -63,9 +42,7 @@ function machines() {
                     "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 2:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=52", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=52";
             vr = rndgen(4, 9, 0, 1, -1);
             eff = rndgen(0.45, 0.74, 2, 0.01, -1);
             effort = rndgen(80, 200, 0, 1, -1);
@@ -83,9 +60,7 @@ function machines() {
                     "=\\underline{\\mathbf{" + thouSep(dp(ma * effort, 2, -1), "\\ ") + "\\ N}}\\end{aligned}$$";
             break;
         case 3:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=52", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=52";
             do {
                 load = rndgen(4905, 11772, 0, 981, -1);
                 vr = rndgen(5, 8, 0, 1, -1);
@@ -112,9 +87,7 @@ function machines() {
                     "}\\times100=\\underline{\\mathbf{" + dp(eff * 100, 0, -1) + "\\ \\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=56", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
             sl = rndgen(0.004, 0.007, 3, 0.001, -1);
             radius = rndgen(0.4, 0.476, 3, 0.001, -1);
             se = dp(2 * Math.PI * radius, 3, -1);
@@ -145,9 +118,7 @@ function machines() {
                     "}\\times100=\\underline{\\mathbf{" + eff + "\\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=56", "_blank")
-            }
+                var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
             sl = rndgen(0.005, 0.007, 3, 0.001, -1);
             radius = rndgen(0.15, 0.39, 2, 0.01, -1);
             se = dp(2 * Math.PI * radius, 3, -1);
@@ -175,9 +146,7 @@ function machines() {
                     thouSep(dp(ma * effort, 0, -1), "\\ ") + "\\ N\\ (0\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=56", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
             sl = rndgen(0.009, 0.014, 3, 0.001, -1);
             eff = rndgen(0.3, 0.5, 2, 0.01, -1);
             effort = rndgen(30, 75, 0, 1, -1);
@@ -203,9 +172,7 @@ function machines() {
                     "=\\underline{\\mathbf{" + (thouSep(dp(ma * effort, 1, 1), "\\ ")) + "\\ N\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=64", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=64";
             t1 = rndgen(20, 50, 0, 1, -1);
             t2 = rndgen(60, 90, 0, 1, -1);
             t3 = rndgen(t1 + 10, 50, 0, 1, -1);
@@ -230,9 +197,7 @@ function machines() {
                     dp(n1 / vr, 1, 1) + "\\ RPM\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=64", "_blank")
-            }
+            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=64";
             t1 = rndgen(20, 40, 0, 1, -1);
             t2 = rndgen(90, 110, 0, 1, -1);
             t3 = rndgen(60, 80, 0, 1, -1);
@@ -259,6 +224,7 @@ function machines() {
                     "\\ \\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
     }
-    document.getElementById("q").innerHTML = sumq;
-    document.getElementById("btnSoln").style.visibility="visible";
+    
+    var sumArray = [sumq, suma, notesLink];
+    return sumArray;
 }

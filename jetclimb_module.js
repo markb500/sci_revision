@@ -1,24 +1,8 @@
 var ctx, ctx2, wt = 0, ang = 0, thrust = 0, lift = 0, origx = 0, origy = 0, wtx = 0, wty = 0;
 var thrustx = 0, thrusty = 0, thrustextx = 0, thrustexty = 0, liftextx = 0, liftexty = 0, jetup = false;
-function jetclimb() {
-    document.getElementById("btnShowhow").style.visibility="hidden";
-    document.getElementById("myCanvas");
-    myCanvas.height = 650;
-    myCanvas.width = 550;
-    ctx = myCanvas.getContext('2d');
-    document.getElementById("myCanvas2");
-    myCanvas2.height = 650;
-    myCanvas2.width = 550;
-    myCanvas2.style.visibility = "hidden";
-    ctx2 = myCanvas2.getContext('2d');
-    ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
+function jetclimb(ctx2) {
     sumq = "";
     suma = "";
-    document.getElementById("a").innerHTML = "";
-    document.getElementById("noteslink").style.visibility="visible";
-    document.getElementById("noteslink").onclick = function() {
-        window.open("images/Sci Bk2 Statics v1.10.pdf#page=14", "_blank")
-    }
     wt = rndgen(300, 450, 0, 25, -1);
     ang = rndgen(20, 40, 0, 1, -1);
     thrust = dp(wt * Math.sin(ang * (Math.PI / 180)), 0, -1);
@@ -92,18 +76,9 @@ function jetclimb() {
     arrhead(ctx2, thrustx, thrusty, 180 + ang, 2, "red");
     arrhead(ctx2, origx, origy, 270 + ang, 2, "red")
     
-    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
-        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
-            SolnWin.document.getElementById("myCanvas3");
-            SolnWin.myCanvas3.height = 650;
-            SolnWin.myCanvas3.width = 550;
-            var ctx3 = SolnWin.myCanvas3.getContext('2d');
-            ctx3.drawImage(myCanvas2, 0, 0);
-        }
-    }
-
-    document.getElementById("q").innerHTML = sumq;
-    document.getElementById("btnSoln").style.visibility="visible";
+    var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=14";
+    var sumArray = [sumq, suma, notesLink];
+    return sumArray;
 }
 
 function animsolnclimb() {

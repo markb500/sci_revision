@@ -5,30 +5,8 @@ function linmot() {
     jetroll = false;
     space = false;
     pinjt = false;
-    document.getElementById("btnShowhow").style.visibility="hidden";
-    document.getElementById("myCanvas");
-    myCanvas.height = "0.5";
-    myCanvas.width = "0.5";
-    myCanvas.style = "border: none;";
-    document.getElementById("myCanvas2");
-    myCanvas2.height = "0.5";
-    myCanvas2.width = "0.5";
-    myCanvas2.style = "border: none;";
-    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
-        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
-                SolnWin.document.getElementById("myCanvas3");
-                SolnWin.myCanvas3.height = "0.5";
-                SolnWin.myCanvas3.width = "0.5";
-                SolnWin.myCanvas3.style = "border: none;";
-        }
-    }
     sumq = "";
     suma = "";
-    document.getElementById("a").innerHTML = "";
-    document.getElementById("noteslink").style.visibility="visible";
-    document.getElementById("noteslink").onclick = function() {
-        window.open("images/Sci Bk3 Dynamics v1.9.pdf#page=5", "_blank")
-    }
     do {
         sum = rndgen(1, 11, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
@@ -309,6 +287,8 @@ function linmot() {
                     dp(st / (t1 + t2 + t3), 2, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
     }
-    document.getElementById("q").innerHTML = sumq;
-    document.getElementById("btnSoln").style.visibility="visible";
+    
+    var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=5";
+    var sumArray = [sumq, suma, notesLink];
+    return sumArray;
 }

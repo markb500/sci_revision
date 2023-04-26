@@ -6,30 +6,8 @@ function pressure() {
     jetroll = false;
     space = false;
     pinjt = false;
-    document.getElementById("btnShowhow").style.visibility="hidden";
-    document.getElementById("myCanvas");
-    myCanvas.height = "0.5";
-    myCanvas.width = "0.5";
-    myCanvas.style = "border: none;";
-    document.getElementById("myCanvas2");
-    myCanvas2.height = "0.5";
-    myCanvas2.width = "0.5";
-    myCanvas2.style = "border: none;";
-    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
-        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
-                SolnWin.document.getElementById("myCanvas3");
-                SolnWin.myCanvas3.height = "0.5";
-                SolnWin.myCanvas3.width = "0.5";
-                SolnWin.myCanvas3.style = "border: none;";
-        }
-    }
     sumq = "";
     suma = "";
-    document.getElementById("a").innerHTML = "";
-    document.getElementById("noteslink").style.visibility="visible";
-    document.getElementById("noteslink").onclick = function() {
-        window.open("images/Sci Bk2 Statics v1.10.pdf#page=49", "_blank")
-    }
     do {
         sum = rndgen(1, 16, 0, 1, -1);
     } while(sum === prevsum || sum === prev2sum)
@@ -37,6 +15,7 @@ function pressure() {
     prevsum = sum;
     switch(sum) {
         case 1:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(2.5, 7, 1, 0.1, -1);
             p1 = rndgen(80, 200, 0, 1, -1);
             v2 = rndgen(v1 + 1.5, 12, 1, 0.1, -1);
@@ -53,6 +32,7 @@ function pressure() {
                     "}=\\underline{\\mathbf{" + dp((p1 * v1) / v2, 2, 2) + "\\ kN/m^2\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 2:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             t1 = rndgen(20, 59, 0, 1, -1);
             v1 = rndgen(300000, 600000, 0, 1, -1);
             t2 = rndgen(t1 + 15, 75, 0, 1, -1);
@@ -71,6 +51,7 @@ function pressure() {
                     dp((v1 * Math.pow(10, -6) * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 2, 2) + "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 3:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49"
             p1 = rndgen(200, 500, 0, 1, -1);
             t1 = rndgen(10, 30, 0, 1, -1);
             v1 = rndgen(0.3, 0.5, 2, 0.01, -1);
@@ -95,6 +76,7 @@ function pressure() {
                     "\\ m^3\\ (3\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             p1 = rndgen(500, 800, 0, 1, -1);
             t1 = rndgen(12, 20, 0, 1, -1);
             v2 = rndgen(35, 45, 1, 0.1, -1);
@@ -118,6 +100,7 @@ function pressure() {
                     dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t2 + 273.15, 2, -1) * p1), 1, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             p1 = rndgen(80, 150, 0, 1, -1);
             t1 = rndgen(8, 15, 1, 0.1, -1);
             t2 = rndgen(30, 40, 1, 0.1, -1);
@@ -135,6 +118,7 @@ function pressure() {
                     "\\ psi\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(800, 1200, 0, 1, -1);
             t1 = rndgen(20, 28, 1, 0.1, -1);
             t2 = rndgen(33, 40, 1, 0.1, -1);
@@ -152,6 +136,7 @@ function pressure() {
                     thouSep(dp((v1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 1, 1), "\\ ") + "\\ m^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(4, 10, 0, 1, -1);
             p1 = rndgen(80, 250, 1, 0.1, -1);
             p2 = rndgen(1100, 1300, 1, 0.1, -1);
@@ -170,6 +155,7 @@ function pressure() {
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(2, 5, 1, 0.1, -1);
             t1 = rndgen(40, 60, 0, 1, -1);
             v2 = v1 * 2;
@@ -187,6 +173,7 @@ function pressure() {
                     (dp((dp(t1 + 273.15, 2, -1) * v2) / v1, 2, -1) - 273.15) + "\\ ^OC}}\\end{aligned}$$";
             break;
         case 9:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(5, 20, 0, 1, -1);
             p1 = rndgen(100.5, 150, 1, 0.1, -1);
             t1 = rndgen(10, 30,0, 1, -1);
@@ -210,6 +197,7 @@ function pressure() {
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$"; 
             break;
         case 10:
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             p1 = rndgen(0.75, 1.20, 2, 0.1, -1);
             t1 = rndgen(15, 30, 0, 1, -1);
             v1 = 4;
@@ -237,9 +225,7 @@ function pressure() {
                     (dp((v1 * dp(t1 + 273.15, 2, -1) / v2) - 273.15, 3, -1)) + "^OC}}\\end{aligned}$$";
             break;
         case 11:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk2 Statics v1.10.pdf#page=64", "_blank")
-            }
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=64";
             h = rndgen(1.85, 2.85, 2, 0.01, -1);
             rho = rndgen(0.71, 0.90, 2, 0.01, -1);
             g = 9.81;
@@ -257,9 +243,7 @@ function pressure() {
                     "\\ bar\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 12:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk2 Statics v1.10.pdf#page=64", "_blank")
-            }
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=64";
             patmos = rndgen(99.8, 102, 1, 0.1, -1);
             rho = 1.02;
             h = rndgen(8, 25, 0, 1, -1);
@@ -282,9 +266,7 @@ function pressure() {
                     dp(pabs / 100000, 1, 1) + "\\ bar\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 13:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk2 Statics v1.10.pdf#page=60", "_blank")
-            }
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
             hman = rndgen(205, 305, 0, 1, -1);
             rhoman = 1200;
             hbar = rndgen(735, 755, 0, 1, -1);
@@ -312,9 +294,7 @@ function pressure() {
                     "\\ N/m^2}}\\ (2\\ dp)\\end{aligned}$$";
             break;
         case 14:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk2 Statics v1.10.pdf#page=67", "_blank")
-            }
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=67";
             F = rndgen(2, 3.5, 1, 0.1, -1);
             a = rndgen(45, 75, 0, 1, -1);
             rhofresh = 1000;
@@ -339,9 +319,7 @@ function pressure() {
                     dp((F * 1000000) / (rhosea * g * a), 2, 2) + "\\ m\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 15:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk2 Statics v1.10.pdf#page=67", "_blank")
-            }
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=67";
             v1 = rndgen(800, 14000, 0, 1, -1);
             rho1 = rndgen(1.002, 1.018, 3, 0.001, -1);
             rho2 = rndgen(1.112, 1.194, 3, 0.001, -1);
@@ -357,9 +335,7 @@ function pressure() {
                     thouSep(dp((rho2 - rho1) * g * v1, 1, 1), "\\ ") + "\\ N\\ (1\\ dp)}}$$";
             break;
         case 16:
-            document.getElementById("noteslink").onclick = function() {
-                window.open("images/Sci Bk2 Statics v1.10.pdf#page=60", "_blank")
-            }
+            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
             let colhdgs = [
                 ['Height', '(km)'], ['Pressure', '(mbar)'], ['Density', '(kg/m<sup>3</sup>)'], ['Temperature', '(K)']
             ];
@@ -434,6 +410,7 @@ function pressure() {
                     dp(isatable[isarow][isacol] - figurediff, 4, -1) + "\\ " + unit + "}}\\)";
             break;
     }
-    document.getElementById("q").innerHTML = sumq;
-    document.getElementById("btnSoln").style.visibility="visible";
+    
+    var sumArray = [sumq, suma, notesLink];
+    return sumArray;
 }

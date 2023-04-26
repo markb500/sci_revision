@@ -1,5 +1,5 @@
 var prevsum = 0, prev2sum = 0;
-function vectors() {
+function vectors(ctx, ctx2) {
     var sum;
     do {
         sum = rndgen(1, 4, 0, 1, -1);
@@ -8,16 +8,17 @@ function vectors() {
     prevsum = sum;
     switch(sum) {
         case 1:
-            spacediag();
+            var sumArray = spacediag(ctx, ctx2);
             break;
         case 2:
-            jetclimb();
+            var sumArray = jetclimb(ctx2);
             break;
         case 3:
-            jetbank();
+            var sumArray = jetbank(ctx2);
             break;
         case 4:
-            pinjoint();
+            var sumArray = pinjoint(ctx, ctx2);
             break;
     }
+    return sumArray;
 }

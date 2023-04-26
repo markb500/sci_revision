@@ -1,23 +1,8 @@
 var ctx, ctx2, scale, v1, v2, ang1, ang2, ang = 0, r, angr, origx = 0, origy = 0, v1x, v1y, v2x, v2y, rx, ry;
 var angrtxty, v1ytxty, jetup = false, jetroll = false, space = false;
 function spacediag() {
-    document.getElementById("btnShowhow").style.visibility="hidden";
-    document.getElementById("myCanvas");
-    myCanvas.height = 650;
-    myCanvas.width = 550;
-    ctx = myCanvas.getContext('2d');
-    document.getElementById("myCanvas2");
-    myCanvas2.height = 650;
-    myCanvas2.width = 550;
-    myCanvas2.style.visibility = "hidden";
-    ctx2 = myCanvas2.getContext('2d');
     sumq = "";
     suma = "";
-    document.getElementById("a").innerHTML = "";
-    document.getElementById("noteslink").style.visibility="visible";
-    document.getElementById("noteslink").onclick = function() {
-        window.open("images/Sci Bk2 Statics v1.10.pdf#page=8", "_blank")
-    }
 
     do {
         v1 = rndgen(5, 15, 1, 0.5, -1);
@@ -152,19 +137,9 @@ function spacediag() {
     }
     arrhead(ctx2, rx, ry, -angr, 2, "red");
     
-    if (SolnWin) {      //Prior to 1st open of SolnWin, the .closed test is null
-        if (!SolnWin.closed) {  //Once SolnWin has been opened, SolnWin is true whether open or closed so need this extra test
-            SolnWin.document.getElementById("myCanvas3");
-            SolnWin.myCanvas3.height = 650;
-            SolnWin.myCanvas3.width = 550;
-            var ctx3 = SolnWin.myCanvas3.getContext('2d');
-            ctx3.drawImage(myCanvas, 0, 0);
-            ctx3.drawImage(myCanvas2, 0, 0);
-        }
-    }
-
-    document.getElementById("q").innerHTML = sumq;
-    document.getElementById("btnSoln").style.visibility="visible";
+    var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=8";
+    var sumArray = [sumq, suma, notesLink];
+    return sumArray;
 }
 
 function animsolnspace() {

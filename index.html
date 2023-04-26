@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang = 'en-gb'>
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BBCPWP9JMW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BBCPWP9JMW');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBCPWP9JMW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BBCPWP9JMW');
+    </script>
 <title>Science Revision App</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
+<script id="MathJax-script" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -25,11 +25,30 @@
     right: 0px;
 }
 </style>
+<script>
+  var cofg = new Image();
+  cofg.src = "images/cofg.png";
+  var pinjnt = new Image();
+  pinjnt.src = "images/pinjoint.png";
+</script>
+<script src="vectors_module.js"></script>
+<script src="spacediag_module.js"></script>
+<script src="jetclimb_module.js"></script>
+<script src="jetbank_module.js"></script>
+<script src="pinjoint_module.js"></script>
+<script src="momentcofg_module.js"></script>
+<script src="pressure_module.js"></script>
+<script src="linmot_module.js"></script>
+<script src="angmot_module.js"></script>
+<script src="machines_module.js"></script>
+<script src="energy_module.js"></script>
+<script src="friction_module.js"></script>
+<script src="utils_sci_module.js"></script>
 </head>
 <body>
 <div class="py-3 jumbotron text-center" style="margin-bottom:0; background-image:url(images/typhoon_line.png); 
                 background-size:50%; background-repeat:no-repeat; background-position:right center">
-    <img id="cosbadge" width="98" height="135" class="float-left" src="images\Cosbadge.png" alt="cosbadge">
+    <img id="cosbadge" width="98" height="135" class="float-left" src="images/Cosbadge.png" alt="cosbadge">
     <h1><br>Science Revision Questions<br><br></h1>
 </div>
 <!-- <script type="text/x-mathjax-config">
@@ -66,42 +85,47 @@
             <button
                 id="vectors" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="vectors(); eqnformat('q'); solutionwin()">Vectors
+                onclick="sumshow('vectors', '650', '550', '1300', '550', '650', '550'); eqnformat('q'); solutionwin()">Vectors
             </button>
             <button
                 id="momentcofg" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="momentcofg(); eqnformat('q'); solutionwin()">Moments & C&nbspof&nbspG
+                onclick="sumshow('momentcofg', '315', '625', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Moments & C&nbspof&nbspG
             </button>
             <button
                 id="pressure" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="pressure(); eqnformat('q'); solutionwin()">Pressure
+                onclick="sumshow('pressure', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Pressure
             </button>
             <button
                 id="linmot" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="linmot(); eqnformat('q'); solutionwin()">Linear Motion
+                onclick="sumshow('linmot', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Linear Motion
             </button>
             <button
                 id="angmot" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="angmot(); eqnformat('q'); solutionwin()">Angular Motion
+                onclick="sumshow('angmot', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Angular Motion
             </button>
             <button
                 id="machines" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="machines(); eqnformat('q'); solutionwin()">Machines
+                onclick="sumshow('machines', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Machines
             </button>
             <button
                 id="energy" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="energy(); eqnformat('q'); solutionwin()">Energy & Power
+                onclick="sumshow('energy', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Energy & Power
             </button>
             <button
                 id="friction" 
                 class="btn btn-outline-primary btn-block" 
-                onclick="friction(); eqnformat('q'); solutionwin()">Friction
+                onclick="sumshow('friction', '0.5', '0.5', '0.5', '0.5', '0.5', '0.5'); eqnformat('q'); solutionwin()">Friction
+            </button>
+            <button
+              id="testdesign" 
+              class="btn btn-outline-primary btn-block" 
+              onclick="window.open('testCreate.html','testCreate');">Test Designer
             </button>
             <a href="SciHelp/userhelp.html">
               <button
@@ -119,7 +143,7 @@
                         tabIndex="0" 
                         class="btn btn-outline-primary m-3" 
                         style="visibility:hidden" 
-                        onclick="getElementById('a').innerHTML = suma; eqnformat('a')">
+                        onclick="getElementById('a').innerHTML = sumData[1]; eqnformat('a')">
                         <span class='font-weight-bold'>Show/Hide Solution</span><br />Views : 0
                     </button>
                 </p>
@@ -130,7 +154,6 @@
                         class="btn btn-outline-primary m-3" 
                         style="visibility:hidden" 
                         onclick="animsel()">Show me how
-                        <!-- ; document.getElementById('btnShowhow').style.visibility='hidden' -->
                     </button>
                     <p>
                         <a id="noteslink" style="visibility:hidden" href="#">&#128214 Link to Training Notes</a>
@@ -146,8 +169,6 @@
                 <canvas id="myCanvas2" width="0.5" height="0.5" style="border:none"></canvas>
                 <h4 id="a", style="color:red"></h4>
             </div>
-            <img id="cofg" style="visibility:hidden" width="800" height="450" src="images\cofg.png" alt="cofg">
-            <img id="pinjoint" style="visibility:hidden" width="1000" height="700" src="images\pinjoint.png" alt="cofg">
         </div>
     </div>
     <footer class="container-fluid text-center">
@@ -155,18 +176,5 @@
         <p>Designed and built by Mark Butler, APO, RAF Cosford</p>
     </footer>
 </div>
-<script src="vectors_module.js"></script>
-<script src="spacediag_module.js"></script>
-<script src="jetclimb_module.js"></script>
-<script src="jetbank_module.js"></script>
-<script src="pinjoint_module.js"></script>
-<script src="momentcofg_module.js"></script>
-<script src="pressure_module.js"></script>
-<script src="linmot_module.js"></script>
-<script src="angmot_module.js"></script>
-<script src="machines_module.js"></script>
-<script src="energy_module.js"></script>
-<script src="friction_module.js"></script>
-<script src="utils_sci_module.js"></script>
 </body>
 </html>
