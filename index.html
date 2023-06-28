@@ -20,6 +20,22 @@
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
+    :root {
+        --bgcolour: #ffffff;
+    }
+    #colourSelect { /*Border of dropdown*/
+        color: #24a0ed;
+        border: 1px solid #24a0ed;
+        border-radius: 4px;
+        background-color: transparent;
+    }
+    select:focus {  /*Prevent black box when dropdwon gets focus*/
+        border-color: #24a0ed;
+        outline:none;
+    }
+    body {
+        background-color: var(--bgcolour);
+    }
     canvas {
     position: absolute;
     right: 0px;
@@ -46,7 +62,7 @@
 <script src="utils_sci_module.js"></script>
 </head>
 <body>
-<div class="py-3 jumbotron text-center" style="margin-bottom:0; background-image:url(images/typhoon_line.png); 
+<div class="py-3 jumbotron bg-transparent text-center" style="margin-bottom:0; background-image:url(images/typhoon_line.png); 
                 background-size:50%; background-repeat:no-repeat; background-position:right center">
     <img id="cosbadge" width="98" height="135" class="float-left" src="images/Cosbadge.png" alt="cosbadge">
     <h1><br>Science Revision Questions<br><br></h1>
@@ -133,6 +149,15 @@
                 class="btn btn-outline-primary mt-2">User Help
               </button>
             </a>
+            <div>
+            <p><br>Select background colour.</p>
+            <select id="colourSelect" onchange="bgSelect()">
+              <option value="#ffffff">White</option>
+              <option value="hsla(220,60%,70%,0.3)">Blue</option>
+              <option value="hsla(0,60%,70%,0.3)">Red</option>
+              <option value="hsla(120,60%,70%,0.3)">Green</option>
+            </select>
+            </div>
         </div>
         <div class="col-md-9">
             <h3 id="q"></h3>

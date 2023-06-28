@@ -449,3 +449,8 @@ function testshow() {
   }
   eqnformat('t'); //Ensures MathJax has formatted all sums in test
 }
+
+function bgSelect() {
+  //Changes background colour inn response to selection on dropdown list
+  document.querySelector(':root').style.setProperty('--bgcolour', document.getElementById("colourSelect").value);
+}
