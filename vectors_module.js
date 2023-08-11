@@ -1,11 +1,8 @@
-var prevsum = 0, prev2sum = 0;
+var sumarr = [];
 function vectors(ctx, ctx2) {
     var sum;
-    do {
-        sum = rndgen(1, 4, 0, 1, -1);
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
+    sumarr = QLimitRepeats(sumarr, 4);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarr[sumarr.length - 1];
     switch(sum) {
         case 1:
             var sumArray = spacediag(ctx, ctx2);

@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, t1, t2, t3, t4, n1, eff, load, effort, se, sl, ma, vr, radius, txt;
+var sumarr = [], sumq, suma, t1, t2, t3, t4, n1, eff, load, effort, se, sl, ma, vr, radius, txt;
 function machines() {
     var sum;
     jetup = false;
@@ -7,11 +7,8 @@ function machines() {
     pinjt = false;
     sumq = "";
     suma = "";
-    do {
-        sum = rndgen(1, 8, 0, 1, -1);
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
+    sumarr = QLimitRepeats(sumarr, 8);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarr[sumarr.length - 1];
     switch(sum) {
         case 1:
             var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=47";

@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, m, g = 9.81, mu, N, F;
+var prevsum = 0, prev2sum = 0, sumq, suma, m, g = 9.81, mu, N, F;
 function friction() {
     var sum;
     jetup = false;

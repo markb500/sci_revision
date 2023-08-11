@@ -198,6 +198,20 @@ function arrhead(c, ptx, pty, ang, linewidth, linecolour) {
     c.stroke();
 }
 
+function QLimitRepeats(arr, x) {
+  //Ensures no repeat question until at least 50% of questions in calling module have been shown.
+  //'arr' stores previous questions for calling module. 'x' is the number of questions in the calling module.
+  var sum;
+  do {
+    sum = rndgen(1, x, 0, 1, -1);
+  } while (arr.includes(sum))
+  arr.push(sum);
+  if (arr.length > Math.ceil(x/2)) {
+    arr.shift();
+  }
+  return arr;
+}
+
 function sumshow(sumType, h1, w1, h2, w2, h3, w3) {
   //Called by btn click in Index. Gets required sum data and sets up canvas if required.
   document.getElementById("myCanvas");

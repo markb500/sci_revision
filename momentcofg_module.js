@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0;
+var sumarr = [], sumq, suma;
 function momentcofg(ctx) {
 var sum;
 jetup = false;
@@ -7,11 +7,8 @@ space = false;
 pinjt = false;
 sumq = "";
 suma = "";
-do {
-    sum = rndgen(1, 6, 0, 1, -1); //CofG (case 1) to Moments (cases 2 - 6) Q's ratio 1:5
-} while(sum === prevsum || sum === prev2sum)
-prev2sum = prevsum;
-prevsum = sum;
+sumarr = QLimitRepeats(sumarr, 6);   //Ensures no repeat question until at least 50% of questions shown
+sum = sumarr[sumarr.length - 1];
 switch(sum) {
     case 1:
         var jtr, ra, rb, rc, a, b, c, x;

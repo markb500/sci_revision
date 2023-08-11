@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
+var sumarr = [], sumq, suma, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
 function angmot() {
     var sum;
     jetup = false;
@@ -7,11 +7,8 @@ function angmot() {
     pinjt = false;
     sumq = "";
     suma = "";
-    do {
-        sum = rndgen(1, 8, 0, 1, -1);
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
+    sumarr = QLimitRepeats(sumarr, 8);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarr[sumarr.length - 1];
     switch(sum) {
         case 1:
             m = rndgen(3, 15, 1, 0.1, -1);

@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
+var sumarr = [], sumq, suma, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
 var patmos, pabs, pgauge, F, a, rhofresh, rhosea;
 function pressure() {
     var sum;
@@ -8,11 +8,8 @@ function pressure() {
     pinjt = false;
     sumq = "";
     suma = "";
-    do {
-        sum = rndgen(1, 16, 0, 1, -1);
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
+    sumarr = QLimitRepeats(sumarr, 16);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarr[sumarr.length - 1];
     switch(sum) {
         case 1:
             var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";

@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, s, u, v, a, t, s_part, m, t1, t2, t3, s1, s2, s3, st;
+var sumarr = [], sumq, suma, s, u, v, a, t, s_part, m, t1, t2, t3, s1, s2, s3, st;
 function linmot() {
     var sum;
     jetup = false;
@@ -7,11 +7,8 @@ function linmot() {
     pinjt = false;
     sumq = "";
     suma = "";
-    do {
-        sum = rndgen(1, 11, 0, 1, -1);
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
+    sumarr = QLimitRepeats(sumarr, 11);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarr[sumarr.length - 1];
     switch(sum) {
         case 1:
             do {

@@ -1,4 +1,4 @@
-var prevsum = 0, prev2sum = 0, g = 9.81, m, v, h, pe, ke, W, F, s, t, T;
+var sumarr = [], sumq, suma, g = 9.81, m, v, h, pe, ke, W, F, s, t, T;
 function energy() {
     var sum;
     jetup = false;
@@ -7,11 +7,8 @@ function energy() {
     pinjt = false;
     sumq = "";
     suma = "";
-    do {
-        sum = rndgen(1, 6, 0, 1, -1);
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
+    sumarr = QLimitRepeats(sumarr, 6);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarr[sumarr.length - 1];
     switch(sum) {
         case 1:
             m = rndgen(25, 150, 0, 1, -1);
