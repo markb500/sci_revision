@@ -12,6 +12,7 @@ function eqnformat(id) {
     views = 0;
     document.getElementById("btnSoln").innerHTML = "<span class='font-weight-bold'>Show/Hide Solution</span><br />Views : " + views;
     document.getElementById("a").style.visibility="hidden";
+    document.getElementById("btnShowhow").style.visibility="hidden";
   }
   if(id === "a") {      //soln btn clicked
     if(window.getComputedStyle(document.getElementById("a")).visibility === "visible") {
@@ -268,7 +269,7 @@ function sumshow(sumType, h1, w1, h2, w2, h3, w3) {
       SolnWin.eqnformat('a2');
     }
   }
-  document.getElementById("noteslink").style.visibility="visible";
+  document.getElementById("noteslink").style.visibility = "visible";
   document.getElementById("noteslink").onclick = function() {window.open(sumData[2], "_blank")}
   document.getElementById("q").innerHTML = sumData[0];
   document.getElementById("a").innerHTML = sumData[1];
