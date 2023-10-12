@@ -1,8 +1,8 @@
-var sumarr = [];
+var sumarrvectors = [];
 function vectors(ctx, ctx2) {
     var sum;
-    sumarr = QLimitRepeats(sumarr, 4);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarr[sumarr.length - 1];
+    sumarrvectors = QLimitRepeats(sumarrvectors, 4);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrvectors[sumarrvectors.length - 1];
     switch(sum) {
         case 1:
             var sumArray = spacediag(ctx, ctx2);

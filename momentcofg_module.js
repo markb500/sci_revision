@@ -1,4 +1,4 @@
-var sumarr = [], sumq, suma;
+var sumarrmoment = [], sumq, suma;
 function momentcofg(ctx) {
 var sum;
 jetup = false;
@@ -7,8 +7,8 @@ space = false;
 pinjt = false;
 sumq = "";
 suma = "";
-sumarr = QLimitRepeats(sumarr, 6);   //Ensures no repeat question until at least 50% of questions shown
-sum = sumarr[sumarr.length - 1];
+sumarrmoment = QLimitRepeats(sumarrmoment, 6);   //Ensures no repeat question until at least 50% of questions shown
+sum = sumarrmoment[sumarrmoment.length - 1];
 switch(sum) {
     case 1:
         var jtr, ra, rb, rc, a, b, c, x;

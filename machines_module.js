@@ -1,4 +1,4 @@
-var sumarr = [], sumq, suma, t1, t2, t3, t4, n1, eff, load, effort, se, sl, ma, vr, radius, txt;
+var sumarrmachines = [], sumq, suma, t1, t2, t3, t4, n1, eff, load, effort, se, sl, ma, vr, radius, txt;
 function machines() {
     var sum;
     jetup = false;
@@ -7,8 +7,8 @@ function machines() {
     pinjt = false;
     sumq = "";
     suma = "";
-    sumarr = QLimitRepeats(sumarr, 8);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarr[sumarr.length - 1];
+    sumarrmachines = QLimitRepeats(sumarrmachines, 8);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrmachines[sumarrmachines.length - 1];
     switch(sum) {
         case 1:
             var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=47";

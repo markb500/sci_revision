@@ -1,4 +1,4 @@
-var sumarr = [], sumq, suma, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
+var sumarrangmot = [], sumq, suma, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
 function angmot() {
     var sum;
     jetup = false;
@@ -7,8 +7,8 @@ function angmot() {
     pinjt = false;
     sumq = "";
     suma = "";
-    sumarr = QLimitRepeats(sumarr, 8);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarr[sumarr.length - 1];
+    sumarrangmot = QLimitRepeats(sumarrangmot, 8);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrangmot[sumarrangmot.length - 1];
     switch(sum) {
         case 1:
             m = rndgen(3, 15, 1, 0.1, -1);

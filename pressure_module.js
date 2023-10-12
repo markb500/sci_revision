@@ -1,4 +1,4 @@
-var sumarr = [], sumq, suma, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
+var sumarrpressure = [], sumq, suma, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
 var patmos, pabs, pgauge, F, a, rhofresh, rhosea;
 function pressure() {
     var sum;
@@ -8,8 +8,8 @@ function pressure() {
     pinjt = false;
     sumq = "";
     suma = "";
-    sumarr = QLimitRepeats(sumarr, 16);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarr[sumarr.length - 1];
+    sumarrpressure = QLimitRepeats(sumarrpressure, 16);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrpressure[sumarrpressure.length - 1];
     switch(sum) {
         case 1:
             var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";

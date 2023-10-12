@@ -1,4 +1,4 @@
-var sumarr = [], sumq, suma, s, u, v, a, t, s_part, m, t1, t2, t3, s1, s2, s3, st;
+var sumarrlinmot = [], sumq, suma, s, u, v, a, t, s_part, m, t1, t2, t3, s1, s2, s3, st;
 function linmot() {
     var sum;
     jetup = false;
@@ -7,8 +7,8 @@ function linmot() {
     pinjt = false;
     sumq = "";
     suma = "";
-    sumarr = QLimitRepeats(sumarr, 11);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarr[sumarr.length - 1];
+    sumarrlinmot = QLimitRepeats(sumarrlinmot, 11);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrlinmot[sumarrlinmot.length - 1];
     switch(sum) {
         case 1:
             do {

@@ -1,4 +1,4 @@
-var sumarr = [], sumq, suma, g = 9.81, m, v, h, pe, ke, W, F, s, t, T;
+var sumarrenergy = [], sumq, suma, g = 9.81, m, v, h, pe, ke, W, F, s, t, T;
 function energy() {
     var sum;
     jetup = false;
@@ -7,8 +7,8 @@ function energy() {
     pinjt = false;
     sumq = "";
     suma = "";
-    sumarr = QLimitRepeats(sumarr, 6);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarr[sumarr.length - 1];
+    sumarrenergy = QLimitRepeats(sumarrenergy, 6);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrenergy[sumarrenergy.length - 1];
     switch(sum) {
         case 1:
             m = rndgen(25, 150, 0, 1, -1);
