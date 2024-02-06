@@ -3,11 +3,13 @@ var fbextx = 0, fbexty = 0, faextx = 0, faexty = 0, pinjt = false;
 function pinjoint(ctx, ctx2) {
     sumq = "";
     suma = "";
-    wt = rndgen(100, 225, 0, 25, -1);
-    ang = rndgen(25, 40, 0, 1, -1);
-    altang = 90 - ang;
-    fb = dp(wt / Math.tan(ang * (Math.PI / 180)), 0, -1);
-    fa = dp(wt / Math.sin(ang * (Math.PI / 180)), 0, -1);
+    do {
+        wt = rndgen(100, 225, 0, 25, -1);
+        ang = rndgen(25, 40, 0, 1, -1);
+        altang = 90 - ang;
+        fb = dp(wt / Math.tan(ang * (Math.PI / 180)), 0, -1);
+        fa = dp(wt / Math.sin(ang * (Math.PI / 180)), 0, -1);
+    } while (fa > 450); //Ensures solution fits in canvas without canvas being too wide.
 
     sumq += "In the pin-jointed structure shown, use a vector diagram to determine the size of forces ";
     sumq += "F<sub>A</sub> and F<sub>B</sub>, given that the weight is " + wt + "&nbsp;N and the angle, &theta;, is ";
