@@ -48,18 +48,18 @@ switch(sum) {
                 f2 = rndgen(5, 50, 1, 0.5, -1);
             } while(f2 === f1)
             if(pivot < (length / 2)) {  //Pivot left half so, from left, f1 up, pivot, f2 up, f3 down
-                d1 = rndgen(1, pivot, 1, 0.5, -1);
-                d2 = rndgen(1, length - pivot, 1, 0.5, -1);
+                d1 = rndgen(1.25, pivot, 2, 0.25, -1);
+                d2 = rndgen(1.25, length - pivot, 2, 0.25, -1);
                 do {
-                    d3 = rndgen(1, length - pivot, 1, 0.5, -1);
+                    d3 = rndgen(1.25, length - pivot, 2, 0.25, -1);
                 } while(d3 === d2)
                 f3 = dp((f2 * d2 - f1 * d1) / d3, 3, -1);
             } else {    //Pivot in right half so, from left, f1 up, f3 down, pivot, f2 up
-                d1 = rndgen(1, pivot, 1, 0.5, -1);
+                d1 = rndgen(1.25, pivot, 2, 0.25, -1);
                 do {
-                    d2 = rndgen(1, length - pivot, 1, 0.5, -1);
+                    d2 = rndgen(1.25, length - pivot, 2, 0.25, -1);
                 } while(d2 === d1)
-                d3 = rndgen(1, pivot, 1, 0.5, -1);
+                d3 = rndgen(1.25, 5, pivot, 2, 0.25, -1);
                 f3 = dp((f1 * d1 - f2 * d2) / d3, 3, -1);
             }
         } while(f3 <= 0 || f3 / dp(f3, 1, -1) !== 1 || f1 === 0 || f2 === 0 || d1 === 0 || d2 === 0 || d3 === 0 ||
