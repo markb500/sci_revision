@@ -273,7 +273,7 @@ function pressure() {
             patmos = dp(rhobar * g * (hbar / 1000), 3, -1);
             sumq += "A manometer on a gas pipe reads " + hman + "&nbsp;mm of oil (oil density = " + 
                     thouSep(rhoman, "&nbsp;") + "&nbsp;kg/m<sup>3</sup>). A barometer alongside the pipe reads " + 
-                    hbar + "&nbsp;mmHg (Hg density = " + thouSep(rhobar, "&nbsp;") + 
+                    hbar + "&nbsp;mmHg (Mercury (Hg) density = " + thouSep(rhobar, "&nbsp;") + 
                     "&nbsp;kg/m<sup>3</sup>). Calculate the absolute pressure of the gas in the pipe, " + 
                     "in N/m<sup>2</sup> rounded to 2 decimal places.";
             suma += "\\(h_{MAN}=" + hman + "\\times10^{-3}\\ m\\\\\\)";
