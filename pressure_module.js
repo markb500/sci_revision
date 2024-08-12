@@ -34,7 +34,7 @@ function pressure() {
             v1 = rndgen(300000, 600000, 0, 1, -1);
             t2 = rndgen(t1 + 15, 75, 0, 1, -1);
             sumq += "Gas at a temperature of " + t1 + "&nbsp;<sup>O</sup>C, and having a volume of " + 
-                    thouSep(v1, " ") + "&nbsp;cm<sup>3</sup>, is heated to " + t2 + 
+                    thouSep(v1, "&nbsp;") + "&nbsp;cm<sup>3</sup>, is heated to " + t2 + 
                     "&nbsp;<sup>O</sup>C. If the pressure remains constant, calculate its new volume, " + 
                     "in m<sup>3</sup> to 2 decimal places.";
             suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
