@@ -278,6 +278,7 @@ function sumshow(sumType, h1, w1, h2, w2) {
   }
   document.getElementById("noteslink").style.visibility = "visible";
   document.getElementById("noteslink").onclick = function() {window.open(sumData[2], "_blank")}
+  document.getElementById("formulas").style.visibility = "visible";
   document.getElementById("q").innerHTML = sumData[0];
   document.getElementById("a").innerHTML = sumData[1];
   document.getElementById("btnSoln").style.visibility="visible";
