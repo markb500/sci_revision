@@ -8,7 +8,7 @@ function pressure() {
     pinjt = false;
     sumq = "";
     suma = "";
-    sumarrpressure = QLimitRepeats(sumarrpressure, 16);   //Ensures no repeat question until at least 50% of questions shown
+    sumarrpressure = QLimitRepeats(sumarrpressure, 14);   //Ensures no repeat question until at least 50% of questions shown
     sum = sumarrpressure[sumarrpressure.length - 1];
     switch(sum) {
         case 1:
@@ -291,47 +291,6 @@ function pressure() {
                     "\\ N/m^2}}\\ (2\\ dp)\\end{aligned}$$";
             break;
         case 14:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=67";
-            F = rndgen(2, 3.5, 1, 0.1, -1);
-            a = rndgen(45, 75, 0, 1, -1);
-            rhofresh = 1000;
-            rhosea = 1025;
-            g = 9.81;
-            sumq += "A ship has a weight of " + F + "&nbsp;MN. The area at the waterline is " + a + "&nbsp;m<sup>2</sup>. " + 
-                    "Calculate the draught of the ship, to 2 decimal places, in:<BR>";
-            sumq += "i. Fresh water of density " + thouSep(1000, "&nbsp;") + " kg/m<sup>3</sup><BR>";
-            sumq += "ii. Sea water of density " + thouSep(1025, "&nbsp;") + " kg/m<sup>3</sup>";
-            suma += "\\(F=" + F + "\\times10^6\\ N\\\\\\)";
-            suma += "\\(A=" + a + "\\ m^2\\\\\\)";
-            suma += "\\(\\rho_{FRESH}=" + thouSep(rhofresh, "\\ ") + "\\ kg/m^3\\\\\\)";
-            suma += "\\(\\rho_{SEA}=" + thouSep(rhosea, "\\ ") + "\\ kg/m^3\\\\\\)";
-            suma += "\\(h_{FRESH}=\\ ?\\ m\\\\\\)";
-            suma += "\\(h_{SEA}=\\ ?\\ m\\\\\\)";
-            suma += "$$\\begin{aligned}F&=\\rho ghA\\\\[5pt]";
-            suma += "h_{FRESH}&=\\frac{F}{\\rho_{FRESH}\\ g\\ A}=\\frac{" + F + "\\times10^6}{" + 
-                    thouSep(rhofresh, "\\ ") + "\\times" + g + "\\times" + a + "}=\\underline{\\mathbf{" + 
-                    dp((F * 1000000) / (rhofresh * g * a), 4, 2) + "\\ m\\ (2\\ dp)}}\\\\[5pt]";
-            suma += "h_{SEA}&=\\frac{F}{\\rho_{SEA}\\ g\\ A}=\\frac{" + F + "\\times10^6}{" + 
-                    thouSep(rhosea, "\\ ") + "\\times" + g + "\\times" + a + "}=\\underline{\\mathbf{" + 
-                    dp((F * 1000000) / (rhosea * g * a), 2, 2) + "\\ m\\ (2\\ dp)}}\\end{aligned}$$";
-            break;
-        case 15:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=67";
-            v1 = rndgen(800, 14000, 0, 1, -1);
-            rho1 = rndgen(1.002, 1.018, 3, 0.001, -1);
-            rho2 = rndgen(1.112, 1.194, 3, 0.001, -1);
-            g = 9.81;
-            sumq += "Calculate, to 1 decimal place, the change in lift on a balloon of volume " + thouSep(v1, "&nbsp;") + 
-                    "&nbsp;m<sup>3</sup>, when a decrease in temperature increases the air density from " + 
-                    rho1 + "&nbsp;kg/m<sup>3</sup> to " + rho2 + "&nbsp;kg/m<sup>3</sup>.";
-            suma += "\\(V=" + thouSep(v1, "\\ ") + "\\ m^3\\\\\\)";
-            suma += "\\(\\rho_1=" + rho1 + "\\ kg/m^3\\\\\\)";
-            suma += "\\(\\rho_2=" + rho2 + "\\ kg/m^3\\\\\\)";
-            suma += "$$F=\\rho ghA=\\rho gV=( \\rho_2 - \\rho_1 )gV=(" + rho2 + "-" + rho1 + 
-                    ")\\times" + g + "\\times" + thouSep(v1, "\\ ") + "=\\underline{\\mathbf{" + 
-                    thouSep(dp((rho2 - rho1) * g * v1, 1, 1), "\\ ") + "\\ N\\ (1\\ dp)}}$$";
-            break;
-        case 16:
             var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
             let colhdgs = [
                 ['Height', '(km)'], ['Pressure', '(mbar)'], ['Density', '(kg/m<sup>3</sup>)'], ['Temperature', '(K)']
