@@ -58,6 +58,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+function updateSolnWin() {
+  // Push current solution into the teacher solution window, if open
+  if (!SolnWin || SolnWin.closed || !currentSumData) return;
+  try {
+    const a2 = SolnWin.document.getElementById('a2');
+    const c3 = SolnWin.document.getElementById('myCanvas3');
+    if (!a2) return;
+
+    a2.innerHTML = currentSumData.solution || '';
+
+    if (c3) {
+      if (currentSumData.canvas) {
+        const w = currentSumData.canvas.width || 400;
+        const h = currentSumData.canvas.height || 400;
+        c3.width = w;
+        c3.height = h;
+        const ctx3 = c3.getContext('2d');
+        ctx3.clearRect(0, 0, w, h);
+        // Prefer solution diagram; fall back to question diagram
+        if (currentSumData.canvas.withSolution && typeof currentSumData.canvas.draw === 'function') {
+          currentSumData.canvas.draw(ctx3);
+        } else if (typeof currentSumData.canvas.draw === 'function') {
+          currentSumData.canvas.draw(ctx3);
+        } else if (typeof currentSumData.canvas.questionDraw === 'function') {
+          currentSumData.canvas.questionDraw(ctx3);
+        }
+      } else {
+        c3.width = 0.5;
+        c3.height = 0.5;
+      }
+    }
+
+    // Typeset MathJax in the solution window
+    if (SolnWin.MathJax && SolnWin.MathJax.Hub) {
+      SolnWin.MathJax.Hub.Queue(['Typeset', SolnWin.MathJax.Hub, 'a2']);
+    }
+  } catch (err) {
+    console.warn('Could not update SolnWin:', err);
+  }
+}
+
 function generateQuestion(topic) {
   currentSumData = registry.get(topic).generate();
 
@@ -131,6 +173,9 @@ function generateQuestion(topic) {
   views = 0;
   updateViewCount();
   document.getElementById('btnSoln').style.visibility = 'visible';
+
+  // Teacher solution window (opened with secret code chpz)
+  updateSolnWin();
 }
 
 function toggleSolution() {
@@ -202,6 +247,12 @@ function initSecretCode() {
     pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
     if (pressed.join('').includes(secretCode)) {
       SolnWin = window.open('SolnWin.html', 'SolnWin', 'resizable=yes,scrollbars=yes');
+      // Push current solution once the new window has loaded
+      if (SolnWin) {
+        SolnWin.addEventListener('load', () => updateSolnWin());
+        // Fallback in case load already fired
+        setTimeout(() => updateSolnWin(), 500);
+      }
     }
   });
 }
