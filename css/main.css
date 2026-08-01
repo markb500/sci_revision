@@ -1,0 +1,100 @@
+:root {
+  --bgcolour: #ffffff;
+}
+
+body {
+  background-color: var(--bgcolour);
+}
+
+#colourSelect {
+  color: #24a0ed;
+  border: 1px solid #24a0ed;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+select:focus {
+  border-color: #24a0ed;
+  outline: none;
+}
+
+/* Stack canvases so solution diagram can overlay the question diagram (vectors) */
+.canvas-stack {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  min-height: 0;
+}
+
+.canvas-stack canvas {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#myCanvas {
+  z-index: 1;
+}
+
+#myCanvas2 {
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---------- Print styles ---------- */
+@media print {
+  .topic-btn,
+  #testdesign,
+  #userhelp,
+  #topicInstruction,
+  #colourSelect,
+  #btnSoln,
+  #btnShowhow,
+  #noteslink,
+  #formulas,
+  .no-print,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .test-question,
+  .test-solution-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+
+  .solutions-section {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .solution-heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+
+  .test-solution-block {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .test-solution-block:last-child {
+    border-bottom: none;
+  }
+
+  .solution-body {
+    display: block !important;
+  }
+
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
