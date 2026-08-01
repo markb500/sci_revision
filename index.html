@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <title>Science Revision App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      "fast-preview": { disabled: true },
+      tex2jax: { preview: "none" }
+    });
+  </script>
+
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="py-3 jumbotron bg-transparent text-center" style="margin-bottom:0; background-image:url(images/typhoon_line.png);
+                background-size:50%; background-repeat:no-repeat; background-position:right center">
+    <img id="cosbadge" width="98" height="135" class="float-left" src="images/Cosbadge.png" alt="cosbadge">
+    <h1><br>Science Revision Questions<br><br></h1>
+  </div>
+
+  <div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-md-3">
+        <p id="topicInstruction">Select a question topic. Each click generates a new question.</p>
+
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="vectors">Vectors</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="momentcofg">Moments &amp; C of G</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="pressure">Pressure</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="linmot">Linear Motion</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="angmot">Angular Motion</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="machines">Machines</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="energy">Energy &amp; Power</button>
+        <button class="btn btn-outline-primary btn-sm btn-block topic-btn" data-topic="friction">Friction</button>
+
+        <button id="testdesign" class="btn btn-outline-primary btn-sm btn-block mt-2"
+          onclick="window.open('testCreate.html','testCreate');">Test Designer</button>
+
+        <a href="SciHelp/userhelp.html" target="_blank">
+          <button id="userhelp" class="btn btn-outline-primary btn-sm mt-2">User Help</button>
+        </a>
+
+        <div>
+          <p><br>Select background colour.</p>
+          <select id="colourSelect">
+            <option value="#ffffff">White</option>
+            <option value="hsla(220,60%,70%,0.3)">Blue</option>
+            <option value="hsla(0,60%,70%,0.3)">Red</option>
+            <option value="hsla(120,60%,70%,0.3)">Green</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div id="q"></div>
+        <p>
+          <a id="noteslink" style="visibility:hidden" href="#" target="_blank">Link to Training Notes</a>
+          &nbsp;&nbsp;
+          <a id="formulas" style="visibility:hidden" href="images/Science Formula Sheet.pdf" target="_blank">Formula Sheet</a>
+        </p>
+
+        <div class="row">
+          <div class="col-auto">
+            <button id="btnSoln" class="btn btn-outline-primary btn-sm m-2" style="visibility:hidden">
+              <span class="font-weight-bold">Show/Hide Solution</span><br>
+              Views: <span id="viewCount">0</span>
+            </button>
+          </div>
+          <div class="col-auto">
+            <button id="btnShowhow" class="btn btn-outline-secondary btn-sm m-2" style="visibility:hidden">
+              Show me how
+            </button>
+          </div>
+        </div>
+
+        <div class="canvas-stack" id="canvasStack" style="clear:both; margin-top:20px;">
+          <canvas id="myCanvas" width="0.5" height="0.5" style="border:none;"></canvas>
+          <canvas id="myCanvas2" width="0.5" height="0.5" style="border:none;"></canvas>
+        </div>
+        <div id="a" style="color:red; clear:both; margin-top:20px; visibility:hidden;"></div>
+      </div>
+    </div>
+
+    <footer class="container-fluid text-center mt-4">
+      
+    <a href="https://librecounter.org/referer/show" target="_blank">
+    <img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" />
+    </a>
+
+      <p>Designed to aid revision for the science element of the RAF Aerospace Eng Tech Course.</p>
+      <p>Designed by Mark Butler, APO, RAF Cosford</p>
+    </footer>
+  </div>
+</body>
+</html>
