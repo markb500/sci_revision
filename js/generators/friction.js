@@ -1,24 +1,43 @@
 // js/generators/friction.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, fromsecs } = utils;
+const NOTES = 'images/Sci Bk3 Dynamics v1.9.pdf';
+const CANVAS_W = 600;
+const CANVAS_H = 400;
 
-var prevsum = 0, prev2sum = 0, sumq, suma, m, g = 9.81, mu, N, F, qsel;
-function frictionInternal() {
-    var sum;
-                    sumq = "";
-    suma = "";
-    qsel = rndgen(0, 5, 0, 1, -1);
-    do {
-        if(qsel === 5) {    //Reduces instances of case 4 (laws of friction Q)
-            sum = rndgen(1, 4, 0, 1, -1);
-        } else {
-            sum = rndgen(1, 3, 0, 1, -1);
-        }
-    } while(sum === prevsum || sum === prev2sum)
-    prev2sum = prevsum;
-    prevsum = sum;
-    switch(sum) {
+/** @type {number[]} */
+let recentIds = [];
+
+// Persist across generate() calls so consecutive questions differ
+let prevsum = 0;
+let prev2sum = 0;
+
+/**
+ * @returns {{ question: string, solution: string, notesLink: string, canvas?: object }}
+ */
+export function generate() {
+  let m, mu, N, F, qsel, a, s, A, sum;
+  const g = 9.81;
+
+  qsel = rndgen(0, 5, 0, 1, -1);
+  do {
+    if (qsel === 5) {
+      // Reduces instances of case 4 (laws of friction Q)
+      sum = rndgen(1, 4, 0, 1, -1);
+    } else {
+      sum = rndgen(1, 3, 0, 1, -1);
+    }
+  } while (sum === prevsum || sum === prev2sum);
+  prev2sum = prevsum;
+  prevsum = sum;
+
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+
+  switch (sum) {
+
         case 1:
             m = rndgen(20, 80, 0, 1, -1);
             mu = rndgen(0.35, 0.8, 2, 0.01, -1);
@@ -98,17 +117,17 @@ function frictionInternal() {
             suma += "5. Dynamic friction is independent of velocity.<br><br>";
             suma += "6. Friction depends on the nature and condition of the surfaces involved.<br><br>";
             break;
-    }
     
-    var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=79";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  const result = frictionInternal();
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#'
+  }
+
+    
+    notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=79";
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  return out;
 }

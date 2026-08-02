@@ -1,18 +1,52 @@
 // js/generators/machines.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, fromsecs } = utils;
+const NOTES = 'images/Sci Bk3 Dynamics v1.9.pdf';
+const CANVAS_W = 600;
+const CANVAS_H = 400;
 
-var sumarrmachines = [], sumq, suma, t1, t2, t3, t4, n1, eff, load, effort, se, sl, ma, vr, radius, txt;
-function machinesInternal() {
-    var sum;
-                    sumq = "";
-    suma = "";
-    sumarrmachines = QLimitRepeats(sumarrmachines, 8);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarrmachines[sumarrmachines.length - 1];
-    switch(sum) {
+/** @type {number[]} */
+let recentIds = [];
+
+/**
+ * @returns { question: string, solution: string, notesLink: string, canvas?: object }
+ */
+export function generate() {
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+  recentIds = QLimitRepeats(recentIds, 8);
+  const sum = recentIds[recentIds.length - 1];
+
+  let sumarrmachines;
+  let t1;
+  let t2;
+  let t3;
+  let t4;
+  let n1;
+  let eff;
+  let load;
+  let effort;
+  let se;
+  let sl;
+  let ma;
+  let vr;
+  let radius;
+  let txt;
+  let sumArray;
+  let m;
+  let N;
+  let a;
+  let t;
+  let r;
+  let A;
+  let length;
+
+  switch (sum) {
+
         case 1:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=47";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=47";
             eff = rndgen(0.45, 0.75, 2, 0.01, -1);
             load = rndgen(4905, 11772, 0, 981, -1);
             do {
@@ -40,7 +74,7 @@ function machinesInternal() {
                     "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 2:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=52";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=52";
             vr = rndgen(4, 9, 0, 1, -1);
             eff = rndgen(0.45, 0.74, 2, 0.01, -1);
             effort = rndgen(80, 200, 0, 1, -1);
@@ -58,7 +92,7 @@ function machinesInternal() {
                     "=\\underline{\\mathbf{" + thouSep(dp(ma * effort, 2, -1), "\\ ") + "\\ N}}\\end{aligned}$$";
             break;
         case 3:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=52";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=52";
             do {
                 load = rndgen(4905, 11772, 0, 981, -1);
                 vr = rndgen(5, 8, 0, 1, -1);
@@ -85,7 +119,7 @@ function machinesInternal() {
                     "}\\times100=\\underline{\\mathbf{" + dp(eff * 100, 0, -1) + "\\ \\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
             sl = rndgen(0.004, 0.007, 3, 0.001, -1);
             radius = rndgen(0.4, 0.476, 3, 0.001, -1);
             se = dp(2 * Math.PI * radius, 3, -1);
@@ -116,7 +150,7 @@ function machinesInternal() {
                     "}\\times100=\\underline{\\mathbf{" + eff + "\\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
-                var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
+                notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
             sl = rndgen(0.005, 0.007, 3, 0.001, -1);
             radius = rndgen(0.15, 0.39, 2, 0.01, -1);
             se = dp(2 * Math.PI * radius, 3, -1);
@@ -144,7 +178,7 @@ function machinesInternal() {
                     thouSep(dp(ma * effort, 0, -1), "\\ ") + "\\ N\\ (0\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=56";
             sl = rndgen(0.009, 0.014, 3, 0.001, -1);
             eff = rndgen(0.3, 0.5, 2, 0.01, -1);
             effort = rndgen(30, 75, 0, 1, -1);
@@ -170,7 +204,7 @@ function machinesInternal() {
                     "=\\underline{\\mathbf{" + (thouSep(dp(ma * effort, 1, 1), "\\ ")) + "\\ N\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=64";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=64";
             t1 = rndgen(20, 50, 0, 1, -1);
             t2 = rndgen(60, 90, 0, 1, -1);
             t3 = rndgen(t1 + 10, 50, 0, 1, -1);
@@ -195,7 +229,7 @@ function machinesInternal() {
                     dp(n1 / vr, 1, 1) + "\\ RPM\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
-            var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=64";
+            notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=64";
             t1 = rndgen(20, 40, 0, 1, -1);
             t2 = rndgen(90, 110, 0, 1, -1);
             t3 = rndgen(60, 80, 0, 1, -1);
@@ -221,16 +255,16 @@ function machinesInternal() {
                     "}\\times 100=\\underline{\\mathbf{" + dp((ma / vr) * 100, 0, -1) + 
                     "\\ \\%\\ (0\\ dp)}}\\end{aligned}$$";
             break;
-    }
     
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  const result = machinesInternal();
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#'
+  }
+
+    
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  return out;
 }

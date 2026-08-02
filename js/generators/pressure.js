@@ -1,19 +1,66 @@
 // js/generators/pressure.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats } = utils;
+const NOTES = 'images/Sci Bk2 Statics v1.10.pdf';
+const CANVAS_W = 600;
+const CANVAS_H = 400;
 
-var sumarrpressure = [], sumq, suma, p1, p2, v1, v2, t1, t2, h, hman, hbar, rho, rhoman, rhobar, rho1, rho2, g;
-var patmos, pabs, pgauge, F, a, rhofresh, rhosea;
-function pressureInternal() {
-    var sum;
-                    sumq = "";
-    suma = "";
-    sumarrpressure = QLimitRepeats(sumarrpressure, 14);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarrpressure[sumarrpressure.length - 1];
-    switch(sum) {
+/** @type {number[]} */
+let recentIds = [];
+
+/**
+ * @returns { question: string, solution: string, notesLink: string, canvas?: object }
+ */
+export function generate() {
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+  recentIds = QLimitRepeats(recentIds, 14);
+  const sum = recentIds[recentIds.length - 1];
+
+  let sumarrpressure;
+  let p1;
+  let p2;
+  let v1;
+  let v2;
+  let t1;
+  let t2;
+  let h;
+  let hman;
+  let hbar;
+  let rho;
+  let rhoman;
+  let rhobar;
+  let rho1;
+  let rho2;
+  let g = 9.81;
+  let patmos;
+  let pabs;
+  let pgauge;
+  let F;
+  let a;
+  let rhofresh;
+  let rhosea;
+  let isarow;
+  let isacol;
+  let lwralt;
+  let upralt;
+  let midalt;
+  let alt;
+  let figurediff;
+  let unit;
+  let sumArray;
+  let m;
+  let N;
+  let P;
+  let A;
+  let length;
+
+  switch (sum) {
+
         case 1:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(2.5, 7, 1, 0.1, -1);
             p1 = rndgen(80, 200, 0, 1, -1);
             v2 = rndgen(v1 + 1.5, 12, 1, 0.1, -1);
@@ -30,7 +77,7 @@ function pressureInternal() {
                     "}=\\underline{\\mathbf{" + dp((p1 * v1) / v2, 2, 2) + "\\ kN/m^2\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 2:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             t1 = rndgen(20, 59, 0, 1, -1);
             v1 = rndgen(300000, 600000, 0, 1, -1);
             t2 = rndgen(t1 + 15, 75, 0, 1, -1);
@@ -49,7 +96,7 @@ function pressureInternal() {
                     dp((v1 * Math.pow(10, -6) * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 2, 2) + "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 3:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49"
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49"
             p1 = rndgen(200, 500, 0, 1, -1);
             t1 = rndgen(10, 30, 0, 1, -1);
             v1 = rndgen(0.3, 0.5, 2, 0.01, -1);
@@ -74,7 +121,7 @@ function pressureInternal() {
                     "\\ m^3\\ (3\\ dp)}}\\end{aligned}$$";
             break;
         case 4:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             p1 = rndgen(500, 800, 0, 1, -1);
             t1 = rndgen(12, 20, 0, 1, -1);
             v2 = rndgen(35, 45, 1, 0.1, -1);
@@ -98,7 +145,7 @@ function pressureInternal() {
                     dp((p2 * v2 * dp(t1 + 273.15, 2, -1)) / (dp(t2 + 273.15, 2, -1) * p1), 1, 1) + "\\ in^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 5:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             p1 = rndgen(80, 150, 0, 1, -1);
             t1 = rndgen(8, 15, 1, 0.1, -1);
             t2 = rndgen(30, 40, 1, 0.1, -1);
@@ -116,7 +163,7 @@ function pressureInternal() {
                     "\\ psi\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 6:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(800, 1200, 0, 1, -1);
             t1 = rndgen(20, 28, 1, 0.1, -1);
             t2 = rndgen(33, 40, 1, 0.1, -1);
@@ -134,7 +181,7 @@ function pressureInternal() {
                     thouSep(dp((v1 * dp(t2 + 273.15, 2, -1)) / dp(t1 + 273.15, 2, -1), 1, 1), "\\ ") + "\\ m^3\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 7:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(4, 10, 0, 1, -1);
             p1 = rndgen(80, 250, 1, 0.1, -1);
             p2 = rndgen(1100, 1300, 1, 0.1, -1);
@@ -153,7 +200,7 @@ function pressureInternal() {
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 8:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(2, 5, 1, 0.1, -1);
             t1 = rndgen(40, 60, 0, 1, -1);
             v2 = v1 * 2;
@@ -171,7 +218,7 @@ function pressureInternal() {
                     (dp((dp(t1 + 273.15, 2, -1) * v2) / v1, 2, -1) - 273.15) + "\\ ^OC}}\\end{aligned}$$";
             break;
         case 9:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             v1 = rndgen(5, 20, 0, 1, -1);
             p1 = rndgen(100.5, 150, 1, 0.1, -1);
             t1 = rndgen(10, 30,0, 1, -1);
@@ -195,7 +242,7 @@ function pressureInternal() {
                     "\\ m^3\\ (2\\ dp)}}\\end{aligned}$$"; 
             break;
         case 10:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=49";
             p1 = rndgen(0.75, 1.20, 2, 0.1, -1);
             t1 = rndgen(15, 30, 0, 1, -1);
             v1 = 4;
@@ -223,7 +270,7 @@ function pressureInternal() {
                     (dp((v1 * dp(t1 + 273.15, 2, -1) / v2) - 273.15, 3, -1)) + "^OC}}\\end{aligned}$$";
             break;
         case 11:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=64";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=64";
             h = rndgen(1.85, 2.85, 2, 0.01, -1);
             rho = rndgen(0.71, 0.90, 2, 0.01, -1);
             g = 9.81;
@@ -241,7 +288,7 @@ function pressureInternal() {
                     "\\ bar\\ (2\\ dp)}}\\end{aligned}$$";
             break;
         case 12:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=64";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=64";
             patmos = rndgen(99.8, 102, 1, 0.1, -1);
             rho = 1.02;
             h = rndgen(8, 25, 0, 1, -1);
@@ -264,7 +311,7 @@ function pressureInternal() {
                     dp(pabs / 100000, 1, 1) + "\\ bar\\ (1\\ dp)}}\\end{aligned}$$";
             break;
         case 13:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
             hman = rndgen(205, 305, 0, 1, -1);
             rhoman = 1200;
             hbar = rndgen(735, 755, 0, 1, -1);
@@ -292,7 +339,7 @@ function pressureInternal() {
                     "\\ N/m^2}}\\ (2\\ dp)\\end{aligned}$$";
             break;
         case 14:
-            var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
+            notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=60";
             let colhdgs = [
                 ['Height', '(km)'], ['Pressure', '(mbar)'], ['Density', '(kg/m<sup>3</sup>)'], ['Temperature', '(K)']
             ];
@@ -308,22 +355,12 @@ function pressureInternal() {
                 [10, 264.36, 0.413, 223.2],
                 [11, 226.32, 0.364, 216.7]
             ];
-            var isarow = rndgen(0, 9, 0, 1, -1);
-            var isacol = rndgen(1, 3, 0, 1, -1);
-            var lwralt = isatable[isarow][0];
-            var upralt = isatable[isarow + 1][0];
-            var midalt = rndgen(0.1, 0.9, 1, 0.1, -1);
-            var alt = lwralt + midalt;
-            var figurediff = dp(midalt * (isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1);
             switch(isacol) {
                 case 1:
-                    var unit = "mbar";
                     break;
                 case 2:
-                    var unit = "kg/m^3";
                     break;
                 case 3:
-                    var unit = "K";
                     break;
             }
 
@@ -366,17 +403,16 @@ function pressureInternal() {
                     isatable[isarow][isacol] + "-" + figurediff + "=\\underline{\\mathbf{" + 
                     dp(isatable[isarow][isacol] - figurediff, 4, -1) + "\\ " + unit + "}}\\)";
             break;
-    }
     
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  const result = pressureInternal();
-  // Original returns [sumq, suma, notesLink]
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#'
+  }
+
+    
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  return out;
 }

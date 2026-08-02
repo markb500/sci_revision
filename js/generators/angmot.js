@@ -1,16 +1,51 @@
 // js/generators/angmot.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, fromsecs } = utils;
+const NOTES = 'images/Sci Bk3 Dynamics v1.9.pdf';
+const CANVAS_W = 600;
+const CANVAS_H = 400;
 
-var sumarrangmot = [], sumq, suma, m, R, v, F, a, deg1, deg2, rev1, rev2, rad1, rad2, rpm1, rpm2;
-function angmotInternal() {
-    var sum;
-                    sumq = "";
-    suma = "";
-    sumarrangmot = QLimitRepeats(sumarrangmot, 8);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarrangmot[sumarrangmot.length - 1];
-    switch(sum) {
+/** @type {number[]} */
+let recentIds = [];
+
+/**
+ * @returns { question: string, solution: string, notesLink: string, canvas?: object }
+ */
+export function generate() {
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+  recentIds = QLimitRepeats(recentIds, 8);
+  const sum = recentIds[recentIds.length - 1];
+
+  let sumarrangmot;
+  let m;
+  let R;
+  let v;
+  let F;
+  let a;
+  let deg1;
+  let deg2;
+  let rev1;
+  let rev2;
+  let rad1;
+  let rad2;
+  let rpm1;
+  let rpm2;
+  let sumArray;
+  let N;
+  let b;
+  let c;
+  let s;
+  let w;
+  let r;
+  let A;
+  let d;
+  let length;
+
+  switch (sum) {
+
         case 1:
             m = rndgen(3, 15, 1, 0.1, -1);
             R = rndgen(0.9, 1.9, 1, 0.1, -1);
@@ -150,17 +185,17 @@ function angmotInternal() {
                     "}}=\\underline{\\mathbf{" + dp(Math.sqrt(a / R), 3, 3) + 
                     "\\ rad/s\\ (3\\ dp)}}\\end{aligned}$$";
             break;
-        }
+        
+  }
+
     
-    var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=25";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  const result = angmotInternal();
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#'
+    notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=25";
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  return out;
 }

@@ -1,16 +1,47 @@
 // js/generators/energy.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats, fromsecs } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, fromsecs } = utils;
+const NOTES = 'images/Sci Bk3 Dynamics v1.9.pdf';
+const CANVAS_W = 600;
+const CANVAS_H = 400;
 
-var sumarrenergy = [], sumq, suma, g = 9.81, m, v, h, pe, ke, W, F, s, t, T;
-function energyInternal() {
-    var sum;
-                    sumq = "";
-    suma = "";
-    sumarrenergy = QLimitRepeats(sumarrenergy, 6);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarrenergy[sumarrenergy.length - 1];
-    switch(sum) {
+/** @type {number[]} */
+let recentIds = [];
+
+/**
+ * @returns { question: string, solution: string, notesLink: string, canvas?: object }
+ */
+export function generate() {
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+  recentIds = QLimitRepeats(recentIds, 6);
+  const sum = recentIds[recentIds.length - 1];
+
+  let sumarrenergy;
+  let g = 9.81;
+  let m;
+  let v;
+  let h;
+  let pe;
+  let ke;
+  let W;
+  let F;
+  let s;
+  let t;
+  let T;
+  let sumArray;
+  let N;
+  let a;
+  let b;
+  let c;
+  let P;
+  let A;
+  let length;
+
+  switch (sum) {
+
         case 1:
             m = rndgen(25, 150, 0, 1, -1);
             v = rndgen(20, 35, 0, 1, -1);
@@ -145,17 +176,17 @@ function energyInternal() {
             suma += "&=\\frac{" + W / 1000 + "\\times10^3}{" + s + "}\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp(W / s, 2, 2) + "\\ N\\ (2\\ dp)}}\\end{aligned}$$";
             break;
-    }
     
-    var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=70";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  const result = energyInternal();
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#'
+  }
+
+    
+    notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=70";
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  return out;
 }

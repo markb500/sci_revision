@@ -1,19 +1,34 @@
 // js/generators/vectors.js
-import * as utils from '../utils.js';
+// Clean ES module: space diagram, jet climb, jet bank, pin joint + Show-me-how animations
+import {
+  rndgen, dp, thouSep, QLimitRepeats,
+  sglarr, dblarr, drawline, drawarc, arrhead, images
+} from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, sglarr, dblarr, drawline, drawarc, arrhead, images } = utils;
+const NOTES_SPACE = 'images/Sci Bk2 Statics v1.10.pdf#page=5';
+const CANVAS_W = 550;
+const CANVAS_H = 850;
 
-// Module-scoped state (used by submodules and animations in this file)
-let sumq = '', suma = '';
+/** @type {number[]} */
+let recentIds = [];
+
+// Shared drawing state (submodules + animations)
+let ctx, ctx2;
+let sumq = '', suma = '', notesLink = '';
 let jetup = false, jetroll = false, space = false, pinjt = false;
-let pinjnt = null;  // pin-joint image, set in generate()
 
+// Space diagram state
+let scale, v1, v2, ang1, ang2, ang = 0, r, angr;
+let origx = 0, origy = 0, v1x, v1y, v2x, v2y, rx, ry, angrtxty, v1ytxty;
 
-// ---- from spacediag_module.js ----
+// Jet / pin shared-ish state
+let wt = 0, thrust = 0, lift = 0, cf = 0, altang = 0, fb = 0, fa = 0;
+let wtx = 0, wty = 0, thrustx = 0, thrusty = 0, thrustextx = 0, thrustexty = 0;
+let liftextx = 0, liftexty = 0, cfx = 0, cfy = 0, cfextx = 0, cfexty = 0;
+let fbx = 0, fby = 0, fbextx = 0, fbexty = 0, faextx = 0, faexty = 0;
 
-var ctx, ctx2, scale, v1, v2, ang1, ang2, ang = 0, r, angr, origx = 0, origy = 0, v1x, v1y, v2x, v2y, rx, ry;
-var angrtxty, v1ytxty;
 function spacediag() {
+
     sumq = "";
     suma = "";
 
@@ -150,12 +165,13 @@ function spacediag() {
     }
     arrhead(ctx2, rx, ry, -angr, 2, "red");
     
-    var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=8";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
+    notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=8";
+    return [sumq, suma, notesLink];
+
 }
 
 function animsolnspace() {
+
     //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
@@ -180,13 +196,11 @@ function animsolnspace() {
         }
         $(':button').prop('disabled', false);
     }
+
 }
 
-// ---- from jetclimb_module.js ----
-
-var ctx, ctx2, wt = 0, ang = 0, thrust = 0, lift = 0, origx = 0, origy = 0, wtx = 0, wty = 0;
-var thrustx = 0, thrusty = 0, thrustextx = 0, thrustexty = 0, liftextx = 0, liftexty = 0;
 function jetclimb(ctx2) {
+
     sumq = "";
     suma = "";
     wt = rndgen(300, 450, 0, 25, -1);
@@ -262,12 +276,13 @@ function jetclimb(ctx2) {
     arrhead(ctx2, thrustx, thrusty, 180 + ang, 2, "red");
     arrhead(ctx2, origx, origy, 270 + ang, 2, "red")
     
-    var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=14";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
+    notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=14";
+    return [sumq, suma, notesLink];
+
 }
 
 function animsolnclimb() {
+
     //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
@@ -320,13 +335,11 @@ function animsolnclimb() {
         ctx2.setLineDash([]);
         $(':button').prop('disabled', false);
     }
+
 }
 
-// ---- from jetbank_module.js ----
-
-var ctx, ctx2, wt = 0, ang = 0, cf = 0, lift = 0, origx = 0, origy = 0, wtx = 0, wty = 0, cfx = 0, cfy = 0;
-var cfextx = 0, cfexty = 0, liftextx = 0, liftexty = 0;
 function jetbank(ctx2) {
+
     sumq = "";
     suma = "";
     wt = rndgen(300, 450, 0, 25, -1);
@@ -389,12 +402,13 @@ function jetbank(ctx2) {
     arrhead(ctx2, cfx, cfy, 180, 2, "red");
     arrhead(ctx2, origx, origy, 270 + ang, 2, "red")
     
-    var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=15";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
+    notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=15";
+    return [sumq, suma, notesLink];
+
 }
 
 function animsolnroll() {
+
     //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
@@ -439,13 +453,11 @@ function animsolnroll() {
         ctx2.setLineDash([]);
         $(':button').prop('disabled', false);
     }
+
 }
 
-// ---- from pinjoint_module.js ----
-
-var wt = 0, ang = 0, altang = 0, fb = 0, fa = 0, origx = 0, origy = 0, wtx = 0, wty = 0, fbx = 0, fby = 0;
-var fbextx = 0, fbexty = 0, faextx = 0, faexty = 0;
 function pinjoint(ctx, ctx2) {
+
     sumq = "";
     suma = "";
     do {
@@ -475,7 +487,7 @@ function pinjoint(ctx, ctx2) {
     jetroll = false;
     pinjt = true;
     
-    ctx.drawImage(pinjnt, 0, 0, 650, 550);
+    ctx.drawImage(images.pinjoint, 0, 0, 650, 550);
 
     ctx2.linewidth = 2;
     ctx2.strokeStyle = '#ff0000';
@@ -526,12 +538,13 @@ function pinjoint(ctx, ctx2) {
     arrhead(ctx2, fbx, fby, 180, 2, "red");
     arrhead(ctx2, origx, origy, -ang, 2, "red")
     
-    var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=13";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
+    notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=13";
+    return [sumq, suma, notesLink];
+
 }
 
 function animsolnpin() {
+
     //Runs animation when 'Show me how' clicked
     $(':button').prop('disabled', true);
     ctx2.clearRect(0, 0, myCanvas2.width, myCanvas2.height);
@@ -588,53 +601,50 @@ function animsolnpin() {
         ctx2.setLineDash([]);
         $(':button').prop('disabled', false);
     }
+
 }
 
-// ---- from vectors_module.js ----
-
-var sumarrvectors = [];
-function vectors(ctxArg, ctx2Arg) {
-    // Submodules (spacediag etc.) use module-level ctx/ctx2 globals
-    ctx = ctxArg;
-    ctx2 = ctx2Arg;
-    var sum;
-    sumarrvectors = QLimitRepeats(sumarrvectors, 4);
-    sum = sumarrvectors[sumarrvectors.length - 1];
-    switch(sum) {
-        case 1:
-            var sumArray = spacediag();
-            break;
-        case 2:
-            var sumArray = jetclimb(ctx2);
-            break;
-        case 3:
-            var sumArray = jetbank(ctx2);
-            break;
-        case 4:
-            var sumArray = pinjoint(ctx, ctx2);
-            break;
-    }
-    return sumArray;
+function pickVectorQuestion(ctxArg, ctx2Arg) {
+  ctx = ctxArg;
+  ctx2 = ctx2Arg;
+  recentIds = QLimitRepeats(recentIds, 4);
+  const sum = recentIds[recentIds.length - 1];
+  let sumArray;
+  switch (sum) {
+    case 1:
+      sumArray = spacediag();
+      break;
+    case 2:
+      sumArray = jetclimb(ctx2);
+      break;
+    case 3:
+      sumArray = jetbank(ctx2);
+      break;
+    case 4:
+      sumArray = pinjoint(ctx, ctx2);
+      break;
+  }
+  return sumArray;
 }
 
+/**
+ * @returns {{ question: string, solution: string, notesLink: string, canvas?: object, showHow?: boolean }}
+ */
 export function generate() {
   const off1 = document.createElement('canvas');
-  off1.width = 550;
-  off1.height = 850;
+  off1.width = CANVAS_W;
+  off1.height = CANVAS_H;
   const off2 = document.createElement('canvas');
-  off2.width = 550;
-  off2.height = 850;
-  const ctx = off1.getContext('2d');
-  const ctx2 = off2.getContext('2d');
+  off2.width = CANVAS_W;
+  off2.height = CANVAS_H;
+  const c1 = off1.getContext('2d');
+  const c2 = off2.getContext('2d');
 
-  // Module-scoped image for pinjoint drawing (no window global needed)
-  pinjnt = images.pinjoint || images.pinjnt || null;
-
-  const result = vectors(ctx, ctx2);
+  const result = pickVectorQuestion(c1, c2);
   const url1 = off1.toDataURL();
   const url2 = off2.toDataURL();
 
-  // Flags already held in module scope for animsel(); mirror to window only for debugging
+  // Flags for Show me how (also mirrored for debugging)
   window.jetup = jetup;
   window.jetroll = jetroll;
   window.space = space;
@@ -643,46 +653,38 @@ export function generate() {
   return {
     question: result[0],
     solution: result[1] + '<br>'.repeat(8),
-    notesLink: result[2] || '#',
+    notesLink: result[2] || NOTES_SPACE,
     canvas: {
-      width: 550,
-      height: 850,  // match original vectors canvas height so pin-joint is not cropped
+      width: CANVAS_W,
+      height: CANVAS_H,
       withSolution: true,
-      draw: (ctx) => {
+      draw: (c) => {
         const img = new Image();
-        img.onload = () => ctx.drawImage(img, 0, 0);
-        img.src = url2; // solution diagram
-        if (img.complete) ctx.drawImage(img, 0, 0);
+        img.onload = () => c.drawImage(img, 0, 0);
+        img.src = url2;
+        if (img.complete) c.drawImage(img, 0, 0);
       },
-      // also provide question diagram data for optional use
-      questionDraw: (ctx) => {
+      questionDraw: (c) => {
         const img = new Image();
-        img.onload = () => ctx.drawImage(img, 0, 0);
+        img.onload = () => c.drawImage(img, 0, 0);
         img.src = url1;
-        if (img.complete) ctx.drawImage(img, 0, 0);
+        if (img.complete) c.drawImage(img, 0, 0);
       }
     },
-    showHow: true  // enable Show me how button for vector questions
+    showHow: true
   };
 }
 
-
-// Route "Show me how" to the correct animation, using the on-screen canvas
+/** Route "Show me how" to the matching animation on the live canvas */
 function animsel() {
   const live = document.getElementById('myCanvas2');
   if (!live) return;
-  // Point module-level ctx2 at the visible canvas (not the offscreen capture)
   ctx2 = live.getContext('2d');
   window.myCanvas2 = live;
 
-  if (window.jetup || jetup) {
-    animsolnclimb();
-  } else if (window.jetroll || jetroll) {
-    animsolnroll();
-  } else if (window.space || space) {
-    animsolnspace();
-  } else if (window.pinjt || pinjt) {
-    animsolnpin();
-  }
+  if (jetup || window.jetup) animsolnclimb();
+  else if (jetroll || window.jetroll) animsolnroll();
+  else if (space || window.space) animsolnspace();
+  else if (pinjt || window.pinjt) animsolnpin();
 }
 window.animsel = animsel;

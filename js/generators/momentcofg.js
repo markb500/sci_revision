@@ -1,21 +1,61 @@
 // js/generators/momentcofg.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats, isCanvasBlank, images, sglarr, dblarr } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, sglarr, dblarr, images } = utils;
+const NOTES = 'images/Sci Bk2 Statics v1.10.pdf';
+const CANVAS_W = 650;
+const CANVAS_H = 350;
 
-let cofg = null;  // beam diagram image, set in generate()
+/** @type {number[]} */
+let recentIds = [];
 
-var sumarrmoment = [], sumq, suma;
-function momentcofgInternal(ctx) {
-var sum;
-sumq = "";
-suma = "";
-sumarrmoment = QLimitRepeats(sumarrmoment, 6);   //Ensures no repeat question until at least 50% of questions shown
-sum = sumarrmoment[sumarrmoment.length - 1];
-switch(sum) {
+/**
+ * @returns { question: string, solution: string, notesLink: string, canvas?: object }
+ */
+export function generate() {
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+  recentIds = QLimitRepeats(recentIds, 6);
+  const sum = recentIds[recentIds.length - 1];
+
+  let sumarrmoment;
+  let jtr, findf;
+  let left;
+  let sumArray;
+  let m;
+  let N;
+  let F;
+  let a;
+  let b;
+  let c;
+  let x;
+  let A;
+  let f1;
+  let f2;
+  let f3;
+  let d1;
+  let d2;
+  let d3;
+  let pivot;
+  let length;
+  let pivotx;
+  let f1x;
+  let f2x;
+  let f3x;
+  let ra;
+  let rb;
+  let rc;
+
+  const offQ = document.createElement('canvas');
+  offQ.width = CANVAS_W;
+  offQ.height = CANVAS_H;
+  const ctx = offQ.getContext('2d');
+
+  switch (sum) {
+
     case 1:
-        var jtr, ra, rb, rc, a, b, c, x;
-        var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=39";
+        notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=39";
         jtr = rndgen(0, 1.9, 1, 0.1, -1);
         ra = rndgen(5000, 70000, 0, 100, -1);
         rb = ra * 5;
@@ -27,7 +67,7 @@ switch(sum) {
         sumq += "An aircraft is weighed and the load cell readings together with distances from datum to the undercarriage centres are as follows:<BR>";
         sumq += "R<sub>A</sub> = " + ra / 1000 + "&nbsp;kN,   R<sub>B</sub> = " + rb / 1000 + "&nbsp;kN,   a = " + a + "&nbsp;m,   b = " + b + "&nbsp;m<BR>";
         sumq += "Find the centre of gravity position for the aircraft, rounding your answer to 1 decimal place.";
-        ctx.drawImage(cofg, 20, 25, 600, 312);
+        ctx.drawImage(images.cofg, 20, 25, 600, 312);
         suma += "<br>".repeat(13);
         suma += "$$\\begin{aligned}\\bar{x}&=\\frac{R_A\\times a+ R_B\\times b+ R_C\\times c}{R_A + R_B + R_C}\\\\[5pt]";
         suma += "&=\\frac{" + (ra / 1000) + "\\times10^3 \\times" + a + "+" + (rb / 1000) + 
@@ -40,8 +80,7 @@ switch(sum) {
     case 4:
     case 5:
     case 6:
-        var left, findf, length, pivot, f1, f2, f3, d1, d2, d3, pivotx, f1x, f2x, f3x;
-        var notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=24";
+        notesLink = "images/Sci Bk2 Statics v1.10.pdf#page=24";
         left = 40;
         do {
             length = rndgen(5, 20, 1, 0.5, -1);
@@ -222,36 +261,31 @@ switch(sum) {
                 break;
         }
         break;
-}
-    
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  // Draw onto an offscreen canvas so the diagram is captured
-  const off = document.createElement('canvas');
-  off.width = 625;
-  off.height = 315;
-  const ctx = off.getContext('2d');
-  cofg = images.cofg || null;
-  const result = momentcofgInternal(ctx);
-  const dataUrl = off.toDataURL();
 
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#',
-    canvas: {
-      width: 625,
-      height: 315,
-      withSolution: false,  // diagram shown with question
-      draw: (ctx) => {
-        const img = new Image();
-        img.onload = () => ctx.drawImage(img, 0, 0);
-        img.src = dataUrl;
-        // synchronous fallback if already cached
-        if (img.complete) ctx.drawImage(img, 0, 0);
-      }
-    }
+  }
+
+    
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  if (!isCanvasBlank(offQ)) {
+    const urlQ = offQ.toDataURL();
+    out.canvas = {
+      width: CANVAS_W,
+      height: CANVAS_H,
+      withSolution: false,
+      draw: (c) => {
+        const img = new Image();
+        img.onload = () => c.drawImage(img, 0, 0);
+        img.src = urlQ;
+        if (img.complete) c.drawImage(img, 0, 0);
+      }
+    };
+  }
+
+  return out;
 }

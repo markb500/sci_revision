@@ -1,16 +1,48 @@
 // js/generators/linmot.js
-import * as utils from '../utils.js';
+// Clean ES module
+import { rndgen, dp, thouSep, QLimitRepeats, fromsecs } from '../utils.js';
 
-const { rndgen, dp, thouSep, QLimitRepeats, fromsecs } = utils;
+const NOTES = 'images/Sci Bk3 Dynamics v1.9.pdf';
+const CANVAS_W = 600;
+const CANVAS_H = 400;
 
-var sumarrlinmot = [], sumq, suma, s, u, v, a, t, s_part, m, t1, t2, t3, s1, s2, s3, st;
-function linmotInternal() {
-    var sum;
-                    sumq = "";
-    suma = "";
-    sumarrlinmot = QLimitRepeats(sumarrlinmot, 11);   //Ensures no repeat question until at least 50% of questions shown
-    sum = sumarrlinmot[sumarrlinmot.length - 1];
-    switch(sum) {
+/** @type {number[]} */
+let recentIds = [];
+
+/**
+ * @returns { question: string, solution: string, notesLink: string, canvas?: object }
+ */
+export function generate() {
+  let notesLink = NOTES;
+  let sumq = '';
+  let suma = '';
+  recentIds = QLimitRepeats(recentIds, 11);
+  const sum = recentIds[recentIds.length - 1];
+
+  let sumarrlinmot;
+  let s;
+  let u;
+  let v;
+  let a;
+  let t;
+  let s_part;
+  let m;
+  let t1;
+  let t2;
+  let t3;
+  let s1;
+  let s2;
+  let s3;
+  let st;
+  let sumArray;
+  let N;
+  let F;
+  let A;
+  let h;
+  let length;
+
+  switch (sum) {
+
         case 1:
             do {
                 u = rndgen(0, 8.3, 1, 0.1, -1);
@@ -284,17 +316,17 @@ function linmotInternal() {
                     thouSep(st, "\\ ") + "}{" + t1 + "+" + t2 + "+" + t3 + "}=\\underline{\\mathbf{" + 
                     dp(st / (t1 + t2 + t3), 2, 2) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
             break;
-    }
     
-    var notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=5";
-    var sumArray = [sumq, suma, notesLink];
-    return sumArray;
-}
-export function generate() {
-  const result = linmotInternal();
-  return {
-    question: result[0],
-    solution: result[1],
-    notesLink: result[2] || '#'
+  }
+
+    
+    notesLink = "images/Sci Bk3 Dynamics v1.9.pdf#page=5";
+    
+  const out = {
+    question: sumq,
+    solution: suma,
+    notesLink: notesLink || NOTES
   };
+
+  return out;
 }
