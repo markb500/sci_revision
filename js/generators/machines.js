@@ -59,11 +59,11 @@ export function generate() {
                     thouSep(dp(load / 9.81, 4, -1), "&nbsp;") + 
                     "&nbsp;kg. Calculate, to 2 decimal places, the effort needed to raise the load when the effort moves " + 
                     se + "&nbsp;m to raise the load by " + sl + "&nbsp;m.";
-            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
-            suma += "\\(load=" + (dp(load / 9.81, 4, -1)) + "\\times9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
-            suma += "\\(s_E=" + se + "\\ m\\\\\\)";
-            suma += "\\(s_L=" + sl + "\\ m\\\\\\)";
-            suma += "\\(effort=\\ ?\\\\\\)";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\)<br>";
+            suma += "\\(load=" + (dp(load / 9.81, 4, -1)) + "\\times9.81=" + thouSep(load, "\\ ") + "\\ N\\)<br>";
+            suma += "\\(s_E=" + se + "\\ m\\)<br>";
+            suma += "\\(s_L=" + sl + "\\ m\\)<br>";
+            suma += "\\(effort=\\ ?\\)<br>";
             suma += "$$\\begin{aligned}VR&=\\frac{ s_E }{ s_L }=\\frac{" + se + "}{" + sl + "}=" + 
                     (se / sl) + "\\\\[25pt]";
             suma += "\\eta&=\\frac{MA}{VR}\\\\[5pt]";
@@ -81,10 +81,10 @@ export function generate() {
             ma = dp(eff * vr, 2, -1);
             sumq += "A " + vr + " pulley system with an efficiency of " + dp(eff * 100, 2, -1) + 
                     "&nbsp;% is fitted in a workshop. What load can be lifted by an applied effort of " + effort + "&nbsp;N?";
-            suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\\\\\)";
-            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
-            suma += "\\(effort=" + effort + "\\ N\\\\\\)";
-            suma += "\\(load=\\ ?\\ N\\\\\\)";
+            suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\)<br>";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\)<br>";
+            suma += "\\(effort=" + effort + "\\ N\\)<br>";
+            suma += "\\(load=\\ ?\\ N\\)<br>";
             suma += "$$\\begin{aligned}\\eta&=\\frac{MA}{VR}\\\\[5pt]";
             suma += "MA&=\\eta\\times VR=" + eff + "\\times" + vr + "=" + ma + "\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}\\\\[5pt]";
@@ -108,11 +108,11 @@ export function generate() {
             sumq += "A mass of " + dp(load / 9.81, 4, -1) + "&nbsp;kg is lifted by " + txt + " " + vr + "&nbsp;pulley system. If the applied effort is " +   thouSep(effort, "&nbsp;") + "&nbsp;N, calculate:<BR>";
             sumq += "i. the mechanical advantage of the system, rounded to 2 decimal places.<BR>";
             sumq += "ii. the percentage efficiency of the system, to the nearest whole number.";
-            suma += "\\(load=" + (dp(load / 9.81, 4, -1)) + "\\times 9.81=" + thouSep(load, "\\ ") + "\\ N\\\\\\)";
-            suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\\\\\)";
-            suma += "\\(effort=" + thouSep(effort, "\\ ") + "\\ N\\\\\\)";
-            suma += "\\(MA=\\ ?\\\\\\)";
-            suma += "\\(eta=\\ ?\\ \\%\\\\\\)";
+            suma += "\\(load=" + (dp(load / 9.81, 4, -1)) + "\\times 9.81=" + thouSep(load, "\\ ") + "\\ N\\)<br>";
+            suma += "\\(VR=" + vr + "\\ \\ \\ \\ \\ (" + vr + "\\ pulley\\ system)\\)<br>";
+            suma += "\\(effort=" + thouSep(effort, "\\ ") + "\\ N\\)<br>";
+            suma += "\\(MA=\\ ?\\)<br>";
+            suma += "\\(eta=\\ ?\\ \\%\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ MA&=\\frac{load}{effort}=\\frac{" + thouSep(load, "\\ ") + "}{" + 
                     thouSep(effort, "\\ ") + "}=\\underline{\\mathbf{" + dp(load / effort, 2, 2) + "\\ (2\\ dp)}}\\\\[15pt]";
             suma += "ii.\\ \\ \\ \\ \\ \\ \\eta &=\\frac{MA}{VR}\\times100=\\frac{" + ma + "}{" + vr + 
@@ -134,14 +134,14 @@ export function generate() {
                     "&nbsp;N can lift a load of " + (load / 1000) + 
                     "&nbsp;kN. Find the velocity ratio and mechanical advantage, each to an accuracy of " + 
                     "1 decimal place, and the percentage efficiency to the nearest whole number.";
-            suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ N\\\\\\)";
+            suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ N\\)<br>";
             suma += "\\(s_E=2\\pi r=2\\times\\pi\\times" + dp(radius * 100, 1, -1) + "\\times10^{-2}=" + se + 
-                    "\\ m\\ (3\\ dp)\\\\\\)";
-            suma += "\\(effort=" + effort + "\\ N\\\\\\)";
-            suma += "\\(load=" + (load / 1000) + "\\times10^3\\ N\\\\\\)";
-            suma += "\\(VR=\\ ?\\\\\\)";
-            suma += "\\(MA=\\ ?\\\\\\)";
-            suma += "\\(\\eta=\\ ?\\ \\%\\\\\\)";
+                    "\\ m\\ (3\\ dp)\\)<br>";
+            suma += "\\(effort=" + effort + "\\ N\\)<br>";
+            suma += "\\(load=" + (load / 1000) + "\\times10^3\\ N\\)<br>";
+            suma += "\\(VR=\\ ?\\)<br>";
+            suma += "\\(MA=\\ ?\\)<br>";
+            suma += "\\(\\eta=\\ ?\\ \\%\\)<br>";
             suma += "$$\\begin{aligned}VR&=\\frac{ s_E }{ s_L }=\\frac{" + se + "}{" + (sl * 1000) + 
                     "\\times10^{-3}}=\\underline{\\mathbf{" + dp(se / sl, 1, 1) + "\\ (1\\ dp)}}\\\\[25pt]";
             suma += "MA&=\\frac{load}{effort}=\\frac{" + (load / 1000) + "\\times10^3}{" + effort + 
@@ -163,12 +163,12 @@ export function generate() {
                     "&nbsp;m. If the efficiency of the jack is " + dp(eff * 100, 2, -1) + 
                     "&nbsp;%, calculate, to the nearest whole number, the maximum load that can be " + 
                     "raised by an effort of " + effort + "&nbsp;N.";
-            suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
+            suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\)<br>";
             suma += "\\(s_E=2\\times \\pi \\times r=2\\times\\pi\\times" + radius + "=" + se + 
-                    "\\ m\\ (3\\ dp)\\\\\\)";
-            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
-            suma += "\\(effort=" + effort + "\\ N\\\\\\)";
-            suma += "\\(load=\\ ?\\ N\\\\\\)";
+                    "\\ m\\ (3\\ dp)\\)<br>";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\)<br>";
+            suma += "\\(effort=" + effort + "\\ N\\)<br>";
+            suma += "\\(load=\\ ?\\ N\\)<br>";
             suma += "$$\\begin{aligned}VR&=\\frac{s_E}{s_L}=\\frac{" + se + "}{" + (sl * 1000) + 
                     "\\times10^{-3}}=" + vr + "\\\\[25pt]";
             suma += "\\eta&=\\frac{MA}{VR}\\\\[5pt]";
@@ -189,12 +189,12 @@ export function generate() {
             sumq += "A screw jack has a thread of " + (sl * 1000) + "&nbsp;mm pitch and an efficiency of " + 
                     dp(eff * 100, 2, -1) + "&nbsp;%. An effort of " + effort + "&nbsp;N is applied at a radius of " + 
                     dp(radius * 100, 1, -1) + "&nbsp;cm. Calculate the load that is lifted, accurate to 1 decimal place.";
-            suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\\\\\)";
-            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\\\\\)";
-            suma += "\\(effort=" + effort + "\\ N\\\\\\)";
+            suma += "\\(s_L=" + (sl * 1000) + "\\times10^{-3}\\ m\\)<br>";
+            suma += "\\(\\eta=\\frac{" + dp(eff * 100, 2, -1) + "}{100}=" + eff + "\\)<br>";
+            suma += "\\(effort=" + effort + "\\ N\\)<br>";
             suma += "\\(s_E=2\\times \\pi \\times r=2 \\times \\pi \\times" + (radius * 100) + 
-                    "\\times10^{-2}=" + se + "\\ m\\\\\\)";
-            suma += "\\(load=\\ ?\\ N\\\\\\)";
+                    "\\times10^{-2}=" + se + "\\ m\\)<br>";
+            suma += "\\(load=\\ ?\\ N\\)<br>";
             suma += "$$\\begin{aligned}VR&=\\frac{s_E}{s_L}=\\frac{" + se + "}{" + (sl * 1000) + 
                     "\\times10^{-3}}=" + vr + "\\\\[25pt]";
             suma += "\\eta&=\\frac{MA}{VR}\\\\[5pt]";
@@ -217,11 +217,11 @@ export function generate() {
                     "&nbsp;teeth, t<sub>3</sub> = " + t3 + "&nbsp;teeth and t<sub>4</sub> =" + t4 + "&nbsp;teeth.<BR>";
             sumq += "If the input speed is " + n1 + 
                     "&nbsp;RPM, calculate the output speed, to an accuracy of 1 decimal place.";
-            suma += "\\(t_1=" + t1 + "\\ teeth\\\\\\)";
-            suma += "\\(t_2=" + t2 + "\\ teeth\\\\\\)";
-            suma += "\\(t_3=" + t3 + "\\ teeth\\\\\\)";
-            suma += "\\(t_4=" + t4 + "\\ teeth\\\\\\)";
-            suma += "\\(N_1=" + n1 + "\\ RPM\\\\\\)";
+            suma += "\\(t_1=" + t1 + "\\ teeth\\)<br>";
+            suma += "\\(t_2=" + t2 + "\\ teeth\\)<br>";
+            suma += "\\(t_3=" + t3 + "\\ teeth\\)<br>";
+            suma += "\\(t_4=" + t4 + "\\ teeth\\)<br>";
+            suma += "\\(N_1=" + n1 + "\\ RPM\\)<br>";
             suma += "$$\\begin{aligned}VR&=\\frac{t_2 t_4}{t_1 t_3}=\\frac{" + t2 + "\\times" + t4 + "}{" + t1 + 
                     "\\times" + t3 + "}=" + dp((t2 * t4) / (t1 * t3), 2, 2) + "\\ (2\\ dp)\\\\[25pt]";
             suma += "VR&=\\frac{N_1}{N_4}\\\\[5pt]";
@@ -242,13 +242,13 @@ export function generate() {
                     t2 + "&nbsp;teeth of gear 2. Gear 3, on the same shaft as gear 2, has " + t3 + 
                     "&nbsp;teeth and meshes with the " + t4 + "&nbsp;teeth of gear 4. Calculate, to the nearest whole number, " + 
                     "the velocity ratio and the percentage efficiency, if the mechanical advantage is " + ma;
-            suma += "\\(t_1=" + t1 + "\\ teeth\\\\\\)";
-            suma += "\\(t_2=" + t2 + "\\ teeth\\\\\\)";
-            suma += "\\(t_3=" + t3 + "\\ teeth\\\\\\)";
-            suma += "\\(t_4=" + t4 + "\\ teeth\\\\\\)";
-            suma += "\\(MA=" + ma + "\\\\\\)";
-            suma += "\\(VR=\\ ?\\\\\\)";
-            suma += "\\(\\eta=\\ ?\\ \\%\\\\\\)";
+            suma += "\\(t_1=" + t1 + "\\ teeth\\)<br>";
+            suma += "\\(t_2=" + t2 + "\\ teeth\\)<br>";
+            suma += "\\(t_3=" + t3 + "\\ teeth\\)<br>";
+            suma += "\\(t_4=" + t4 + "\\ teeth\\)<br>";
+            suma += "\\(MA=" + ma + "\\)<br>";
+            suma += "\\(VR=\\ ?\\)<br>";
+            suma += "\\(\\eta=\\ ?\\ \\%\\)<br>";
             suma += "$$\\begin{aligned}VR&=\\frac{t_2 t_4}{t_1 t_3}=\\frac{" + t2 + "\\times" + t4 + 
                     "}{" + t1 + "\\times" + t3 + "}=\\underline{\\mathbf{" + vr + "\\ (0\\ dp)}}\\\\[25pt]";
             suma += "\\eta &=\\frac{MA}{VR}\\times 100=\\frac{" + ma + "}{" + vr + 

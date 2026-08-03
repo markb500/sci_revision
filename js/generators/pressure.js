@@ -38,6 +38,7 @@ export function generate() {
   let patmos;
   let pabs;
   let pgauge;
+  let pguage;
   let F;
   let a;
   let rhofresh;
@@ -67,10 +68,10 @@ export function generate() {
             sumq += "If " + v1 + "&nbsp;m" + "<sup>3</sup> " + " of gas at a pressure of " + p1 + 
                     "&nbsp;kN/m" + "<sup>2</sup> is expanded to " + v2 + "&nbsp;m<sup>3</sup>" + 
                     " at a constant temperature, calculate the new pressure in kN/m<sup>2</sup> to 2 decimal places.";
-            suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(V_2=" + v2 + "\\ m^3\\\\\\)";
-            suma += "\\(P_2=\\ ?\\ N/m^2\\\\\\)";
+            suma += "\\(V_1=" + v1 + "\\ m^3\\)<br>";
+            suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\)<br>";
+            suma += "\\(V_2=" + v2 + "\\ m^3\\)<br>";
+            suma += "\\(P_2=\\ ?\\ N/m^2\\)<br>";
             suma += "$$\\begin{aligned}P_1 V_1 &= P_2 V_2\\qquad\\qquad\\qquad " + 
                     "Note:\\ temp\\ remains\\ constant.\\\\[5pt]";
             suma += "P_2&=\\frac{P_1 V_1}{V_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + "}{" + v2 + 
@@ -85,10 +86,10 @@ export function generate() {
                     thouSep(v1, "&nbsp;") + "&nbsp;cm<sup>3</sup>, is heated to " + t2 + 
                     "&nbsp;<sup>O</sup>C. If the pressure remains constant, calculate its new volume, " + 
                     "in m<sup>3</sup> to 2 decimal places.";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_1=" + thouSep(v1, "\\ ") + "\\times10^{-6}\\ m^3\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_1=" + thouSep(v1, "\\ ") + "\\times10^{-6}\\ m^3\\)<br>";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_2=\\ ?\\ m^3\\)<br>";
             suma += "$$\\begin{aligned}\\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times10^{-6}\\times" + 
@@ -107,12 +108,12 @@ export function generate() {
                         "&nbsp;<sup>O</sup>C. The gas is compressed until the pressure and temperature are " + p2 + 
                         "&nbsp;mbar and " + t2 + "&nbsp;<sup>O</sup>C respectively. If there is no loss of gas, " + 
                         "calculate the new volume to an accuracy of 3 decimal places.";
-            suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(P_1=" + p1 + "\\ mbar\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(P_2=" + p2 + "\\ mbar\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
+            suma += "\\(V_1=" + v1 + "\\ m^3\\)<br>";
+            suma += "\\(P_1=" + p1 + "\\ mbar\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(P_2=" + p2 + "\\ mbar\\)<br>";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_2=\\ ?\\ m^3\\)<br>";
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + p1 + "\\times" + v1 + 
                     "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "\\times" + p2 + 
@@ -133,12 +134,12 @@ export function generate() {
                     v2 + "&nbsp;in<sup>3</sup> at a pressure of " +  thouSep(p2, "&nbsp;") + 
                     "&nbsp;psi. If the temperature also increases to " + t2 + 
                     "&nbsp;<sup>O</sup>C, calculate the initial volume of the accumulator, to 1 decimal place.";
-            suma += "\\(P_1=" + p1 + "\\ psi\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_2=" + v2 + "\\ in^3\\\\\\)";
-            suma += "\\(P_2=" + thouSep(p2, "\\ ") + "\\ psi\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_1=\\ ?\\ in^3\\\\\\)";
+            suma += "\\(P_1=" + p1 + "\\ psi\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_2=" + v2 + "\\ in^3\\)<br>";
+            suma += "\\(P_2=" + thouSep(p2, "\\ ") + "\\ psi\\)<br>";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_1=\\ ?\\ in^3\\)<br>";
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_1&=\\frac{P_2 V_2 T_1}{T_2 P_1}=\\frac{" + thouSep(p2, "\\ ") + "\\times" + v2 + 
                     "\\times" + dp(t1 + 273.15, 2, -1) + "}{" + dp(t2 + 273.15, 2, -1) + "\\times" + p1 + "}=\\underline{\\mathbf{" + 
@@ -152,10 +153,10 @@ export function generate() {
             sumq += "A tyre is inflated so it has an absolute pressure of " + p1 + "&nbsp;psi at " + t1 + 
                     "&nbsp;<sup>O</sup>C. What is the new absolute pressure, to an accuracy of 1 decimal place, " + 
                     "if the tyre is heat soaked at " + t2 + "&nbsp;<sup>O</sup>C, assuming the volume remains constant?";
-            suma += "\\(P_1=" + p1 + "\\ psi\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(P_2=\\ ?\\ psi\\\\\\)";
+            suma += "\\(P_1=" + p1 + "\\ psi\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(P_2=\\ ?\\ psi\\)<br>";
             suma += "$$\\begin{aligned}\\frac{P_1}{T_1}&=\\frac{P_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ volume\\ remains\\ constant.\\\\[5pt]";
             suma += "P_2&=\\frac{P_1 T_2}{T_1}=\\frac{" + p1 + "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + 
@@ -170,10 +171,10 @@ export function generate() {
             sumq += "A hot air balloon contains " + thouSep(v1, "&nbsp;") + "&nbsp;m<sup>3</sup> of air at " + t1 + 
                     "&nbsp;<sup>O</sup>C. What volume will it occupy at " + t2 + 
                     "&nbsp;<sup>O</sup>C, assuming the pressure remains constant? Round the answer to 1 decimal place.";
-            suma += "\\(V_1=" + thouSep(v1, " ") + "\\ m^3\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
+            suma += "\\(V_1=" + thouSep(v1, " ") + "\\ m^3\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_2=\\ ?\\ m^3\\)<br>";
             suma += "$$\\begin{aligned}\\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\qquad\\qquad " + 
                     "Note:\\ pressure\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{V_1 T_2}{T_1}=\\frac{" + thouSep(v1, "\\ ") + "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + 
@@ -189,10 +190,10 @@ export function generate() {
                     "&nbsp;kN/m<sup>2</sup> absolute and compresses it to a pressure of " + thouSep(p2, "&nbsp;") + 
                     "&nbsp;kN/m<sup>2</sup> absolute. Calculate the final volume of air, rounded to 2 decimal places, " + 
                     "assuming no change in temperature.";
-            suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(P_2=" + thouSep(p2, "\\ ") + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
+            suma += "\\(V_1=" + v1 + "\\ m^3\\)<br>";
+            suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\)<br>";
+            suma += "\\(P_2=" + thouSep(p2, "\\ ") + "\\times10^3\\ N/m^2\\)<br>";
+            suma += "\\(V_2=\\ ?\\ m^3\\)<br>";
             suma += "$$\\begin{aligned}P_1 V_1&=P_2 V_2\\qquad\\qquad " + 
                     "Note:\\ temperature\\ remains\\ constant.\\\\[5pt]";
             suma += "V_2&=\\frac{P_1 V_1}{P_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + "}{" + p2 + 
@@ -207,10 +208,10 @@ export function generate() {
             sumq += "If " + v1 + "&nbsp;m<sup>3</sup> of gas at " + t1 + 
                     "&nbsp;<sup>O</sup>C is heated at a constant pressure until its volume is doubled, " + 
                     "what will be the final temperature, in <sup>O</sup>C?";
-            suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_2=V_1\\times2=" + v2 + "\\ m^3\\\\\\)";
-            suma += "\\(T_2=\\ ?\\ ^OC\\\\\\)";
+            suma += "\\(V_1=" + v1 + "\\ m^3\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_2=V_1\\times2=" + v2 + "\\ m^3\\)<br>";
+            suma += "\\(T_2=\\ ?\\ ^OC\\)<br>";
             suma += "$$\\begin{aligned}\\frac{V_1}{T_1}&=\\frac{V_2}{T_2}\\\\[5pt]";
             suma += "T_2&=\\frac{T_1 V_2}{V_1}=\\frac{" + dp(t1 + 273.15, 2, -1) + "\\times" + v2 + "}{" + v1 + "}=" + 
                     dp((dp(t1 + 273.15, 2, -1) * v2) / v1, 2, -1) + "\\ K\\\\[5pt]";
@@ -228,12 +229,12 @@ export function generate() {
                     "&nbsp;kN/m<sup>2</sup> absolute and " + t1 + "&nbsp;<sup>O</sup>C to final conditions of " + p2 + 
                     "&nbsp;kN/m<sup>2</sup> absolute and " + t2 + 
                     "&nbsp;<sup>O</sup>C, calculate the final volume of the air, to an accuracy of 2 decimal places.";
-            suma += "\\(V_1=" + v1 + "\\ m^3\\\\\\)";
-            suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(P_2=" + p2 + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_2=\\ ?\\ m^3\\\\\\)";
+            suma += "\\(V_1=" + v1 + "\\ m^3\\)<br>";
+            suma += "\\(P_1=" + p1 + "\\times10^3\\ N/m^2\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(P_2=" + p2 + "\\times10^3\\ N/m^2\\)<br>";
+            suma += "\\(T_2=" + t2 + "+273.15=" + dp(t2 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_2=\\ ?\\ m^3\\)<br>";
             suma += "$$\\begin{aligned}\\frac{P_1 V_1}{T_1}&=\\frac{P_2 V_2}{T_2}\\\\[5pt]";
             suma += "V_2&=\\frac{P_1 V_1 T_2}{T_1 P_2}=\\frac{" + p1 + "\\times10^3\\times" + v1 + 
                     "\\times" + dp(t2 + 273.15, 2, -1) + "}{" + dp(t1 + 273.15, 2, -1) + "\\times" + p2 + 
@@ -252,12 +253,12 @@ export function generate() {
             sumq += "i. What is the resulting pressure?<BR>";
             sumq += "ii. The air is then heated at a constant pressure until it occupies its original volume. " + 
                     "Calculate the final temperature in <sup>O</sup>C.";
-            suma += "\\(P_1=" + p1 + "\\ bar\\\\\\)";
-            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\\\\\)";
-            suma += "\\(V_1=4m^3\\\\\\)";
-            suma += "\\(V_2=1m^3\\\\\\)";
-            suma += "\\(P_2=\\ ?\\ bar\\\\\\)";
-            suma += "\\(T_2=\\ ?\\ ^OC\\\\\\)";
+            suma += "\\(P_1=" + p1 + "\\ bar\\)<br>";
+            suma += "\\(T_1=" + t1 + "+273.15=" + dp(t1 + 273.15, 2, -1) + "\\ K\\)<br>";
+            suma += "\\(V_1=4m^3\\)<br>";
+            suma += "\\(V_2=1m^3\\)<br>";
+            suma += "\\(P_2=\\ ?\\ bar\\)<br>";
+            suma += "\\(T_2=\\ ?\\ ^OC\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ P_1 V_1&=P_2 V_2\\qquad\\qquad " + 
                     "Note:\\ temperature\\ remains\\ constant.\\\\[5pt]";
             suma += "P_2&=\\frac{P_1 V_1}{V_2}=\\frac{" + p1 + "\\times" + v1 + "}{" + v2 + "}=" + 
@@ -277,9 +278,9 @@ export function generate() {
             sumq += "A manometer reads " + h + "&nbsp;m. If the working fluid has a relative density of " + rho + 
                     ", calculate the gauge pressure being indicated, both in N/m<sup>2</sup> and bar, " + 
                     "each rounded to 2 decimal places.";
-            suma += "\\(h=" + h + "\\ m\\\\\\)";
-            suma += "\\(\\rho=" + rho + "\\times1\\ 000=" + dp(rho * 1000, 2, -1) + "\\ kg/m^3\\\\\\)";
-            suma += "\\(P=\\ ?\\ N/m^2\\ \\&\\ bar\\\\\\)";
+            suma += "\\(h=" + h + "\\ m\\)<br>";
+            suma += "\\\\rho=" + rho + "\\times1\\ 000=" + dp(rho * 1000, 2, -1) + "\\ kg/m^3\\)<br>";
+            suma += "\\(P=\\ ?\\ N/m^2\\ \\&\\ bar\\)<br>";
             suma += "$$\\begin{aligned}P&=\\rho gh=" + thouSep(rho, "\\ ") + "\\times" + g + "\\times" + 
                     h + "=\\underline{\\mathbf{" + thouSep(dp(rho * 1000 * g * h, 4, 2), "\\ ") + 
                     "\\ N/m^2\\ (2\\ dp)}}\\\\[5pt]";
@@ -298,10 +299,10 @@ export function generate() {
                     "&nbsp;kN/m<sup>2</sup> and that 'sea water' has a relative density of " + rho + 
                     ", calculate the absolute pressure on the hull of a submarine at a depth of " + h + 
                     "&nbsp;m, giving your answer in N/m<sup>2</sup> and bar, each to an accuracy of 1 decimal place.";
-            suma += "\\(P_{ATMOS}=" + patmos + "\\times10^3\\ N/m^2\\\\\\)";
-            suma += "\\(\\rho=" + rho + "\\times1\\ 000=" + thouSep((rho * 1000), "\\ ") + "\\ kg/m^3\\\\\\)";
-            suma += "\\(h=" + h + "\\ m\\\\\\)";
-            suma += "\\(P_{ABS}=\\ ?\\ N/m^2\\ \\&\\ bar\\\\\\)";
+            suma += "\\(P_{ATMOS}=" + patmos + "\\times10^3\\ N/m^2\\)<br>";
+            suma += "\\\\rho=" + rho + "\\times1\\ 000=" + thouSep((rho * 1000), "\\ ") + "\\ kg/m^3\\)<br>";
+            suma += "\\(h=" + h + "\\ m\\)<br>";
+            suma += "\\(P_{ABS}=\\ ?\\ N/m^2\\ \\&\\ bar\\)<br>";
             suma += "$$\\begin{aligned}P_{GUAGE}&=\\rho gh=" + thouSep((rho * 1000), "\\ ") + "\\times" + g + 
                     "\\times" + h + "=" + thouSep(dp(rho * 1000 * g * h, 4, -1), "\\ ") + "\\ N/m^2\\\\[5pt]";
             suma += "P_{ABS}&=P_{GUAGE}+ P_{ATMOS}=" + thouSep(dp(rho * 1000 * g * h, 4, -1), "\\ ") + 
@@ -324,11 +325,11 @@ export function generate() {
                     hbar + "&nbsp;mmHg (Mercury (Hg) density = " + thouSep(rhobar, "&nbsp;") + 
                     "&nbsp;kg/m<sup>3</sup>). Calculate the absolute pressure of the gas in the pipe, " + 
                     "in N/m<sup>2</sup> rounded to 2 decimal places.";
-            suma += "\\(h_{MAN}=" + hman + "\\times10^{-3}\\ m\\\\\\)";
-            suma += "\\(\\rho_{MAN}=" + thouSep(rhoman, "\\ ") + "\\ kg/m^3\\\\\\)";
-            suma += "\\(h_{BAR}=" + hbar + "\\times10^{-3}\\ m\\\\\\)";
-            suma += "\\(\\rho_{BAR}=" + thouSep(rhobar, "\\ ") + "\\ kg/m^3\\\\\\)";
-            suma += "\\(p_{ABS}=\\ ?\\ N/m^2\\\\\\)";
+            suma += "\\(h_{MAN}=" + hman + "\\times10^{-3}\\ m\\)<br>";
+            suma += "\\\\rho_{MAN}=" + thouSep(rhoman, "\\ ") + "\\ kg/m^3\\)<br>";
+            suma += "\\(h_{BAR}=" + hbar + "\\times10^{-3}\\ m\\)<br>";
+            suma += "\\\\rho_{BAR}=" + thouSep(rhobar, "\\ ") + "\\ kg/m^3\\)<br>";
+            suma += "\\(p_{ABS}=\\ ?\\ N/m^2\\)<br>";
             suma += "$$\\begin{aligned}P_{GUAGE}&=\\rho_{MAN}\\ g\\ h_{MAN}=" + thouSep(rhoman, "\\ ") + 
                     "\\times" + g + "\\times" + hman + "\\times10^{-3}=" + thouSep(pguage, "\\ ") + 
                     "\\ N/m^2\\\\[5pt]";
@@ -355,12 +356,22 @@ export function generate() {
                 [10, 264.36, 0.413, 223.2],
                 [11, 226.32, 0.364, 216.7]
             ];
-            switch(isacol) {
+            isarow = rndgen(0, 9, 0, 1, -1);
+            isacol = rndgen(1, 3, 0, 1, -1);
+            lwralt = isatable[isarow][0];
+            upralt = isatable[isarow + 1][0];
+            midalt = rndgen(0.1, 0.9, 1, 0.1, -1);
+            alt = lwralt + midalt;
+            figurediff = dp(midalt * (isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1);
+            switch (isacol) {
                 case 1:
+                    unit = "mbar";
                     break;
                 case 2:
+                    unit = "kg/m^3";
                     break;
                 case 3:
+                    unit = "K";
                     break;
             }
 
@@ -391,17 +402,17 @@ export function generate() {
             sumq += "</tbody><BR><BR>";
 
             suma += "\\(" + colhdgs[isacol][0] + "\\ at\\ an\\ altitude\\ of\\ " + thouSep(lwralt * 1000, "\\ ") + "\\ m=" + 
-                                                    isatable[isarow][isacol] + "\\ " + unit + "\\\\\\)";
+                                                    isatable[isarow][isacol] + "\\ " + unit + "\\)<br>";
             suma += "\\(" + colhdgs[isacol][0] + "\\ at\\ an\\ altitude\\ of\\ " + thouSep(upralt * 1000, "\\ ") + "\\ m=" + 
-                                                isatable[isarow + 1][isacol] + "\\ " + unit + "\\\\\\)";
+                                                isatable[isarow + 1][isacol] + "\\ " + unit + "\\)<br>";
             suma += "\\(Difference\\ in\\ " + colhdgs[isacol][0] + "=" + isatable[isarow][isacol] + "-" + isatable[isarow + 1][isacol] + 
-                    "=" + dp((isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1) + "\\ " + unit + "\\\\\\)";
+                    "=" + dp((isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1) + "\\ " + unit + "\\)<br>";
             suma += "\\(Change\\ in\\ " + colhdgs[isacol][0] + "\\ over\\ " + (midalt * 1000) + "\\ m=\\frac{" + (midalt * 1000) + 
                     "}{1000}\\times" + dp((isatable[isarow][isacol] - isatable[isarow + 1][isacol]), 4, -1) + 
-                    "=" + figurediff + "\\ " + unit + "\\\\\\)";
+                    "=" + figurediff + "\\ " + unit + "\\)<br>";
             suma += "\\(" + colhdgs[isacol][0] + "\\ at\\ an\\ altitude\\ of\\ " + thouSep(alt * 1000, "\\ ") + "\\ m=" + 
                     isatable[isarow][isacol] + "-" + figurediff + "=\\underline{\\mathbf{" + 
-                    dp(isatable[isarow][isacol] - figurediff, 4, -1) + "\\ " + unit + "}}\\)";
+                    dp(isatable[isarow][isacol] - figurediff, 4, -1) + "\\ " + unit + "}}\\)<br>";
             break;
     
   }

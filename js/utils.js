@@ -185,31 +185,5 @@ export function loadImages() {
     const img = new Image();
     img.src = src;
     images[name] = img;
-    window[name] = img;
-  });
-  // legacy names used by original modules
-  if (images.cofg) window.cofg = images.cofg;
-  if (images.pinjoint) window.pinjnt = images.pinjoint;
+});
 }
-
-// Attach commonly used helpers to window for any remaining legacy paths
-window.utils = {
-  rndgen,
-  dp,
-  thouSep,
-  fromsecs,
-  QLimitRepeats,
-  eqnformat,
-  sglarr,
-  dblarr,
-  drawline,
-  drawarc,
-  arrhead,
-  loadImages
-};
-window.eqnformat = eqnformat;
-window.rndgen = rndgen;
-window.dp = dp;
-window.thouSep = thouSep;
-window.QLimitRepeats = QLimitRepeats;
-window.loadImages = loadImages;

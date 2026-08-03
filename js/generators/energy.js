@@ -57,13 +57,13 @@ export function generate() {
             sumq += "b. The potential energy of the trolley.<br>";
             sumq += "c. The total energy of the trolley.";
 
-            suma += "\\(m=" + m + "\\ kg\\\\\\)";
-            suma += "\\(v=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(h=" + h + "\\ m\\\\\\)";
-            suma += "\\(g=\\ 9.81\\ m/s^2\\\\\\)";
-            suma += "\\(KE=\\ ?\\ J\\\\\\)";
-            suma += "\\(PE=\\ ?\\ J\\\\\\)";
-            suma += "\\(W=\\ ?\\ J\\\\\\)";
+            suma += "\\(m=" + m + "\\ kg\\)<br>";
+            suma += "\\(v=" + v + "\\ m/s\\)<br>";
+            suma += "\\(h=" + h + "\\ m\\)<br>";
+            suma += "\\(g=\\ 9.81\\ m/s^2\\)<br>";
+            suma += "\\(KE=\\ ?\\ J\\)<br>";
+            suma += "\\(PE=\\ ?\\ J\\)<br>";
+            suma += "\\(W=\\ ?\\ J\\)<br>";
             suma += "$$\\begin{aligned}&a.\\ \\ KE=\\frac{1}{2}mv^2=\\frac{1}{2}\\times" + m + "\\times" + v + 
                         "^2=" + thouSep(ke, "\\ ") + "\\ J\\\\[25pt]";
             suma += "&b.\\ \\ PE=mgh=" + m + "\\times" + g + "\\times" + h + "=" + thouSep(pe, "\\ ") + 
@@ -81,9 +81,9 @@ export function generate() {
             sumq += "of " + m / 1000 + "&nbsp;tonnes, calculate the take-off velocity, ";
             sumq += "rounding your answer to 2 decimal places.";
 
-            suma += "\\(KE=" + ke + "\\times10^6\\ J\\\\\\)";
-            suma += "\\(m=" + m / 1000 + "\\times10^3\\ kg\\\\\\)";
-            suma += "\\(v=\\ ?\\ m/s\\\\\\)";
+            suma += "\\(KE=" + ke + "\\times10^6\\ J\\)<br>";
+            suma += "\\(m=" + m / 1000 + "\\times10^3\\ kg\\)<br>";
+            suma += "\\(v=\\ ?\\ m/s\\)<br>";
             suma += "$$\\begin{aligned}KE&=\\frac{1}{2}mv^2\\\\[5pt]";
             suma += "v&=\\sqrt{\\frac{2KE}{m}}\\\\[5pt]";
             suma += "&=\\sqrt{\\frac{2\\times" + ke + "\\times10^6}{" + m / 1000 + "\\times10^3}}=" + v + 
@@ -99,9 +99,9 @@ export function generate() {
             sumq += "b. " + h / 2 + "&nbsp;m above the ground.<br>";
             sumq += "c. Just before it strikes the ground.";
 
-            suma += "\\(m = " + m + "\\ kg\\\\\\)";
-            suma += "\\(h=" + h + "\\ m\\\\\\)";
-            suma += "\\(g=\\ 9.81\\ m/s^2\\\\\\)";
+            suma += "\\(m = " + m + "\\ kg\\)<br>";
+            suma += "\\(h=" + h + "\\ m\\)<br>";
+            suma += "\\(g=\\ 9.81\\ m/s^2\\)<br>";
             suma += "$$\\begin{aligned}a.\\ \\ &PE=mgh=" + m + "\\times" + g + "\\times" + h + "=" + 
                             dp((m * g * h) / 1000, 2, 2) + "\\ kJ\\ (2\\ dp)\\\\[5pt]";
             suma += "&KE=0.00\\ kJ\\\\[25pt]";
@@ -127,9 +127,9 @@ export function generate() {
             sumq += "c. The velocity of the mass immediately before striking the ground, " + 
                     "rounding your answer to 2 decimal places.";
 
-            suma += "\\(m=" + m + "\\ kg\\\\\\)";
-            suma += "\\(h=" + h + "\\ m\\\\\\)";
-            suma += "\\(g=\\ 9.81\\ m/s^2\\\\\\)";
+            suma += "\\(m=" + m + "\\ kg\\)<br>";
+            suma += "\\(h=" + h + "\\ m\\)<br>";
+            suma += "\\(g=\\ 9.81\\ m/s^2\\)<br>";
             suma += "$$\\begin{aligned}a.\\ \\ &PE=mgh=" + m + "\\times" + g + "\\times" + h + "=" + 
                         thouSep(dp(pe, 2, 2), "\\ ") + "\\ J\\ (2\\ dp)\\\\[25pt]";
             suma += "b.\\ \\ &KE=PE_a=" + thouSep(dp(pe, 2, 2), "\\ ") + "\\ J\\ (2\\ dp)\\\\[25pt]";
@@ -150,10 +150,10 @@ export function generate() {
             sumq += "A force of " + F + " N is applied to an object, causing it to move " + s + " m in " + fromsecs(t);
             sumq += ". Calculate the power used, rounding your answer to 1 decimal place.";
 
-            suma += "\\(F=" + F + "\\ N\\\\\\)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(t=" + T + "=" + t + "\\ s\\\\\\)";
-            suma += "\\(P=\\ ?\\ W\\\\\\)";
+            suma += "\\(F=" + F + "\\ N\\)<br>";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(t=" + T + "=" + t + "\\ s\\)<br>";
+            suma += "\\(P=\\ ?\\ W\\)<br>";
             suma += "$$\\begin{aligned}W&=Fs\\\\[5pt]";
             suma += "&=" + F + "\\times" + s + "\\\\[5pt]";
             suma += "&=" + thouSep(dp(F * s, 2, -1), "\\ ") + "\\ J\\\\[25pt]";
@@ -168,9 +168,9 @@ export function generate() {
             sumq += "horizontally and uniformly through " + s + " m. Calculate the size of the force applied, ";
             sumq += "rounding your answer to 2 decimal places.";
 
-            suma += "\\(W=" + W / 1000 + "\\times10^3\\ J\\\\\\)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(F=\\ ?\\ N\\\\\\)";
+            suma += "\\(W=" + W / 1000 + "\\times10^3\\ J\\)<br>";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(F=\\ ?\\ N\\)<br>";
             suma += "$$\\begin{aligned}W&=Fs\\\\[5pt]";
             suma += "F&=\\frac{W}{s}\\\\[5pt]";
             suma += "&=\\frac{" + W / 1000 + "\\times10^3}{" + s + "}\\\\[5pt]";

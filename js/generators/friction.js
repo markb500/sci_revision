@@ -46,9 +46,9 @@ export function generate() {
             sumq += "friction between steel and wood is " + mu + ", determine the minimum force necessary to move ";
             sumq += "the block if the force is applied horizontally. Give your answer rounded to 1 decimal place.";
 
-            suma += "\\(m=" + m + "\\ kg\\\\\\)";
-            suma += "\\(\\mu =" + mu + "\\\\\\)";
-            suma += "\\(g=9.81\\ m/s^2\\\\\\)";
+            suma += "\\(m=" + m + "\\ kg\\)<br>";
+            suma += "\\(\\mu =" + mu + "\\)<br>";
+            suma += "\\(g=9.81\\ m/s^2\\)<br>";
             suma += "$$\\begin{aligned}F&=\\mu N\\\\[5pt]";
             suma += "&=\\mu m g\\\\[5pt]";
             suma += "&=" + mu + "\\times" + m + "\\times" + g + "\\\\[5pt]";
@@ -65,13 +65,13 @@ export function generate() {
             sumq += "it is found that the force necessary to move it is " + thouSep((F / 1000), "&nbsp;") + "&nbsp;kN, ";
             sumq += "determine the coefficient of friction between the aircraft and the runway.";
 
-            suma += "\\(m=" + m / 1000 + "\\ T=" + (m / 1000) + "\\times 1000=" + thouSep(m, "\\ ") + "\\ kg\\\\\\)";
+            suma += "\\(m=" + m / 1000 + "\\ T=" + (m / 1000) + "\\times 1000=" + thouSep(m, "\\ ") + "\\ kg\\)<br>";
             if(F < 1000000) {
-                suma += "\\(F=" + thouSep(F / 1000, "\\ ") + "\\ kN=" + (F / 1000) + "\\times 10^3\\ N\\\\\\)";
+                suma += "\\(F=" + thouSep(F / 1000, "\\ ") + "\\ kN=" + (F / 1000) + "\\times 10^3\\ N\\)<br>";
             } else {
-                suma += "\\(F=" + thouSep(F / 1000, "\\ ") + "\\ kN=" + (F / 1000000) + "\\times 10^6\\ N\\\\\\)";
+                suma += "\\(F=" + thouSep(F / 1000, "\\ ") + "\\ kN=" + (F / 1000000) + "\\times 10^6\\ N\\)<br>";
             }
-            suma += "\\(\\mu =\\ ?\\\\\\)";
+            suma += "\\(\\mu =\\ ?\\)<br>";
             suma += "$$\\begin{aligned}F&=\\mu N\\\\[5pt]";
             suma += "&=\\mu m g\\\\[25pt]";
             suma += "\\mu &=\\frac{F}{mg}\\\\[5pt]";
@@ -95,9 +95,9 @@ export function generate() {
             sumq += "force when the frictional force is " + (F / 1000) + "&nbsp;kN. "
             sumq += "Give your answer in correct engineering notation, rounded to 2 decimal places.";
 
-            suma += "\\(\\mu=" + mu + "\\\\\\)";
-            suma += "\\(F=" + F / 1000 + " kN=" + F / 1000 + "\\times 10^3\\ N\\\\\\)";
-            suma += "\\(N=\\ ?\\ kN\\\\\\)";
+            suma += "\\(\\mu=" + mu + "\\)<br>";
+            suma += "\\(F=" + F / 1000 + " kN=" + F / 1000 + "\\times 10^3\\ N\\)<br>";
+            suma += "\\(N=\\ ?\\ kN\\)<br>";
             suma += "$$\\begin{aligned}F&=\\mu N\\\\[5pt]";
             suma += "N&=\\frac{F}{\\mu}\\\\[5pt]";
             suma += "&=\\frac{" + F / 1000 + "\\times 10^3}{" + mu + "}\\\\[5pt]";

@@ -51,10 +51,10 @@ export function generate() {
             } while(u + (a * t) > 45 || u + (a * t) < 0 || u === 1 || t === 1)
             sumq += "A car initially travelling at " + dp(u * 3.6, 2, -1) + "&nbsp;km/h accelerates at " + a + 
                         "&nbsp;m/s\u00B2 for " + t + "&nbsp;s. What is its final velocity?";
-            suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(a=" + a + "\\ m/s^2\\\\\\)";
-            suma += "\\(t=" + t + "\\ s\\\\\\)";
-            suma += "\\(v=\\ ?\\ m/s\\)";
+            suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\)<br>";
+            suma += "\\(a=" + a + "\\ m/s^2\\)<br>";
+            suma += "\\(t=" + t + "\\ s\\)<br>";
+            suma += "\\(v=\\ ?\\ m/s\\)<br>";
             suma += "$$\\begin{aligned}v&=u+at\\\\[5pt]";
             suma += "&=" + u + "+" + a + "\\times" + t + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp(u + (a * t), 2, -1) + "\\ m/s\\ (2\\ dp)}}\\end{aligned}$$";
@@ -68,10 +68,10 @@ export function generate() {
             sumq += "A cyclist starts at " + u + "&nbsp;m/s and accelerates to " + v + 
                         "&nbsp;m/s down a slope. If the acceleration rate is " + a + 
                         "&nbsp;m/s\u00B2, for how long does the acceleration last?";
-            suma += "\\(u=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(v=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(a=" + a + "\\ m/s^2\\\\\\)";
-            suma += "\\(t=\\ ?\\ s\\)";
+            suma += "\\(u=" + u + "\\ m/s\\)<br>";
+            suma += "\\(v=" + v + "\\ m/s\\)<br>";
+            suma += "\\(a=" + a + "\\ m/s^2\\)<br>";
+            suma += "\\(t=\\ ?\\ s\\)<br>";
             suma += "$$\\begin{aligned}v&=u+at\\\\[5pt]";
             suma += "t&=\\frac{v-u}{a}\\\\[5pt]";
             suma += "&=\\frac{" + v + "-" + u + "}{" + a + "}\\\\[5pt]";
@@ -87,11 +87,11 @@ export function generate() {
             sumq += "i.&nbsp&nbsp At what velocity does it strike the bottom? (Round your answer to 2 decimal places)<BR>";
             sumq += "ii.&nbsp How long does it take to fall? (Round your answer to 2 decimal places)<BR>";
             sumq += "iii. How fast is it going after falling " + s_part + "&nbsp;m? (Round your answer to 2 decimal places)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(u =\\ 0\\ m/s\\\\\\)";
-            suma += "\\(a=\\ 9.81\\ m/s^2\\\\\\)";
-            suma += "\\(v=\\ ?\\ m/s\\\\\\)";
-            suma += "\\(t=\\ ?\\ s\\\\\\)";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(u =\\ 0\\ m/s\\)<br>";
+            suma += "\\(a=\\ 9.81\\ m/s^2\\)<br>";
+            suma += "\\(v=\\ ?\\ m/s\\)<br>";
+            suma += "\\(t=\\ ?\\ s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "v&=\\sqrt{u^2+2as}\\\\[5pt]";
             suma += "&=\\sqrt{" + u + "^2+2\\times" + a + "\\times" + s + "}\\\\[5pt]";
@@ -117,14 +117,14 @@ export function generate() {
             sumq += "ii.&nbsp How long does the braking last for? Round your answer to 2 decimal places.<BR>";
             sumq += "iii. What is the change in momentum?<BR>";
             sumq += "iv. What is the size of the braking force, in kN, to 1 decimal place?";
-            suma += "\\(m=" + thouSep(m, "\\ ") + " kg\\\\\\)";
-            suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(v=" + dp(v * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(a=\\ ?\\ m/s^2\\\\\\)";
-            suma += "\\(t=\\ ?\\ s\\\\\\)";
-            suma += "\\(p=\\ ?\\ kgm/s\\\\\\)";
-            suma += "\\(F=\\ ?\\ N\\\\\\)";
+            suma += "\\(m=" + thouSep(m, "\\ ") + " kg\\)<br>";
+            suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\)<br>";
+            suma += "\\(v=" + dp(v * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + v + "\\ m/s\\)<br>";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(a=\\ ?\\ m/s^2\\)<br>";
+            suma += "\\(t=\\ ?\\ s\\)<br>";
+            suma += "\\(p=\\ ?\\ kgm/s\\)<br>";
+            suma += "\\(F=\\ ?\\ N\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "a&=\\frac{v^2-u^2}{2s}=\\frac{" + v + "^2-" + u + "^2}{2\\times" + s + "}=\\underline{\\mathbf{" + 
                     dp((Math.pow(v, 2) - Math.pow(u, 2)) / (2 * s), 2, 2) + "\\ m/s^2\\ (2\\ dp)}}\\\\[15pt]";
@@ -144,11 +144,11 @@ export function generate() {
             sumq += "i.&nbsp&nbsp How high does the arrow fly? Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp How long does it take the arrow to return to the ground? "
             sumq += "Round your answer to 2 decimal places.<BR>";
-            suma += "\\(u=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(a=9.81\\ m/s\\\\\\)";
-            suma += "\\(v=0\\ m/s\\\\\\)";
-            suma += "\\(s=\\ ?\\ m\\\\\\)";
-            suma += "\\(t=\\ ?\\ s\\\\\\)";
+            suma += "\\(u=" + u + "\\ m/s\\)<br>";
+            suma += "\\(a=9.81\\ m/s\\)<br>";
+            suma += "\\(v=0\\ m/s\\)<br>";
+            suma += "\\(s=\\ ?\\ m\\)<br>";
+            suma += "\\(t=\\ ?\\ s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "s&=\\frac{v^2-u^2}{2a}=\\frac{" + v + "^2-" + u + "^2}{2\\times" + a * -1 + 
                     "}=\\underline{\\mathbf{" + dp((Math.pow(v, 2)-Math.pow(u, 2)) / (2 * a * -1), 2, 2) + 
@@ -171,11 +171,11 @@ export function generate() {
             sumq += "i.&nbsp&nbsp The retardation, to 2 decimal places.<BR>";
             sumq += "ii.&nbsp Its velocity as it passes point B, to 2 decimal places.<BR>";
             sumq += "iii. After passing point A, how long does it take for the puck to stop, to 2 decimal places.";
-            suma += "\\(u=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(t=" + t + "\\ s\\\\\\)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(a=\\ ?\\ m/s^2\\\\\\)";
-            suma += "\\(v=\\ ?\\ m/s\\\\\\)";
+            suma += "\\(u=" + u + "\\ m/s\\)<br>";
+            suma += "\\(t=" + t + "\\ s\\)<br>";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(a=\\ ?\\ m/s^2\\)<br>";
+            suma += "\\(v=\\ ?\\ m/s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ s&=ut+\\frac{1}{2}at^2\\\\[5pt]";
             suma += "a&=\\frac{2(s-ut)}{t^2}=\\frac{2(" + s + "-" + u + "\\times" + t + ")}{" + t + 
                     "^2}=\\underline{\\mathbf{" + a + "\\ m/s^2\\ (2\\ dp)}}\\\\[15pt]";
@@ -194,11 +194,11 @@ export function generate() {
             sumq += "i.&nbsp&nbsp How fast will it be going when it reaches the bottom? ";
             sumq += "Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp How long does it take to reach the bottom? Round your answer to 2 decimal places.<BR>";
-            suma += "\\(u=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(a=\\ 9.81\\ m/s^2\\\\\\)";
-            suma += "\\(v=\\ ?\\ m/s\\\\\\)";
-            suma += "\\(t=\\ ?\\ s\\\\\\)";
+            suma += "\\(u=" + u + "\\ m/s\\)<br>";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(a=\\ 9.81\\ m/s^2\\)<br>";
+            suma += "\\(v=\\ ?\\ m/s\\)<br>";
+            suma += "\\(t=\\ ?\\ s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ v^2&=u^2+2as\\\\[5pt]";
             suma += "v&=\\sqrt{u^2+2as}=\\sqrt{" + u + "^2+2\\times" + a + "\\times" + s + 
                     "}=\\underline{\\mathbf{" + v + "\\ m/s\\ (2\\ dp)}}\\\\[15pt]";
@@ -215,11 +215,11 @@ export function generate() {
                     "&nbsp;m and it travels this in " + t + "&nbsp;s.<BR>";
             sumq += "i.&nbsp&nbsp What is the rate of acceleration of the ball? Round your answer to 2 decimal places.<BR>";
             sumq += "ii.&nbsp What will the ball's velocity be at the bottom of the incline? Round your answer to 2 decimal places.";
-            suma += "\\(u=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(s=" + s + "\\ m\\\\\\)";
-            suma += "\\(t=" + t + "\\ s\\\\\\)";
-            suma += "\\(a=\\ ?\\ m/s^2\\\\\\)";
-            suma += "\\(v=\\ ?\\ m/s\\\\\\)";
+            suma += "\\(u=" + u + "\\ m/s\\)<br>";
+            suma += "\\(s=" + s + "\\ m\\)<br>";
+            suma += "\\(t=" + t + "\\ s\\)<br>";
+            suma += "\\(a=\\ ?\\ m/s^2\\)<br>";
+            suma += "\\(v=\\ ?\\ m/s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ s&=ut+\\frac{1}{2}at^2\\\\[5pt]";
             suma += "a&=\\frac{2(s-ut)}{t^2}=\\frac{2(" + s + "-" + u + "\\times" + t + 
                     ")}{" + t + "^2}=\\underline{\\mathbf{" + a + "\\ m/s^2\\ (2\\ dp)}}\\\\[15pt]";
@@ -235,9 +235,9 @@ export function generate() {
                     "&nbsp;s to slow to the taxiing velocity of " + dp(v * 3.6, 2, -1) + "&nbsp;km/h, find:<BR>";
             sumq += "i.&nbsp&nbsp the distance travelled, to the nearest meter.<BR>";
             sumq += "ii.&nbsp the rate of deceleration, rounded to 2 decimal places.";
-            suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(t=" + t + "\\ s\\\\\\)";
-            suma += "\\(v=" + dp(v * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + v + "\\ m/s\\\\\\)";
+            suma += "\\(u=" + dp(u * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + u + "\\ m/s\\)<br>";
+            suma += "\\(t=" + t + "\\ s\\)<br>";
+            suma += "\\(v=" + dp(v * 3.6, 2, -1) + "\\times \\frac{1000}{3600}=" + v + "\\ m/s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ s&=\\frac{1}{2}(u+v)t=\\frac{1}{2}(" + 
                     u + "+" + v + ")\\times" + t + "=\\underline{\\mathbf{" + 
                     thouSep(dp(0.5 * t * (u + v), 0, 0), "\\ ") + "\\ m\\ (0\\ dp)}}\\\\[15pt]";
@@ -263,11 +263,11 @@ export function generate() {
             sumq += "i.&nbsp&nbsp Calculate the distance covered during each of the 3 phases of the journey.<BR>";
             sumq += "ii.&nbsp What is the total distance covered?<BR>";
             sumq += "iii. What is the average velocity of the cyclist, to 2 decimal places?<BR>";
-            suma += "\\(u=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(v=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(t_1=" + t1 + "\\ s\\\\\\)";
-            suma += "\\(t_2=" + Math.floor(t2 / 60) + "\\times60+" + t2 % 60 + "=" + t2 + "\\ s\\\\\\)";
-            suma += "\\(t_3=" + t3 + "\\ s\\\\\\)";
+            suma += "\\(u=" + u + "\\ m/s\\)<br>";
+            suma += "\\(v=" + v + "\\ m/s\\)<br>";
+            suma += "\\(t_1=" + t1 + "\\ s\\)<br>";
+            suma += "\\(t_2=" + Math.floor(t2 / 60) + "\\times60+" + t2 % 60 + "=" + t2 + "\\ s\\)<br>";
+            suma += "\\(t_3=" + t3 + "\\ s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ s_1&=\\frac{1}{2}(v+u)t=\\frac{1}{2}(" + 
                     v + "+" + u + ")\\times" + t1 + "=\\underline{\\mathbf{" + s1 + "\\ m}}\\ \\ \\ Acceleration\\ phase.\\\\[5pt]";
             suma += "s_2&=vt=" + v + "\\times" + t2 + "=\\underline{\\mathbf{" + thouSep(s2, "\\ ") + "\\ m}}\\ \\ \\ Steady\\ phase.\\\\[5pt]";
@@ -294,14 +294,14 @@ export function generate() {
             sumq += "i.&nbsp&nbsp Calculate the distance covered during each of the 3 phases of the journey.<BR>";
             sumq += "ii.&nbsp What is the total distance covered?<BR>";
             sumq += "iii. What is the average velocity of the aircraft, to 2 decimal places?";
-            suma += "\\(u_1=" + dp(u * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + u + "\\ m/s\\\\\\)";
-            suma += "\\(v_1=" + dp(v * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(v_2=" + dp(v * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(u_3=" + dp(v * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + v + "\\ m/s\\\\\\)";
-            suma += "\\(v_3=" + dp((u + 20) * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + (u + 20) + "\\ m/s\\\\\\)";
-            suma += "\\(t_1=" + t1 + "\\ s\\\\\\)";
-            suma += "\\(t_2=" + Math.floor(t2 / 60) + "\\times60+" + t2 % 60 + "=" + thouSep(t2, "\\ ") + "\\ s\\\\\\)";
-            suma += "\\(t_3=" + t3 + "\\ s\\\\\\)";
+            suma += "\\(u_1=" + dp(u * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + u + "\\ m/s\\)<br>";
+            suma += "\\(v_1=" + dp(v * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + v + "\\ m/s\\)<br>";
+            suma += "\\(v_2=" + dp(v * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + v + "\\ m/s\\)<br>";
+            suma += "\\(u_3=" + dp(v * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + v + "\\ m/s\\)<br>";
+            suma += "\\(v_3=" + dp((u + 20) * 3.6, 2, -1) + "\\times\\frac{1000}{3600}=" + (u + 20) + "\\ m/s\\)<br>";
+            suma += "\\(t_1=" + t1 + "\\ s\\)<br>";
+            suma += "\\(t_2=" + Math.floor(t2 / 60) + "\\times60+" + t2 % 60 + "=" + thouSep(t2, "\\ ") + "\\ s\\)<br>";
+            suma += "\\(t_3=" + t3 + "\\ s\\)<br>";
             suma += "$$\\begin{aligned}i.\\ \\ \\ s_1&=\\frac{1}{2}(v_1+u_1)t_1=\\frac{1}{2}(" + 
                     v + "+" + u + ")\\times" + t1 + "=\\underline{\\mathbf{" + 
                     thouSep(dp(0.5 * t1 * (v + u), 2, -1), "\\ ") + "\\ m}}\\ \\ \\ Acceleration\\ phase\\\\[5pt]";
