@@ -1,32 +1,76 @@
 // js/generators/vectors.js
-// Clean ES module: space diagram, jet climb, jet bank, pin joint + Show-me-how animations
+// Vector questions: space diagram, jet climb, jet bank, pin joint.
+// Drawing and "Show me how" animations keep module-level state so timed
+// steps can reuse the last question geometry. Behaviour matches the
+// original training app; layout is grouped for maintainability.
 import {
   rndgen, dp, thouSep, QLimitRepeats,
   sglarr, dblarr, drawline, drawarc, arrhead, images
 } from '../utils.js';
 
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
 const NOTES_SPACE = 'images/Sci Bk2 Statics v1.10.pdf#page=5';
 const CANVAS_W = 550;
 const CANVAS_H = 850;
+const TYPE = { SPACE: 1, CLIMB: 2, BANK: 3, PIN: 4 };
 
 /** @type {number[]} */
 let recentIds = [];
 
-// Shared drawing state (submodules + animations)
+// ---------------------------------------------------------------------------
+// Drawing state (shared by sub-questions and Show-me-how animations)
+// ---------------------------------------------------------------------------
 let ctx, ctx2;
 let sumq = '', suma = '', notesLink = '';
 let jetup = false, jetroll = false, space = false, pinjt = false;
 
-// Space diagram state
+// Space diagram
 let scale, v1, v2, ang1, ang2, ang = 0, r, angr;
 let origx = 0, origy = 0, v1x, v1y, v2x, v2y, rx, ry, angrtxty, v1ytxty;
 
-// Jet / pin shared-ish state
+// Jet climb / bank / pin joint
 let wt = 0, thrust = 0, lift = 0, cf = 0, altang = 0, fb = 0, fa = 0;
 let wtx = 0, wty = 0, thrustx = 0, thrusty = 0, thrustextx = 0, thrustexty = 0;
 let liftextx = 0, liftexty = 0, cfx = 0, cfy = 0, cfextx = 0, cfexty = 0;
 let fbx = 0, fby = 0, fbextx = 0, fbexty = 0, faextx = 0, faexty = 0;
 
+// ---------------------------------------------------------------------------
+// Small helpers
+// ---------------------------------------------------------------------------
+function toRad(deg) {
+  return deg * (Math.PI / 180);
+}
+
+function toDeg(rad) {
+  return rad * (180 / Math.PI);
+}
+
+/** Clear question-type flags before selecting a new scenario. */
+function resetTypeFlags() {
+  jetup = false;
+  jetroll = false;
+  space = false;
+  pinjt = false;
+}
+
+function bindContexts(ctxArg, ctx2Arg) {
+  ctx = ctxArg;
+  ctx2 = ctx2Arg;
+}
+
+function publishTypeFlags() {
+  window.jetup = jetup;
+  window.jetroll = jetroll;
+  window.space = space;
+  window.pinjt = pinjt;
+}
+
+
+// ===========================================================================
+// 1. Space diagram (vector addition by scale drawing)
+// ===========================================================================
 function spacediag() {
 
     sumq = "";
@@ -170,6 +214,7 @@ function spacediag() {
 
 }
 
+// Show-me-how for space diagram
 function animsolnspace() {
 
     //Runs animation when 'Show me how' clicked
@@ -199,6 +244,9 @@ function animsolnspace() {
 
 }
 
+// ===========================================================================
+// 2. Jet climb (weight / thrust / lift resolution)
+// ===========================================================================
 function jetclimb(ctx2) {
 
     sumq = "";
@@ -281,6 +329,7 @@ function jetclimb(ctx2) {
 
 }
 
+// Show-me-how for jet climb
 function animsolnclimb() {
 
     //Runs animation when 'Show me how' clicked
@@ -338,6 +387,9 @@ function animsolnclimb() {
 
 }
 
+// ===========================================================================
+// 3. Jet bank (weight / CF / lift)
+// ===========================================================================
 function jetbank(ctx2) {
 
     sumq = "";
@@ -407,6 +459,7 @@ function jetbank(ctx2) {
 
 }
 
+// Show-me-how for jet bank
 function animsolnroll() {
 
     //Runs animation when 'Show me how' clicked
@@ -456,6 +509,9 @@ function animsolnroll() {
 
 }
 
+// ===========================================================================
+// 4. Pin-jointed structure (FA / FB)
+// ===========================================================================
 function pinjoint(ctx, ctx2) {
 
     sumq = "";
@@ -543,6 +599,7 @@ function pinjoint(ctx, ctx2) {
 
 }
 
+// Show-me-how for pin joint
 function animsolnpin() {
 
     //Runs animation when 'Show me how' clicked
@@ -604,27 +661,27 @@ function animsolnpin() {
 
 }
 
+// ===========================================================================
+// Router + public API
+// ===========================================================================
 function pickVectorQuestion(ctxArg, ctx2Arg) {
-  ctx = ctxArg;
-  ctx2 = ctx2Arg;
+  bindContexts(ctxArg, ctx2Arg);
+  resetTypeFlags();
   recentIds = QLimitRepeats(recentIds, 4);
   const sum = recentIds[recentIds.length - 1];
-  let sumArray;
+
   switch (sum) {
-    case 1:
-      sumArray = spacediag();
-      break;
-    case 2:
-      sumArray = jetclimb(ctx2);
-      break;
-    case 3:
-      sumArray = jetbank(ctx2);
-      break;
-    case 4:
-      sumArray = pinjoint(ctx, ctx2);
-      break;
+    case TYPE.SPACE:
+      return spacediag();
+    case TYPE.CLIMB:
+      return jetclimb(ctx2);
+    case TYPE.BANK:
+      return jetbank(ctx2);
+    case TYPE.PIN:
+      return pinjoint(ctx, ctx2);
+    default:
+      return spacediag();
   }
-  return sumArray;
 }
 
 /**
@@ -644,11 +701,8 @@ export function generate() {
   const url1 = off1.toDataURL();
   const url2 = off2.toDataURL();
 
-  // Flags for Show me how (also mirrored for debugging)
-  window.jetup = jetup;
-  window.jetroll = jetroll;
-  window.space = space;
-  window.pinjt = pinjt;
+  // Flags for Show me how (read by animsel on the live solution canvas)
+  publishTypeFlags();
 
   return {
     question: result[0],
@@ -675,7 +729,10 @@ export function generate() {
   };
 }
 
-/** Route "Show me how" to the matching animation on the live canvas */
+/**
+ * Route "Show me how" to the matching animation on the live solution canvas.
+ * Exposed on window so the UI button can call it without an import cycle.
+ */
 function animsel() {
   const live = document.getElementById('myCanvas2');
   if (!live) return;
